@@ -24,6 +24,6 @@ Route::get('/berita/detail', [
 ]);
 
 Route::get('/backsite/dashboard', [
-    'uses' => 'App\Http\Controllers\Frontsite\BeritaController@show',
-    'as' => 'berita'
+    'uses' => 'App\Http\Controllers\Backsite\DashboardController@index',
+    'as' => 'backsite.dashboard'
 ]);
