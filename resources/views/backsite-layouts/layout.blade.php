@@ -52,7 +52,7 @@
     <!-- ini kyknya headernya -->
     <div class="wrapper">
         <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="/backsite-assets/img/sidebar-1.jpg">
-        
+
             <div class="logo">
                 <a href="http://www.creative-tim.com/" class="simple-text">
                     Creative Tim
@@ -90,11 +90,20 @@
                 </div>
                 <ul class="nav">
                     <li class="active">
-                        <a href="dashboard.html">
+                        <a href="/backsite/dashboard">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
+
+
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="/kategori">
+                                <i class="material-icons">Category</i>
+                                <p>Kategori</p>
+                            </a>
+                        </li>
                     <li>
                         <a data-toggle="collapse" href="#pagesExamples">
                             <i class="material-icons">image</i>
@@ -243,6 +252,13 @@
                         </a>
                     </li>
                 </ul>
+
+                 <a data-toggle="collapse" href="#pagesExamples">
+                            <i class="material-icons">image</i>
+                            <p>Pages
+                                <b class="caret"></b>
+                            </p>
+                        </a>
             </div>
         </div>
 
@@ -262,14 +278,14 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"> Dashboard </a>
+                        <a class="navbar-brand" href="/kategori"> Kategory </a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="material-icons">dashboard</i>
-                                    <p class="hidden-lg hidden-md">Dashboard</p>
+                                    <i class="material-icons">Kategory</i>
+                                    <p class="hidden-lg hidden-md">Kategory</p>
                                 </a>
                             </li>
                             <li class="dropdown">

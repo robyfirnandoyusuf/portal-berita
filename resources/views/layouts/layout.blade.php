@@ -95,7 +95,7 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="index.html">Home</a></li>
-                                            <li><a href="categori.html">Category</a></li>
+                                            <li><a href="backsite/kategori/index.blade.php">Category</a></li>
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="latest_news.html">Latest News</a></li>
                                             <li><a href="contact.html">Contact</a></li>
