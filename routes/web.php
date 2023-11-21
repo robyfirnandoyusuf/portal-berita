@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backsite\DashboardController;
+use App\Http\Controllers\Backsite\BeritaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +29,20 @@ Route::get('/backsite/dashboard', [
     'uses' => 'App\Http\Controllers\Backsite\DashboardController@index',
     'as' => 'backsite.dashboard'
 ]);
+
+Route::resource('/berita',BeritaController::class);
+
+// Route::get('/backsite/berita/index', [
+//     'uses' => 'App\Http\Controllers\Backsite\DashboardController@show',
+//     'as'=> 'index'
+// ]);
+
+// Route::get('/backsite/berita/create', [
+//     'uses' => 'App\Http\Controllers\Backsite\DashboardController@create',
+//     'as'=> 'create'
+// ]);
+
+// Route::get('/backsite/berita/edit', [
+//     'uses' => 'App\Http\Controllers\Backsite\DashboardController@edit',
+//     'as'=> 'edit'
+// ]);

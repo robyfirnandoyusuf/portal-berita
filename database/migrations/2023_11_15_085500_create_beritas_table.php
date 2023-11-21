@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('berita', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text('desc');
-            $table->bigInteger('created_by');
+            $table->string('judul');
+            $table->string('sumber');
+            $table->enum('kategori', ['entertaiment', 'politik']);
         });
     }
 
