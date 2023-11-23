@@ -13,8 +13,15 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $role = Role::orderBy('created_at','DESC')->get();
-        return view('backsite.role.index',compact('role'));
+        // 1. eloquent
+        $role = Role::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role 
+        // 2. db builder
+        /* 
+            select * from role order by created_at desc;
+        */
+        $data['role'] = $role;
+
+        return view('backsite.role.index', $data);
     }
 
     /**
@@ -30,9 +37,24 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        // style synax 1
+        /* $r = new Role;
+        $r->nama = $request->nama;
+        $r->nama_role = $request->nama_role;
+        $r->save(); */
+
+        // style synax 2
+        // $arr = [
+        //     'nama' => $request->nama,
+        //     'nama_role' =>  $request->nama_role
+        // ];
+        // Role::insert($arr);
+
+        // stye syntax 3
+        // dd($request->all());
         Role::create($request->all());
 
-        return redirect()->route('role.index')->with('succes','Role added succesfully');
+        return redirect()->route('backsite.role.index')->with('succes','Role added succesfully');
     }
 
     /**
@@ -48,10 +70,13 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-      $role = Role::findOrFail($id);
+        $role = Role::findOrFail($id);
+        $data['role'] = $role;
+        /* 
+            select * from role where id = 6
+        */
 
-        return view('backsite.role.edit', compact('role'));
-        
+        return view('backsite.role.edit', $data);
     }
 
     /**
@@ -62,7 +87,7 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
 
         $role->update($request->all());
-        return redirect()->route('role.index')->with('succes','Role updated succesfully');
+        return redirect()->route('backsite.role.index')->with('succes','Role updated succesfully');
     }
 
     /**
@@ -73,7 +98,7 @@ class RoleController extends Controller
       $role = Role::findOrFail($id);
          
       $role->delete();
-      return redirect()->route('role.index')->with('succes','Role delete succesfully');
+      return redirect()->route('backsite.role.index')->with('succes','Role delete succesfully');
 
     }
 }
