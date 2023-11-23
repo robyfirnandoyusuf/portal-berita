@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backsite\RoleController;
+use App\Http\Controllers\Backsite\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +29,42 @@ Route::get('/backsite/dashboard', [
     'uses' => 'App\Http\Controllers\Backsite\DashboardController@index',
     'as' => 'backsite.dashboard'
 ]);
+
+Route::get('/backsite/dashboard', [DashboardController::class,'index']);
+
+// Route::get('/backsite/role/index', [
+//     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
+//     'as' => 'index'
+// ]);
+
+// Route::get('/backsite/role', [
+//     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
+//     'as' => 'index'
+// ]);
+Route::group(['as' => 'backsite.'], function() {
+    Route::resource('/backsite/role', RoleController::class);
+});
+/* 
+1. create (ini buat nampilin halaman create)
+2. store (buat engine store )
+3. index (buat nampilin halaman depan)
+4. destroy (buat hapus)
+5. edit (buat nampilin halaman edit)
+6. update (engine update)
+7. show (buat nampilin halaman detail)
+
+*/
+// Route::get('/backsite/role/index', [
+//     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
+//     'as' => 'index'
+// ]);
+
+// Route::get('/backsite/role/create', [
+//     'uses' =>  'App\Http\Controllers\Backsite\RoleController@create',
+//     'as' => 'create'
+// ]);
+
+// Route::get('/backsite/role/edit', [
+//     'uses' =>  'App\Http\Controllers\Backsite\RoleController@edit',
+//     'as' => 'edit'
+// ]);

@@ -16,8 +16,7 @@
                                 <li class="news-item">Spondon IT sit amet, consectetur.......</li>
                                 <li class="news-item">Rem ipsum dolor sit amet, consectetur adipisicing elit.</li>
                             </ul>
-                        </div>
-
+                        </d
                     </div>
                 </div>
             </div>
