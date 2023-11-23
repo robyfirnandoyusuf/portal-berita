@@ -53,7 +53,7 @@
     <!-- ini kyknya headernya -->
     <div class="wrapper">
         <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="/backsite-assets/img/sidebar-1.jpg">
-        
+
             <div class="logo">
                 <a href="http://www.creative-tim.com/" class="simple-text">
                     Creative Tim
@@ -98,10 +98,15 @@
                     </li>
                     <li>
                         <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">user</i>
+                            <i class="material-icons">category</i>
+                            <p>Kategori</p>
                         </a>
-                        <div class="collapse" id="pagesExamples">
-                          
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#pagesExamples">
+                            <i class="material-icons">person</i>
+                            <p>User</p>
+                        </a>
                     </li>
                 </ul>
             </div>

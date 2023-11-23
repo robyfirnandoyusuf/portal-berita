@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('berita', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_kategori')->nullable();
+            $table->string('judul');
+            $table->text('description');
             $table->timestamps();
-            $table->text('desc');
-            $table->bigInteger('created_by');
+            // $table->string('sumber');
         });
     }
 

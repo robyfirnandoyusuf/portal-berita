@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backsite\RoleController;
 use App\Http\Controllers\Backsite\DashboardController;
+use App\Http\Controllers\Backsite\BeritaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,7 +44,9 @@ Route::get('/backsite/dashboard', [DashboardController::class,'index']);
 // ]);
 Route::group(['as' => 'backsite.'], function() {
     Route::resource('/backsite/role', RoleController::class);
+    Route::resource('/backsite/berita', BeritaController::class);
 });
+
 /* 
 1. create (ini buat nampilin halaman create)
 2. store (buat engine store )
@@ -67,4 +70,26 @@ Route::group(['as' => 'backsite.'], function() {
 // Route::get('/backsite/role/edit', [
 //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@edit',
 //     'as' => 'edit'
+/*
+1. Create
+2. show
+3. index
+4. destroy
+5. edit
+6. update
+
+*/
+// Route::get('/backsite/berita/index', [
+//     'uses' => 'App\Http\Controllers\Backsite\DashboardController@show',
+//     'as'=> 'index'
+// ]);
+
+// Route::get('/backsite/berita/create', [
+//     'uses' => 'App\Http\Controllers\Backsite\DashboardController@create',
+//     'as'=> 'create'
+// ]);
+
+// Route::get('/backsite/berita/edit', [
+//     'uses' => 'App\Http\Controllers\Backsite\DashboardController@edit',
+//     'as'=> 'edit'
 // ]);
