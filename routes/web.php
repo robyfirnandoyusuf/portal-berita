@@ -44,4 +44,3 @@ Route::get('/backsite/crud/tambah', [
     'uses' => 'App\Http\Controllers\Backsite\KategoriController@index',
     'as' => 'backsite.crud.tambah'
 ]);
-    
