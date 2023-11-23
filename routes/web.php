@@ -53,6 +53,10 @@ Route::group(['as' => 'backsite.'], function() {
 6. update (engine update)
 7. show (buat nampilin halaman detail)
 
+
+1. git fetch origin
+2. git checkout belajar-crud
+3. git pull origin belajar-crud
 */
 // Route::get('/backsite/role/index', [
 //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',

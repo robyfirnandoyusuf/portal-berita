@@ -14,7 +14,8 @@ class RoleController extends Controller
     public function index()
     {
         // 1. eloquent
-        $role = Role::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role 
+        $role = Role::orderBy('created_at', 'DESC')->get(); // ini buat ambil data dari table role 
+        // dd($role->toArray());
         // 2. db builder
         /* 
             select * from role order by created_at desc;
@@ -54,7 +55,7 @@ class RoleController extends Controller
         // dd($request->all());
         Role::create($request->all());
 
-        return redirect()->route('backsite.role.index')->with('succes','Role added succesfully');
+        return redirect()->route('backsite.role.index')->with('succes', 'Role added succesfully');
     }
 
     /**
@@ -87,7 +88,7 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
 
         $role->update($request->all());
-        return redirect()->route('backsite.role.index')->with('succes','Role updated succesfully');
+        return redirect()->route('backsite.role.index')->with('succes', 'Role updated succesfully');
     }
 
     /**
@@ -95,10 +96,14 @@ class RoleController extends Controller
      */
     public function destroy(string $id)
     {
-      $role = Role::findOrFail($id);
-         
-      $role->delete();
-      return redirect()->route('backsite.role.index')->with('succes','Role delete succesfully');
-
+        // syntax ini,
+        $role = Role::findOrFail($id);
+        $role->delete();
+        /* 
+            sama artinya dengan:
+            delete * from role where id = $id
+            hapus data dari table role dengan id = $id 
+        */
+        return redirect()->route('backsite.role.index')->with('success', 'Role delete succesfully');
     }
 }
