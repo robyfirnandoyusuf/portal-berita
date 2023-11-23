@@ -31,7 +31,15 @@ Route::get('/backsite/dashboard', [
 ]);
 
 Route::resource('/berita',BeritaController::class);
+/*
+1. Create
+2. show
+3. index
+4. destroy
+5. edit
+6. update
 
+*/
 // Route::get('/backsite/berita/index', [
 //     'uses' => 'App\Http\Controllers\Backsite\DashboardController@show',
 //     'as'=> 'index'
