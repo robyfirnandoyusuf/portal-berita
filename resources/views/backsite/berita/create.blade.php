@@ -32,8 +32,22 @@
                                 </div>
                             </div>
                             <div class="row">
+                                <label for="judul" class="col-sm-2 label-on-left">Deskripsi</label>
+                                <div class="col-sm-10">
+                                    <div class="form-group label-floating is-empty">
+                                        <textarea id="summernote" name="editordata"></textarea>
+                                        <span class="help-block">Masukan deskripsi berita</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <label class="col-sm-2 label-on-left">Kategori</label>
                                 <div class="col-sm-10 checkbox-radios">
+                                    <select class="form-control js-example-tokenizer" multiple="multiple">
+                                        <option selected="selected">orange</option>
+                                        <option>white</option>
+                                        <option selected="selected">purple</option>
+                                    </select>
                                     <div class="radio">
                                         <label>
                                             <input type="radio" name="kategori" value="entertaiment"> Entertaiment
@@ -71,4 +85,23 @@
     </div>
 </div>
 
-@endsection('content')
+@endsection
+
+<!-- include libraries(jQuery, bootstrap) -->
+<!-- include summernote css/js -->
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            tabsize: 2,
+            height: 100
+        });
+    });
+</script>
+<script>
+    $(".js-example-tokenizer").select2({
+        tags: true,
+        tokenSeparators: [',', ' ']
+    })
+</script>
+@endsection

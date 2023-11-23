@@ -30,7 +30,7 @@ Route::get('/backsite/dashboard', [
     'as' => 'backsite.dashboard'
 ]);
 
-Route::resource('/berita',BeritaController::class);
+Route::resource('/backsite/berita', BeritaController::class);
 
 // Route::get('/backsite/berita/index', [
 //     'uses' => 'App\Http\Controllers\Backsite\DashboardController@show',
