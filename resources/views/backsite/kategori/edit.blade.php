@@ -29,8 +29,8 @@
                                 <div class="col-sm-10">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" class="form-control" name="nama_role" value="{{$kategori->nama_kategori}}" placeholder="Pilih Role">
-                                        <span class="help-block">Pilih Kategori.</span>
+                                        <input type="text" class="form-control" name="nama_kategori" value="{{$kategori->nama_kategori}}" placeholder="Pilih kategori">
+                                        <span class="help-block">Pilih Kategori</span>
                                     </div>
                                 </div>
                         </div>

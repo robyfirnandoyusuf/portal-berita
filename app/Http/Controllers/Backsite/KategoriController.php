@@ -55,13 +55,15 @@ class KategoriController extends Controller
             // 'nama' => $request->nama,
             'nama_kategori' =>  $request->nama_kategori
         ];
+
         Kategori::insert($arr);
+
 
         // stye syntax 3
         // dd($request->all());
         // Role::create($request->all());
 
-        return redirect()->route('backsite.kategori.index')->with('succes','Kategori berhasil ditambahkan');
+        return redirect()->route('backsite.kategori.index')->with('success','Kategori berhasil ditambahkan');
     }
 
     /**
@@ -95,9 +97,9 @@ class KategoriController extends Controller
     {
         //
         $kategori = Kategori::findOrFail($id);
-
+    //    dd($request->all()\));
         $kategori->update($request->all());
-        return redirect()->route('backsite.kategori.index')->with('succes','Kategori updated succesfully');
+        return redirect()->route('backsite.kategori.index')->with('success','Kategori updated succesfully');
     }
 
     /**
@@ -109,6 +111,6 @@ class KategoriController extends Controller
         $kategori = Kategori::findOrFail($id);
 
         $kategori->delete();
-        return redirect()->route('backsite.Kategori.index')->with('succes','Kategori delete succesfully');
+        return redirect()->route('backsite.kategori.index')->with('succes','Kategori delete succesfully');
     }
 }
