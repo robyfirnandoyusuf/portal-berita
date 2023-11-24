@@ -140,7 +140,7 @@ $().ready(function(){
             $('body').removeClass('sidebar-mini');
             md.misc.sidebar_mini_active = false;
 
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+            // $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
 
         }else{
 
@@ -148,7 +148,7 @@ $().ready(function(){
                 $(this).css('height','auto');
             });
 
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+            // $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
             setTimeout(function(){
                 $('body').addClass('sidebar-mini');
@@ -1026,7 +1026,7 @@ demo = {
             viewRender: function(view, element) {
                 // We make sure that we activate the perfect scrollbar when the view isn't on Month
                 if (view.name != 'month'){
-                    $(element).find('.fc-scroller').perfectScrollbar();
+                    // $(element).find('.fc-scroller').perfectScrollbar();
                 }
             },
             header: {

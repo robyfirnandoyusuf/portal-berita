@@ -32,6 +32,7 @@ Route::get('/backsite/dashboard', [
 ]);
 
 Route::get('/backsite/dashboard', [DashboardController::class,'index']);
+Route::resource('/backsite/berita', BeritaController::class);
 
 // Route::get('/backsite/role/index', [
 //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
