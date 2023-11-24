@@ -1,32 +1,27 @@
 <?php
 
 namespace App\Http\Controllers\Backsite;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Kategori;
+use App\Models\Role;
 
-
-class KategoriController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-
-
         // 1. eloquent
-        $kategori = Kategori::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role
+        $role = Role::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role
         // 2. db builder
         /*
             select * from role order by created_at desc;
         */
-        $data['kategori'] = $kategori;
+        $data['role'] = $role;
 
-        return view('backsite.kategori.index', $data);
-
-
+        return view('backsite.role.index', $data);
     }
 
     /**
@@ -34,11 +29,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
-
-
-        return view('backsite.kategori.create');
-
+        return view('backsite.role.create');
     }
 
     /**
@@ -46,8 +37,6 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
         // style synax 1
         /* $r = new Role;
         $r->nama = $request->nama;
@@ -58,18 +47,15 @@ class KategoriController extends Controller
 
         $arr = [
             // 'nama' => $request->nama,
-            'nama_kategori' =>  $request->nama_kategori
+            'nama_role' =>  $request->nama_role
         ];
-
-        Kategori::insert($arr);
-
+        Role::insert($arr);
 
         // stye syntax 3
         // dd($request->all());
         // Role::create($request->all());
 
-        return redirect()->route('backsite.kategori.index')->with('success','Kategori berhasil ditambahkan');
-
+        return redirect()->route('backsite.role.index')->with('succes','Role added succesfully');
     }
 
     /**
@@ -83,19 +69,15 @@ class KategoriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
-
-
-        $kategori = Kategori::findOrFail($id);
-        $data['kategori'] = $kategori;
+        $role = Role::findOrFail($id);
+        $data['role'] = $role;
         /*
             select * from role where id = 6
         */
 
-        return view('backsite.kategori.edit', $data);
-
+        return view('backsite.role.edit', $data);
     }
 
     /**
@@ -103,13 +85,10 @@ class KategoriController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $role = Role::findOrFail($id);
 
-        $kategori = Kategori::findOrFail($id);
-    //    dd($request->all()\));
-        $kategori->update($request->all());
-        return redirect()->route('backsite.kategori.index')->with('success','Kategori updated succesfully');
-
+        $role->update($request->all());
+        return redirect()->route('backsite.role.index')->with('succes','Role updated succesfully');
     }
 
     /**
@@ -117,12 +96,10 @@ class KategoriController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+      $role = Role::findOrFail($id);
 
-        $kategori = Kategori::findOrFail($id);
-
-        $kategori->delete();
-        return redirect()->route('backsite.kategori.index')->with('succes','Kategori delete succesfully');
+      $role->delete();
+      return redirect()->route('backsite.role.index')->with('succes','Role delete succesfully');
 
     }
 }
