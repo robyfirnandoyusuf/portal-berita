@@ -53,7 +53,7 @@
     <!-- ini kyknya headernya -->
     <div class="wrapper">
         <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="/backsite-assets/img/sidebar-1.jpg">
-        
+
             <div class="logo">
                 <a href="http://www.creative-tim.com/" class="simple-text">
                     Creative Tim
@@ -101,9 +101,34 @@
                             <i class="material-icons">user</i>
                         </a>
                         <div class="collapse" id="pagesExamples">
-                          
+
                     </li>
+
+
+                    <li class="active">
+                        <a href="{{ route('backsite.kategori.index') }}">
+                            <i class="material-icons">group</i>
+                            <p>Kategori</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#pagesExamples">
+                            <i class="material-icons">user</i>
+                        </a>
+                        <div class="collapse" id="pagesExamples">
+
+                    </li>
+
+
+
+
+                    </li>
+
                 </ul>
+
+
+
+
             </div>
         </div>
 
