@@ -5750,11 +5750,11 @@ h2.title {
   -webkit-overflow-scrolling: touch;
 }
 
-.perfect-scrollbar-on .sidebar .sidebar-wrapper, .sidebar .sidebar-wrapper, .perfect-scrollbar-on
+/* .perfect-scrollbar-on .sidebar .sidebar-wrapper, .sidebar .sidebar-wrapper, .perfect-scrollbar-on
 .main-panel,
 .main-panel {
   overflow: hidden;
-}
+} */
 
 .perfect-scrollbar-off .sidebar .sidebar-wrapper,
 .perfect-scrollbar-off .main-panel {

@@ -32,7 +32,6 @@ Route::get('/backsite/dashboard', [
 ]);
 
 Route::get('/backsite/dashboard', [DashboardController::class,'index']);
-Route::resource('/backsite/berita', BeritaController::class);
 
 // Route::get('/backsite/role/index', [
 //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
@@ -48,7 +47,7 @@ Route::group(['as' => 'backsite.'], function() {
     Route::resource('/backsite/berita', BeritaController::class);
 });
 
-/* 
+/*
 1. create (ini buat nampilin halaman create)
 2. store (buat engine store )
 3. index (buat nampilin halaman depan)

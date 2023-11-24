@@ -14,9 +14,9 @@ class RoleController extends Controller
     public function index()
     {
         // 1. eloquent
-        $role = Role::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role 
+        $role = Role::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role
         // 2. db builder
-        /* 
+        /*
             select * from role order by created_at desc;
         */
         $data['role'] = $role;
@@ -44,15 +44,15 @@ class RoleController extends Controller
         $r->save(); */
 
         // style synax 2
-        // $arr = [
-        //     'nama' => $request->nama,
-        //     'nama_role' =>  $request->nama_role
-        // ];
-        // Role::insert($arr);
+        $arr = [
+            'nama' => $request->nama,
+            'nama_role' =>  $request->nama_role
+        ];
+        Role::insert($arr);
 
         // stye syntax 3
         // dd($request->all());
-        Role::create($request->all());
+        // Role::create($request->all());
 
         return redirect()->route('backsite.role.index')->with('succes','Role added succesfully');
     }
@@ -72,7 +72,7 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
         $data['role'] = $role;
-        /* 
+        /*
             select * from role where id = 6
         */
 
@@ -96,7 +96,7 @@ class RoleController extends Controller
     public function destroy(string $id)
     {
       $role = Role::findOrFail($id);
-         
+
       $role->delete();
       return redirect()->route('backsite.role.index')->with('succes','Role delete succesfully');
 

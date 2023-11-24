@@ -13,8 +13,10 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $beritas = Berita::orderBy('created_at', 'DESC')->get();
-        return view('backsite.berita.index', compact('beritas'));
+        $berita = Berita::orderBy('created_at', 'DESC')->get();
+        $data['beritas'] = $berita;
+
+        return view('backsite.berita.index', $data);
     }
 
     /**
@@ -30,7 +32,15 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        Berita::create($request->all());
+        $arr = [
+            // 'nama' => $request->nama,
+            'judul' =>  $request->judul,
+            // 'id_kategori' =>  $request->id_kategori,
+            'description' =>  $request->description,
+            'kategori' =>  $request->kategori
+        ];
+        Berita::insert($arr);
+        // Berita::create($request->all());
 
         return redirect()->route('backsite.berita.index')->with('success', 'Berita added successfully');
     }
@@ -48,7 +58,13 @@ class BeritaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+        $data['berita'] = $berita;
+        /*
+            select * from role where id = 6
+        */
+
+        return view('backsite.berita.edit', $data);
     }
 
     /**
@@ -56,7 +72,10 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+
+        $berita->update($request->all());
+        return redirect()->route('backsite.berita.index')->with('success','Berita updated succesfully');
     }
 
     /**
@@ -64,6 +83,9 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+
+        $berita->delete();
+        return redirect()->route('backsite.berita.index')->with('success','Berita delete succesfully');
     }
 }
