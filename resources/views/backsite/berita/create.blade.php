@@ -43,9 +43,11 @@
                                     <label class="col-sm-2 label-on-left">Kategori</label>
                                     <div class="col-sm-10 checkbox-radios">
                                         <select class="form-control js-example-tokenizer" multiple="multiple" name="kategori">
-                                            <option>Entertaiment</option>
-                                            <option>Pendidikan</option>
-                                            <option>Politik</option>
+                                            @foreach ($kategoris as $kategori)
+                                                
+                                            <option>{{  $kategori->kategori }}</option>
+                                            @endforeach
+
                                         </select>
                                 </div>
                                 <div class="row">

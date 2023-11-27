@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Berita;
 use App\Models\Gambar;
+use App\Models\Category;
 
 class BeritaController extends Controller
 {
@@ -26,7 +27,13 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('backsite.berita.create');
+        $kategori = Category::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role
+        // 2. db builder
+        /*
+            select * from role order by created_at desc;
+        */
+        $data['kategoris'] = $kategori;
+        return view('backsite.berita.create',$data);
     }
 
     /**
