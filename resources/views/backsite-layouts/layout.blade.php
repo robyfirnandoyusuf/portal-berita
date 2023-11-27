@@ -97,24 +97,21 @@
                     </div>
                 </div>
                 <ul class="nav">
-                    <li class="active">
-
+                    <li class="">
                         <a href="/backsite/dashboard">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
-=======
                         <a href="{{ route('backsite.role.index') }}">
                             <i class="material-icons">group</i>
                             <p>Role</p>
->>>>>>> belajar-crud
                         </a>
                     </li>
 
 
                     <ul class="nav">
-                        <li class="active">
+                        <li class="">
                             <a href="/kategori">
-                                <i class="material-icons">Category</i>
+                                <i class="material-icons">C</i>
                                 <p>Kategori</p>
                             </a>
                         </li>
