@@ -7,6 +7,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+                    <div class="card bg-white shadow p-4 border-0 rounded-4">
+                        <div class="mb-3">
+                            <h3 class="fw-bold">Laravel DropZone</h3>
+                        </div>
+                        <form action="{{ route('backsite.berita.upload') }}" method="post" enctype="multipart/form-data" class="dropzone" id="myDropzone">
+                        @csrf
+                    </form>
+                    </div>
                     <div class="card-content">
 
                         <form method="post" action="{{ route('backsite.berita.update', $berita->id) }}" class="form-horizontal">

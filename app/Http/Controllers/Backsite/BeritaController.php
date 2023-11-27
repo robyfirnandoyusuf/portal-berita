@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Backsite;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Berita;
+use App\Models\Gambar;
 
 class BeritaController extends Controller
 {
@@ -32,17 +34,34 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        $arr = [
-            // 'nama' => $request->nama,
-            'judul' =>  $request->judul,
-            // 'id_kategori' =>  $request->id_kategori,
-            'description' =>  $request->description,
-            'kategori' =>  $request->kategori
-        ];
-        Berita::insert($arr);
-        // Berita::create($request->all());
+        Berita::create($request->all());
+        $idBerita = session(['id_berita' => $request->id]);
+        session()->put('id_gambar', 'id_berita');
 
         return redirect()->route('backsite.berita.index')->with('success', 'Berita added successfully');
+    //    // Images::insert($imageName);
+    //     // Berita::create($request->all());
+    }
+    public function storeImage(Request $request)
+    {
+
+
+        $gambar= $request->file('file');
+            $imageName = $gambar->getClientOriginalName();
+            $gambar->move(public_path('backsite-assets.img'), $imageName);
+            
+    
+           $imageUpload = new Gambar();
+           $imageUpload->filename = $imageName;
+           $imageUpload->save();
+           $idGambar = session(['id_gambar' => $imageUpload->id]);
+           return response()->json(['succes'=>$imageName]);
+           //    var_dump(session());
+    //     Berita::create($request->all());
+
+    //     return redirect()->route('backsite.berita.index')->with('success', 'Berita added successfully');
+    //    // Images::insert($imageName);
+    //     // Berita::create($request->all());
     }
 
     /**

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backsite\RoleController;
 use App\Http\Controllers\Backsite\DashboardController;
 use App\Http\Controllers\Backsite\BeritaController;
+use App\Http\Controllers\Backsite\GambarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,32 +22,30 @@ Route::get('/', [
     'as' => 'home'
 ]);
 
-Route::get('/berita/detail', [
-    'uses' => 'App\Http\Controllers\Frontsite\BeritaController@show',
-    'as' => 'berita'
-]);
-
-Route::get('/backsite/dashboard', [
-    'uses' => 'App\Http\Controllers\Backsite\DashboardController@index',
-    'as' => 'backsite.dashboard'
-]);
-
-Route::get('/backsite/dashboard', [DashboardController::class,'index']);
-
-// Route::get('/backsite/role/index', [
-//     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
-//     'as' => 'index'
-// ]);
-
-// Route::get('/backsite/role', [
-//     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
-//     'as' => 'index'
-// ]);
 Route::group(['as' => 'backsite.'], function() {
+    Route::resource('/backsite/dashboard', DashboardController::class);
     Route::resource('/backsite/role', RoleController::class);
     Route::resource('/backsite/berita', BeritaController::class);
+    // Route::resource('/backsite/berita', GambarController::class);
 });
+// Route::get('/backsite/berita/', [
+//         'uses' =>  'App\Http\Controllers\Backsite\GambarController@index',
+//         'as' => 'backsite.berita']);
+Route::post('/backsite/berita/upload', [
+        'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
+        'as' => 'backsite.berita.upload']);
 
+
+
+// Route::get('/backsite/role/index', [
+    //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
+    //     'as' => 'index'
+    // ]);
+    
+    // Route::get('/backsite/role', [
+        //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
+        //     'as' => 'index'
+        // ]);
 /*
 1. create (ini buat nampilin halaman create)
 2. store (buat engine store )

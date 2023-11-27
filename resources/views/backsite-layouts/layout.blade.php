@@ -36,6 +36,7 @@
     <meta property="og:image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
     <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
     <meta property="og:site_name" content="Creative Tim" />
+    <meta name="_token" content="{{ csrf_token() }}">
     <!-- Bootstrap core CSS     -->
     <link href="/backsite-assets/css/bootstrap.min.css" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
@@ -46,8 +47,12 @@
     <link href="../../../maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    {{--  DropZone  --}}
+    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.min.css" rel="stylesheet" type="text/css" />
+    
+    <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.js"></script>
 </head>
 
 <body>
@@ -94,6 +99,12 @@
                 <ul class="nav">
                     <li class="active">
                         <a href="{{ route('backsite.role.index') }}">
+                            <i class="material-icons">group</i>
+                            <p>Role</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#pagesExamples">
                             <i class="material-icons">group</i>
                             <p>Role</p>
                         </a>
@@ -189,7 +200,7 @@
                 </div>
             </nav>
 
-            @yield('content')
+        @yield('content')
 
             <!-- ini kyknya footernya -->
             <footer class="footer">
@@ -321,18 +332,17 @@
 </body>
 
 <!--   Core JS Files   -->
-<!-- <script src="/backsite-assets/js/jquery-3.1.1.min.js" type="text/javascript"></script> -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="/backsite-assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 <script src="/backsite-assets/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="/backsite-assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/backsite-assets/js/material.min.js" type="text/javascript"></script>
-<!-- <script src="/backsite-assets/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script> -->
+<script src="/backsite-assets/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
 <!-- Forms Validations Plugin -->
 <script src="/backsite-assets/js/jquery.validate.min.js"></script>
 <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
 <script src="/backsite-assets/js/moment.min.js"></script>
 <!--  Charts Plugin -->
-<!-- <script src="/backsite-assets/js/chartist.min.js"></script> -->
+<script src="/backsite-assets/js/chartist.min.js"></script>
 <!--  Plugin for the Wizard -->
 <script src="/backsite-assets/js/jquery.bootstrap-wizard.js"></script>
 <!--  Notifications Plugin    -->
@@ -363,18 +373,17 @@
 <script src="/backsite-assets/js/material-dashboard.js"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="/backsite-assets/js/demo.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
 <script type="text/javascript">
     $(document).ready(function() {
 
         // Javascript method's body can be found in assets/js/demos.js
-        // demo.initDashboardPageCharts();
+        demo.initDashboardPageCharts();
 
-        // demo.initVectorMap();
+        demo.initVectorMap();
     });
 </script>
-@yield('script')
+{{-- @yield('script') --}}
+
+<!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:32:16 GMT -->
 
 </html>
