@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Frontsite;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Berita;
+use App\Models\Category;
+use App\Models\Kategori;
+
+
 
 class HomeController extends Controller
 {
@@ -14,8 +19,27 @@ class HomeController extends Controller
     public function index()
     {
         //
-        return view('home');
+        $beritas = Berita::orderBy('created_at', 'DESC')->get();
+        // @dd($beritas);
+        $data['beritas'] = $beritas;
+        $data['kategoris'] = getCategory();
+
+        return view('home', $data);
     }
+
+
+    // public function create(Request $data)
+    //     {
+    //     // style synax 2
+    //     $r = new Role;
+    //     $r->judul = $request->judul;
+    //     $r->description = $request->description;
+    //     $r->save(); 
+    //     Role::insert($arr);
+    //     }
+    //     Role::create($request->all())
+
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -39,6 +63,10 @@ class HomeController extends Controller
     public function show(string $id)
     {
         //
+        $kategoris = Category::orderBy('created_at', 'DESC')->get();
+        // @dd($Kategori);
+        $data['kategoris'] = $kategoris;
+        return view('layouts.layout', $data);
     }
 
     /**

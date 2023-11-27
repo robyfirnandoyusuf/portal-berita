@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="weekly-caption">
                                     <span class="color1">Strike</span>
-                                    <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
+                                    <h4><a href="#">Hallooo</a></h4>
                                 </div>
                             </div>
                             <div class="weekly-single">
@@ -222,50 +222,20 @@
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                     <div class="whats-news-caption">
                                         <div class="row">
+                                            @foreach($beritas as $berita)
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
                                                         <img src="assets/img/news/whatNews1.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
+                                                        <span class="color1">berita</span>
+                                                        <h4><a href="#">{{ $berita->judul }}</a></h4>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="assets/img/news/whatNews2.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="assets/img/news/whatNews3.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="assets/img/news/whatNews4.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
+
                                         </div>
                                     </div>
                                 </div>

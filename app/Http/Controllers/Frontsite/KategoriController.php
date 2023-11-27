@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\kategori;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -13,16 +14,11 @@ class KategoriController extends Controller
     public function index()
     {
         //
+        $Kategoris = kategori::orderBy('created_at', 'DESC')->get();
+        // @dd($Kategori);
+        $data['Category'] = $Kategoris;
+        return view('layouts.layout', compact('kategoris'), $data);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
