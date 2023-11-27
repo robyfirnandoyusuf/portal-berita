@@ -36,6 +36,7 @@
     <meta property="og:image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
     <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
     <meta property="og:site_name" content="Creative Tim" />
+    <meta name="_token" content="{{ csrf_token() }}">
     <!-- Bootstrap core CSS     -->
     <link href="/backsite-assets/css/bootstrap.min.css" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
@@ -46,6 +47,12 @@
     <link href="../../../maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    {{--  DropZone  --}}
+    <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.min.css" rel="stylesheet" type="text/css" />
+    
+    <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.js"></script>
 </head>
 
 <body>
@@ -128,17 +135,22 @@
                     </li>
                     <li>
                         <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">user</i>
+                            <i class="material-icons">group</i>
+                            <p>Role</p>
                         </a>
-                        <div class="collapse" id="pagesExamples">
-
                     </li>
-
-
-
-
+                    <li>
+                        <a data-toggle="collapse" href="#pagesExamples">
+                            <i class="material-icons">category</i>
+                            <p>Kategori</p>
+                        </a>
                     </li>
-
+                    <li>
+                        <a data-toggle="collapse" href="#pagesExamples">
+                            <i class="material-icons">person</i>
+                            <p>User</p>
+                        </a>
+                    </li>
                 </ul>
 
 
@@ -409,7 +421,7 @@
         demo.initVectorMap();
     });
 </script>
-
+{{-- @yield('script') --}}
 
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:32:16 GMT -->
 
