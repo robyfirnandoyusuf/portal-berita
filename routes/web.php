@@ -3,8 +3,9 @@
 use App\Http\Controllers\Backsite\RoleController;
 use App\Http\Controllers\Backsite\DashboardController;
 use App\Http\Controllers\Backsite\BeritaController;
-use App\Http\Controllers\Backsite\GambarController;
+// use App\Http\Controllers\Backsite\GambarController;
 use App\Http\Controllers\Backsite\KategoriController;
+use App\Http\Controllers\Backsite\LoginController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,11 +30,16 @@ Route::group(['as' => 'backsite.'], function() {
     Route::resource('/backsite/role', RoleController::class);
     Route::resource('/backsite/berita', BeritaController::class);
     Route::resource('/backsite/kategori', KategoriController::class);
+    // Route::resource('/backsite/login', LoginController::class);
     // Route::resource('/backsite/berita', GambarController::class);
 });
-// Route::get('/backsite/berita/', [
-//         'uses' =>  'App\Http\Controllers\Backsite\GambarController@index',
-//         'as' => 'backsite.berita']);
+Route::get('/backsite/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/backsite/login', [LoginController::class, 'authenticate']);
+
+// Route::post('/backsite/login', [
+//         'uses' =>  'App\Http\Controllers\Backsite\GambarController@authenticate',
+//         'as' => 'backsite.login.authenticate']);
+
 Route::post('/backsite/berita/upload', [
         'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
         'as' => 'backsite.berita.upload']);
