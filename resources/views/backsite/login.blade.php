@@ -22,26 +22,17 @@
             <div class="col-md-6">
                 <div class="card">
                     <form class="box" action="{{ route('backsite.login.authenticate') }}" method="POST">
-                      @csrf
+                        @csrf
                         <h1>Login</h1>
                         <p class="text-muted"> Please enter your login and password!</p> <input type="text"
-                            name="email" id="email" placeholder="xxxx@gmail.com" class="@error('email') is-invalid @enderror" autofocus required value="{{ old('email') }}">  @error('email')
-                            <div class="invalid-feedback">
-                               {{ $message }}
-                            </div>
-                           @enderror <input type="password" name="password"
-                            placeholder="Password" id="email" autofocus required> <a class="forgot text-muted" href="#">Forgot password?</a>
-                           <input type="submit" name="login" value="Masuk" >
-                        {{-- <div class="col-md-12">
-                            <ul class="social-network social-circle">
-                                <li><a href="#" class="icoFacebook" title="Facebook"><i
-                                            class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" class="icoTwitter" title="Twitter"><i
-                                            class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" class="icoGoogle" title="Google +"><i
-                                            class="fab fa-google-plus"></i></a></li>
-                            </ul>
-                        </div> --}}
+                            name="email" id="email" placeholder="xxxx@gmail.com"
+                            class="@error('email') Is-Invalid @enderror" autofocus required value="{{ old('email') }}">
+                            @error('email')
+                            <p class="btn btn-danger">{{ $message }}</p>
+                            @enderror
+                   <input type="password" name="password" placeholder="Password" id="email" autofocus
+                            required> <a class="forgot text-muted" href="#">Forgot password?</a>
+                        <input type="submit" name="login" value="Masuk">
                     </form>
                 </div>
             </div>
@@ -102,9 +93,9 @@
     </form> --}}
     {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"><script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"><script>
-      
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">< script >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" >< script >
+
 </body>
 
 </html>
