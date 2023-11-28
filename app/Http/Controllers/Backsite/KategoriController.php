@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backsite;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\Kategori;
 
 
 class KategoriController extends Controller
@@ -17,7 +17,7 @@ class KategoriController extends Controller
 
 
         // 1. eloquent
-        $kategori = Category::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role
+        $kategori = Kategori::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role
         // 2. db builder
         /*
             select * from role order by created_at desc;
@@ -36,7 +36,7 @@ class KategoriController extends Controller
     {
         //
 
-
+        
         return view('backsite.kategori.create');
 
     }
@@ -61,7 +61,7 @@ class KategoriController extends Controller
             'nama_kategori' =>  $request->nama_kategori
         ];
 
-        Category::insert($arr);
+        Kategori::insert($arr);
 
 
         // stye syntax 3
@@ -88,7 +88,7 @@ class KategoriController extends Controller
         //
 
 
-        $kategori = Category::findOrFail($id);
+        $kategori = Kategori::findOrFail($id);
         $data['kategori'] = $kategori;
         /*
             select * from role where id = 6
@@ -105,7 +105,7 @@ class KategoriController extends Controller
     {
         //
 
-        $kategori = Category::findOrFail($id);
+        $kategori = Kategori::findOrFail($id);
     //    dd($request->all()\));
         $kategori->update($request->all());
         return redirect()->route('backsite.kategori.index')->with('success','Kategori updated succesfully');
@@ -119,7 +119,7 @@ class KategoriController extends Controller
     {
         //
 
-        $kategori = Category::findOrFail($id);
+        $kategori = Kategori::findOrFail($id);
 
         $kategori->delete();
         return redirect()->route('backsite.kategori.index')->with('succes','Kategori delete succesfully');

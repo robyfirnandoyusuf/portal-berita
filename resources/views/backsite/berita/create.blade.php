@@ -9,18 +9,20 @@
                         <div class="card-content">
                             <div class="bg-white shadow p-4 border-0 rounded-4 mt-4">
                                 <div class="mb-3">
+                                    <div class="card-header card-header-text" data-background-color="rose">
+                                        <h4><a href="{{ route('backsite.berita.index') }}"><i
+                                            class="material-icons">view_list</i>
+                                        </a></h4>
+                                    </div>
                                     <h5 class="">Upload Gambar</h5>
                                 </div>
                                 <form action="{{ route('backsite.berita.upload') }}" method="post" enctype="multipart/form-data" class="dropzone" id="myDropzone">
                                     @csrf
                                 </form>
                             </div>
-                            <form method="post" action="{{ route('backsite.berita.store') }}" class="form-horizontal mb-3">
+                            <form method="post" action="{{ route('backsite.berita.store') }}" class="form-horizontal">
                                 @csrf
-                                <div class="card-header card-header-text" data-background-color="rose">
-                                    <h4><a href="{{ route('backsite.berita.index') }}"><i
-                                                class="material-icons">view_list</i></a></h4>
-                                </div>
+
                                 <div class="row">
                                     <label for="judul" class="col-sm-2 label-on-left">Judul</label>
                                     <div class="col-sm-10">
@@ -44,7 +46,7 @@
                                     <div class="col-sm-10 checkbox-radios">
                                         <select class="form-control js-example-tokenizer" multiple="multiple" name="kategori">
                                             @foreach ($kategoris as $kategori)
-                                                
+
                                             <option>{{  $kategori->kategori }}</option>
                                             @endforeach
 
@@ -65,7 +67,7 @@
             </div>
         </div>
     </div>
-    
+
 @endsection
 
 @section('script')
@@ -73,10 +75,7 @@
 
   <script>
       $(document).ready(function() {
-          $('#summernote').summernote({
-              tabsize: 2,
-              height: 100
-          });
+        $('#summernote').summernote();
       });
   </script>
   <script>
@@ -86,7 +85,7 @@
       })
       </script>
       <script type="text/javascript">
-    Dropzone.options.myDropzone = 
+    Dropzone.options.myDropzone =
     {
       maxFilesize: 12,
       renameFile:function(file)
@@ -104,7 +103,7 @@
       error: function(file,response){
           return false;
       }
-  
+
     };
   </script>
 @endsection

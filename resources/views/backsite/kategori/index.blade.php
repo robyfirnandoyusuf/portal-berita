@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-text">
-                        <a href="{{ route('backsite.role.create') }}" class="button btn btn-primary"><i class="material-icons">add</i></a>
+                        <a href="{{ route('backsite.kategori.create') }}" class="button btn btn-primary"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <h4 class="card-title"></h4>
@@ -33,12 +33,11 @@
                                     @if($kategori->count() > 0)
                                         @foreach ($kategori as $kategoris)
                                             <tr>
-                                                <td>{{ $kategoris->kategori}}</td>
+                                                <td>{{ $kategoris->nama_kategori }}</td>
                                                 <td class="text-right">
-                                                    <a href="{{ route('backsite.kategori.edit', $kategoris->id) }}"         
+                                                    <a href="{{ route('backsite.kategori.edit', $kategoris->id) }}"
                                                         action="POST" class="btn btn-danger btn-icon ml-5 edit"><i class="material-icons">edit</i>
                                                     </a>
-                                                    
                                                     <form action="{{ route('backsite.kategori.destroy', $kategoris->id) }}" method="POST" onsubmit=" return confirm('Yakin delete?')" type="button" class="btn btn-simple btn-danger btn-icon remove">
                                                         @csrf
                                                         @method('DELETE')

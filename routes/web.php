@@ -1,11 +1,16 @@
 <?php
-
+// backsite
 use App\Http\Controllers\Backsite\RoleController;
 use App\Http\Controllers\Backsite\DashboardController;
 use App\Http\Controllers\Backsite\BeritaController;
 // use App\Http\Controllers\Backsite\GambarController;
 use App\Http\Controllers\Backsite\KategoriController;
 use App\Http\Controllers\Backsite\LoginController;
+
+// frontside
+use App\Http\Controllers\Frontsite\detailController;
+
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -40,17 +45,20 @@ Route::post('/backsite/login', [LoginController::class, 'authenticate']);
 //         'uses' =>  'App\Http\Controllers\Backsite\GambarController@authenticate',
 //         'as' => 'backsite.login.authenticate']);
 
-Route::post('/backsite/berita/upload', [
+        Route::post('/backsite/berita/upload', [
         'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
         'as' => 'backsite.berita.upload']);
 
-
+        // detail berita
+        Route::get('/detail', [
+            'uses' =>  'App\Http\Controllers\Frontsite\detailController@index',
+            'as' => 'detail']);
 
 // Route::get('/backsite/role/index', [
     //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
     //     'as' => 'index'
     // ]);
-    
+
     // Route::get('/backsite/role', [
         //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
         //     'as' => 'index'

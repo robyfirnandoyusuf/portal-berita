@@ -10,6 +10,10 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
     <!-- CSS here -->
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
@@ -23,6 +27,12 @@
     <link rel="stylesheet" href="/assets/css/slick.css">
     <link rel="stylesheet" href="/assets/css/nice-select.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -50,15 +60,10 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
                                     <ul>
-                                        <li><img src="/assets/img/icon/header_icon1.png" alt="">34ºc, Sunny </li>
-                                        <li><img src="/assets/img/icon/header_icon1.png" alt="">Tuesday, 18th June, 2019</li>
-                                    </ul>
-                                </div>
-                                <div class="header-info-right">
-                                    <ul class="header-social">
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                        <li> <a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                        <li><img src="/assets/img/icon/header_icon1.png" alt="">34ºc, Sunny
+                                        </li>
+                                        <li><img src="/assets/img/icon/header_icon1.png" alt="">Tuesday, 18th
+                                            June, 2019</li>
                                     </ul>
                                 </div>
                             </div>
@@ -144,11 +149,15 @@
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="/assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <a href="index.html"><img src="/assets/img/logo/logo2_footer.png"
+                                            alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
-                                        <p>Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames lectus tempor da blandit gravida sodales Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames lectus tempor da blandit gravida sodales Suscipit mauris pede for sectetuer.</p>
+                                        <p>Suscipit mauris pede for con sectetuer sodales adipisci for cursus fames
+                                            lectus tempor da blandit gravida sodales Suscipit mauris pede for con
+                                            sectetuer sodales adipisci for cursus fames lectus tempor da blandit gravida
+                                            sodales Suscipit mauris pede for sectetuer.</p>
                                     </div>
                                 </div>
                                 <!-- social -->
@@ -168,10 +177,17 @@
                                 <!-- Form -->
                                 <div class="footer-form">
                                     <div id="mc_embed_signup">
-                                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part">
-                                            <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address" class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
+                                        <form target="_blank"
+                                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                            method="get" class="subscribe_form relative mail_part">
+                                            <input type="email" name="email" id="newsletter-form-email"
+                                                placeholder="Email Address" class="placeholder hide-on-focus"
+                                                onfocus="this.placeholder = ''"
+                                                onblur="this.placeholder = ' Email Address '">
                                             <div class="form-icon">
-                                                <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="/assets/img/logo/form-iocn.png" alt=""></button>
+                                                <button type="submit" name="submit" id="newsletter-submit"
+                                                    class="email_icon newsletter-submit button-contactForm"><img
+                                                        src="/assets/img/logo/form-iocn.png" alt=""></button>
                                             </div>
                                             <div class="mt-10 info"></div>
                                         </form>
@@ -187,12 +203,18 @@
                             </div>
                             <div class="instagram-gellay">
                                 <ul class="insta-feed">
-                                    <li><a href="#"><img src="/assets/img/post/instra1.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="/assets/img/post/instra2.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="/assets/img/post/instra3.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="/assets/img/post/instra4.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="/assets/img/post/instra5.jpg" alt=""></a></li>
-                                    <li><a href="#"><img src="/assets/img/post/instra6.jpg" alt=""></a></li>
+                                    <li><a href="#"><img src="/assets/img/post/instra1.jpg" alt=""></a>
+                                    </li>
+                                    <li><a href="#"><img src="/assets/img/post/instra2.jpg" alt=""></a>
+                                    </li>
+                                    <li><a href="#"><img src="/assets/img/post/instra3.jpg" alt=""></a>
+                                    </li>
+                                    <li><a href="#"><img src="/assets/img/post/instra4.jpg" alt=""></a>
+                                    </li>
+                                    <li><a href="#"><img src="/assets/img/post/instra5.jpg" alt=""></a>
+                                    </li>
+                                    <li><a href="#"><img src="/assets/img/post/instra6.jpg" alt=""></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -208,10 +230,14 @@
                         <div class="col-lg-6">
                             <div class="footer-copy-right">
                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;<script>
+                                    Copyright &copy;
+                                    <script>
                                         document.write(new Date().getFullYear());
-                                    </script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                    </script> All rights reserved | This template is made with <i
+                                        class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                        target="_blank">Colorlib</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -270,6 +296,12 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src=".//assets/js/plugins.js"></script>
     <script src=".//assets/js/main.js"></script>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
 </body>
 
 </html>

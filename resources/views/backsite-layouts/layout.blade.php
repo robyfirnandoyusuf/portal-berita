@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="/backsite-assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="/backsite-assets/img/favicon.png" />
+    <link rel="icon" type="image/png" href="/backsite-assets/img/favicon.png"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -39,6 +39,8 @@
     <meta name="_token" content="{{ csrf_token() }}">
     <!-- Bootstrap core CSS     -->
     <link href="/backsite-assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <!--  Material Dashboard CSS    -->
     <link href="/backsite-assets/css/material-dashboard.css" rel="stylesheet" />
     <!--  CSS for Demo Purpose, don't include it in your project     -->
@@ -50,7 +52,9 @@
     {{--  DropZone  --}}
     <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.min.css" rel="stylesheet" type="text/css" />
-    
+
+
+
     <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.js"></script>
 </head>
@@ -63,7 +67,7 @@
 
             <div class="logo">
                 <a href="http://www.creative-tim.com/" class="simple-text">
-                    Creative Tim
+                    Project Berita
                 </a>
             </div>
             <div class="logo logo-mini">
@@ -78,66 +82,25 @@
                     </div>
                     <div class="info">
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            Tania Andrew
-                            <b class="caret"></b>
+                            Raja Iblis
                         </a>
-                        <div class="collapse" id="collapseExample">
-                            <ul class="nav">
-                                <li>
-                                    <a href="#">My Profile</a>
-                                </li>
-                                <li>
-                                    <a href="#">Edit Profile</a>
-                                </li>
-                                <li>
-                                    <a href="#">Settings</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <ul class="nav">
                     <li class="">
-                        <a href="/backsite/dashboard">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
+                        <a href="{{ route('backsite.berita.index') }}">
+                            <i class="material-icons">feed</i>
+                            <p>Berita</p>
+                        </a>
+                    </li>
+                    <li class="">
                         <a href="{{ route('backsite.role.index') }}">
                             <i class="material-icons">group</i>
                             <p>Role</p>
                         </a>
                     </li>
-
-
-                    <ul class="nav">
-                        <li class="">
-                            <a href="/kategori">
-                                <i class="material-icons">C</i>
-                                <p>Kategori</p>
-                            </a>
-                        </li>
-                    <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">user</i>
-                        </a>
-                        <div class="collapse" id="pagesExamples">
-
-                    </li>
-
-
-                    <li class="active">
+                    <li class="">
                         <a href="{{ route('backsite.kategori.index') }}">
-                            <i class="material-icons">group</i>
-                            <p>Kategori</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">group</i>
-                            <p>Role</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
                             <i class="material-icons">category</i>
                             <p>Kategori</p>
                         </a>
@@ -149,15 +112,6 @@
                         </a>
                     </li>
                 </ul>
-
-
-                 <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">image</i>
-                            <p>Pages
-                                <b class="caret"></b>
-                            </p>
-                        </a>
-
             </div>
         </div>
 
@@ -177,7 +131,6 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/kategori"> Kategory </a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -368,7 +321,9 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="/backsite-assets/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 <script src="/backsite-assets/js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="/backsite-assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/backsite-assets/js/material.min.js" type="text/javascript"></script>
@@ -378,7 +333,6 @@
 <!--  Plugin for Date Time Picker and Full Calendar Plugin-->
 <script src="/backsite-assets/js/moment.min.js"></script>
 <!--  Charts Plugin -->
-<script src="/backsite-assets/js/chartist.min.js"></script>
 <!--  Plugin for the Wizard -->
 <script src="/backsite-assets/js/jquery.bootstrap-wizard.js"></script>
 <!--  Notifications Plugin    -->
@@ -413,12 +367,12 @@
     $(document).ready(function() {
 
         // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
+        // demo.initDashboardPageCharts();
 
         demo.initVectorMap();
     });
 </script>
-{{-- @yield('script') --}}
+@yield('script')
 
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 20 Mar 2017 21:32:16 GMT -->
 
