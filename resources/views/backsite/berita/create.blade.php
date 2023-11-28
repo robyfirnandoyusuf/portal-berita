@@ -8,6 +8,10 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="bg-white shadow p-4 border-0 rounded-4 mt-4">
+                                <div class="card-header card-header-text" data-background-color="rose">
+                                    <h4><a href="{{ route('backsite.berita.index') }}"><i
+                                                class="material-icons">view_list</i></a></h4>
+                                </div>
                                 <div class="mb-3">
                                     <h5 class="">Upload Gambar</h5>
                                 </div>
@@ -17,10 +21,7 @@
                             </div>
                             <form method="post" action="{{ route('backsite.berita.store') }}" class="form-horizontal mb-3">
                                 @csrf
-                                <div class="card-header card-header-text" data-background-color="rose">
-                                    <h4><a href="{{ route('backsite.berita.index') }}"><i
-                                                class="material-icons">view_list</i></a></h4>
-                                </div>
+                                
                                 <div class="row">
                                     <label for="judul" class="col-sm-2 label-on-left">Judul</label>
                                     <div class="col-sm-10">

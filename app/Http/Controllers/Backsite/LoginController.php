@@ -26,10 +26,19 @@ class LoginController extends Controller
          if(Auth::attempt($scredentials)){
             $request->session()->regenerate();
 
-            return redirect()->intended('home');
+            return redirect()->intended('backsite/berita');
          } 
 
          return back()->with('loginError', 'Login Failed!');
 
+  }
+  public function logout(){
+      Auth::logout();
+  
+      request()->session()->invalidate();
+  
+      request()->session()->regenerateToken();
+  
+      return redirect()->route('backsite.login');
   }
 }

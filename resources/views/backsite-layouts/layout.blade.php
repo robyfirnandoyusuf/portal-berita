@@ -101,62 +101,29 @@
                         <a href="/backsite/dashboard">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="">
                         <a href="{{ route('backsite.role.index') }}">
                             <i class="material-icons">group</i>
                             <p>Role</p>
                         </a>
                     </li>
-
-
-                    <ul class="nav">
-                        <li class="">
-                            <a href="/kategori">
-                                <i class="material-icons">C</i>
-                                <p>Kategori</p>
-                            </a>
-                        </li>
+                    {{-- <form action="{{ route('backsite.logout') }}" method="POST">
+                        @csrf
+                        <button type="submit">
+                            Logout<i class="material-icons">logout</i>
+                        </button>
+                    </form> --}}
                     <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">user</i>
-                        </a>
-                        <div class="collapse" id="pagesExamples">
-
-                    </li>
-
-
-                    <li class="active">
-                        <a href="{{ route('backsite.kategori.index') }}">
+                        <a href="{{ route('backsite.logout') }}">
                             <i class="material-icons">group</i>
-                            <p>Kategori</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">group</i>
-                            <p>Role</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">category</i>
-                            <p>Kategori</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">person</i>
-                            <p>User</p>
+                            <p>Logout</p>
                         </a>
                     </li>
                 </ul>
 
 
-                 <a data-toggle="collapse" href="#pagesExamples">
-                            <i class="material-icons">image</i>
-                            <p>Pages
-                                <b class="caret"></b>
-                            </p>
-                        </a>
 
             </div>
         </div>

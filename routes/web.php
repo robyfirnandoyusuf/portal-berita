@@ -6,6 +6,7 @@ use App\Http\Controllers\Backsite\BeritaController;
 // use App\Http\Controllers\Backsite\GambarController;
 use App\Http\Controllers\Backsite\KategoriController;
 use App\Http\Controllers\Backsite\LoginController;
+// use auth
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,23 +27,27 @@ Route::get('/', [
 ]);
 
 Route::group(['as' => 'backsite.'], function() {
-    Route::resource('/backsite/dashboard', DashboardController::class);
-    Route::resource('/backsite/role', RoleController::class);
+    Route::resource('/backsite/dashboard', DashboardController::class)->middleware('auth');
+    Route::resource('/backsite/role', RoleController::class)->middleware('auth');
     Route::resource('/backsite/berita', BeritaController::class);
-    Route::resource('/backsite/kategori', KategoriController::class);
+    Route::resource('/backsite/kategori', KategoriController::class)->middleware('auth');
     // Route::resource('/backsite/login', LoginController::class);
     // Route::resource('/backsite/berita', GambarController::class);
 });
-Route::get('/backsite/login', [LoginController::class, 'index'])->middleware('guest');
-Route::post('/backsite/login', [LoginController::class, 'authenticate']);
+Route::get('/backsite/login', [LoginController::class, 'index'])->name('backsite.login')->middleware('guest');
+// Route::post('/backsite/login', [LoginController::class, 'authenticate']);
+// Route::post('/backsite/logout', [LoginController::class, 'logout']);
 
-// Route::post('/backsite/login', [
-//         'uses' =>  'App\Http\Controllers\Backsite\GambarController@authenticate',
-//         'as' => 'backsite.login.authenticate']);
+Route::post('/backsite/login', [
+        'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
+        'as' => 'backsite.login.authenticate']);
+Route::get('/backsite/logout', [
+        'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
+        'as' => 'backsite.logout']);
 
 Route::post('/backsite/berita/upload', [
         'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
-        'as' => 'backsite.berita.upload']);
+        'as' => 'backsite.berita.upload'])->middleware('auth');
 
 
 
