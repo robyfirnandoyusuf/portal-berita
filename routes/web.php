@@ -32,7 +32,7 @@ Route::get('/', [
 Route::group(['as' => 'backsite.'], function() {
     Route::resource('/backsite/dashboard', DashboardController::class)->middleware('auth');
     Route::resource('/backsite/role', RoleController::class)->middleware('auth');
-    Route::resource('/backsite/berita', BeritaController::class);
+    Route::resource('/backsite/berita', BeritaController::class)->middleware('auth');
     Route::resource('/backsite/kategori', KategoriController::class)->middleware('auth');
     // Route::resource('/backsite/login', LoginController::class);
     // Route::resource('/backsite/berita', GambarController::class);

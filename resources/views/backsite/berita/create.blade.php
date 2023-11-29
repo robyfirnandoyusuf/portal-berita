@@ -44,9 +44,9 @@
                                     <label class="col-sm-2 label-on-left">Kategori</label>
                                     <div class="col-sm-10 checkbox-radios">
                                         <select class="form-control js-example-tokenizer" multiple="multiple"
-                                            name="kategori">
+                                            name="id_kategori">
                                             @foreach ($kategoris as $kategori)
-                                                <option>{{ $kategori->kategori }}</option>
+                                                <option value="{{ $kategori->id }}">{{ $kategori->kategori }}</option>
                                             @endforeach
 
                                         </select>
