@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Frontsite;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class KategoriController extends Controller
+class detailController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('frontsite.detail.index');
     }
 
     /**
