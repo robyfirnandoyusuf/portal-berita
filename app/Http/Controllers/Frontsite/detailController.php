@@ -3,22 +3,31 @@
 namespace App\Http\Controllers\Frontsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\Berita;
 use App\Models\kategori;
 use Illuminate\Http\Request;
 
-class KategoriController extends Controller
+class detailController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
+    {
+        $data['berita'] = Berita::find($id);
+        $data['kategoris'] = getCategory();
+        return view('fronsite.detail.index', $data);
+    }
+
+    public function detail($id)
     {
         //
-        $Kategoris = kategori::orderBy('created_at', 'DESC')->get();
-        // @dd($Kategori);
-        $data['Category'] = $Kategoris;
-        return view('layouts.layout', compact('kategoris'), $data);
+        $data['berita'] = Berita::find($id);
+        $data['kategoris'] = getCategory();
+        // dd(1);
+        return view('frontsite.detail.index', $data);
     }
+
     /**
      * Store a newly created resource in storage.
      */

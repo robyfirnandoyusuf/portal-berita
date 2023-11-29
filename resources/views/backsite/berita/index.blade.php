@@ -7,28 +7,26 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header card-header-icon" data-background-color="purple">
-                        <i class="material-icons">view_list</i>
-                        <h4 class="card-title">Data Berita</h4>
-                    </div>
                     <div class="card-content">
                         <div class="card-header card-header-text" data-background-color="rose">
-                            <a href="{{ route('backsite.berita.create')}}"><i class="material-icons">add</i></a>
+                            <a href="{{ route('backsite.berita.create')}}"><i class="material-icons card-title">add</i></a>
                         </div>
                             <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>Judul</th>
+                                        {{-- <th>Image</th> --}}
+                                        <th>Deskripsi</th>
                                         <th>Kategori</th>
-                                        <th>Sumber</th>
                                         <th class="disabled-sorting text-right">Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th>Judul</th>
+                                        {{-- <th>Image</th> --}}
+                                        <th>Deskripsi</th>
                                         <th>Kategori</th>
-                                        <th>Sumber</th>
                                         <th class="text-right">Actions</th>
                                     </tr>
                                 </tfoot>
@@ -37,20 +35,24 @@
                                     @foreach ($beritas as $berita)
                                     <tr>
                                         <td>{{ $berita->judul }}</td>
+                                        <td>{{ $berita->description }}</td>
                                         <td>{{ $berita->kategori }}</td>
-                                        <td>{{ $berita->sumber }}</td>
                                         <td class="text-right">
-                                            <a href="#" class="btn btn-simple btn-warning btn-icon edit"><i class="material-icons">edit</i></a>
-                                            <a href="#" class="btn btn-simple btn-danger btn-icon remove"><i class="material-icons">close</i></a>
+                                            <a href="{{ route('backsite.berita.edit', $berita->id) }}"
+                                                action="POST" class="btn btn-danger btn-icon ml-5 edit"><i class="material-icons">edit</i>
+                                            </a>
+                                            <form action="{{ route('backsite.berita.destroy', $berita->id) }}" method="POST" onsubmit=" return confirm('Yakin delete?')" type="button" class="btn btn-simple btn-danger btn-icon remove">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-danger"><i class="material-icons">delete</i></button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
                                     @else
-                                        <tr>
-                                            <td>
-                                                Tidak ada berita
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td class="text-center" colspan="4">Berita not found</td>
+                                    </tr>
                                     @endif
                                 </tbody>
                             </table>

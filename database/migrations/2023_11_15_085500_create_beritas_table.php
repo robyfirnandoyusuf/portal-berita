@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('id_kategori')->nullable();
             $table->string('judul');
             $table->text('description');
+            $table->enum('kategori', ['entertaiment','politik','pendidikan']);
             $table->timestamps();
             // $table->string('sumber');
         });
