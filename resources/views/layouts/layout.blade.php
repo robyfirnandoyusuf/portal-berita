@@ -30,8 +30,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
 
     <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 </head>
 
@@ -97,10 +96,17 @@
                                 </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
+
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="backsite/kategori/index.blade.php">Category</a></li>
+                                            <!-- <li><a href="index.html">Home</a></li> -->
+                                            <!-- <li><a href="backsite/kategori/index.blade.php">Category</a></li> -->
+                                            @foreach(getCategory() as $kategori)
+                                            <li><a href="index.html">{{ $kategori->kategori }}</a></li>
+                                            @endforeach
+                                            <!-- <li><a href="categori.html">Category</a></li>
+
+
                                             <li><a href="about.html">About</a></li>
                                             <li><a href="latest_news.html">Latest News</a></li>
                                             <li><a href="contact.html">Contact</a></li>
@@ -128,15 +134,15 @@
                                 </div>
                             </div>
                             <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-md-none"></div>
+                                            <div class="col-12">
+                                                <div class="mobile_menu d-block d-md-none"></div>
+                                            </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Header End -->
+                <!-- Header End -->
     </header>
     @yield('content')
     <footer>
@@ -149,8 +155,7 @@
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="/assets/img/logo/logo2_footer.png"
-                                            alt=""></a>
+                                    <a href="index.html"><img src="/assets/img/logo/logo2_footer.png" alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
@@ -177,17 +182,10 @@
                                 <!-- Form -->
                                 <div class="footer-form">
                                     <div id="mc_embed_signup">
-                                        <form target="_blank"
-                                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                            method="get" class="subscribe_form relative mail_part">
-                                            <input type="email" name="email" id="newsletter-form-email"
-                                                placeholder="Email Address" class="placeholder hide-on-focus"
-                                                onfocus="this.placeholder = ''"
-                                                onblur="this.placeholder = ' Email Address '">
+                                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part">
+                                            <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address" class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
                                             <div class="form-icon">
-                                                <button type="submit" name="submit" id="newsletter-submit"
-                                                    class="email_icon newsletter-submit button-contactForm"><img
-                                                        src="/assets/img/logo/form-iocn.png" alt=""></button>
+                                                <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="/assets/img/logo/form-iocn.png" alt=""></button>
                                             </div>
                                             <div class="mt-10 info"></div>
                                         </form>
@@ -233,9 +231,7 @@
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
-                                    </script> All rights reserved | This template is made with <i
-                                        class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                        target="_blank">Colorlib</a>
+                                    </script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>
                             </div>
@@ -298,8 +294,7 @@
     <script src=".//assets/js/main.js"></script>
 
     <!-- Bootstrap 5 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
 </body>

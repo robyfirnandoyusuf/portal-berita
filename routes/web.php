@@ -42,20 +42,20 @@ Route::get('/backsite/login', [LoginController::class, 'index'])->name('backsite
 // Route::post('/backsite/logout', [LoginController::class, 'logout']);
 
 Route::post('/backsite/login', [
-        'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
-        'as' => 'backsite.login.authenticate']);
+    'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
+    'as' => 'backsite.login.authenticate']);
 Route::get('/backsite/logout', [
-        'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
-        'as' => 'backsite.logout']);
+    'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
+    'as' => 'backsite.logout']);
+Route::post('/backsite/berita/upload', [
+    'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
+    'as' => 'backsite.berita.upload'])->middleware('auth');
 
-        Route::post('/backsite/berita/upload', [
-        'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
-        'as' => 'backsite.berita.upload'])->middleware('auth');
-
-        // detail berita
-        Route::get('/detail', [
-            'uses' =>  'App\Http\Controllers\Frontsite\detailController@index',
-            'as' => 'detail']);
+// detail berita
+Route::get('/detail/{id}', [
+    'uses' =>  'App\Http\Controllers\Frontsite\DetailController@detail',
+    'as' => 'detail'
+]);
 
 // Route::get('/backsite/role/index', [
     //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',

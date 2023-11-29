@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontsite;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Berita;
 
 class BeritaController extends Controller
 {
@@ -13,6 +14,9 @@ class BeritaController extends Controller
     public function index()
     {
         //
+        $beritas = Berita::orderBy('created_at', 'DESC')->get();
+        @dd($beritas);
+        return view('home', compact('beritas'));
     }
 
     /**
