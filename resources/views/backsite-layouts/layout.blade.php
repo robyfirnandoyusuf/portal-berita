@@ -87,19 +87,31 @@
                     </div>
                 </div>
                 <ul class="nav">
-                    <li class="">
+                    <li class="@yield('activeDashboard')">
+                        <a href="/backsite/dashboard">
+                            <i class="material-icons">dashboard</i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="@yield('activeBerita')">
                         <a href="{{ route('backsite.berita.index') }}">
                             <i class="material-icons">feed</i>
                             <p>Berita</p>
                         </a>
                     </li>
-                    <li class="">
+                    <li class="@yield('activeRole')">
                         <a href="{{ route('backsite.role.index') }}">
                             <i class="material-icons">group</i>
                             <p>Role</p>
                         </a>
                     </li>
-                    <li class="">
+                    {{-- <form action="{{ route('backsite.logout') }}" method="POST">
+                        @csrf
+                        <button type="submit">
+                            Logout<i class="material-icons">logout</i>
+                        </button>
+                    </form> --}}
+                    <li class="@yield('activeCategory')">
                         <a href="{{ route('backsite.kategori.index') }}">
                             <i class="material-icons">category</i>
                             <p>Kategori</p>
@@ -109,6 +121,12 @@
                         <a data-toggle="collapse" href="#pagesExamples">
                             <i class="material-icons">person</i>
                             <p>User</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('backsite.logout') }}">
+                            <i class="material-icons">group</i>
+                            <p>Logout</p>
                         </a>
                     </li>
                 </ul>

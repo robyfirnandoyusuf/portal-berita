@@ -27,13 +27,13 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        $kategori = Category::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role
+        $kategori = Category::orderBy('created_at', 'DESC')->get(); // ini buat ambil data dari table role
         // 2. db builder
         /*
             select * from role order by created_at desc;
         */
         $data['kategoris'] = $kategori;
-        return view('backsite.berita.create',$data);
+        return view('backsite.berita.create', $data);
     }
 
     /**
@@ -41,34 +41,34 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        Berita::create($request->all());
-        $idBerita = session(['id_berita' => $request->id]);
-        session()->put('id_gambar', 'id_berita');
+        $gambar = session('id_gambar');
+        Session::forget('id_gambar');
 
+        $b = new Berita();
+        $b->judul = $request->judul;
+        $b->description = $request->description;
+        $b->id_kategori = $request->id_kategori;
+        $b->save();
+
+        Gambar::whereIn('id', $gambar)->update([
+            'id_berita' => $b->id
+        ]);
         return redirect()->route('backsite.berita.index')->with('success', 'Berita added successfully');
-    //    // Images::insert($imageName);
-    //     // Berita::create($request->all());
+        //    // Images::insert($imageName);
+        //     // Berita::create($request->all());
     }
     public function storeImage(Request $request)
     {
+        $gambar = $request->file('file');
+        $imageName = $gambar->getClientOriginalName();
+        $gambar->move(public_path('backsite-assets.img'), $imageName);
 
+        $imageUpload = new Gambar();
+        $imageUpload->filename = $imageName;
+        $imageUpload->save();
+        session()->push('id_gambar', $imageUpload->id);
 
-        $gambar= $request->file('file');
-            $imageName = $gambar->getClientOriginalName();
-            $gambar->move(public_path('backsite-assets.img'), $imageName);
-            
-    
-           $imageUpload = new Gambar();
-           $imageUpload->filename = $imageName;
-           $imageUpload->save();
-           $idGambar = session(['id_gambar' => $imageUpload->id]);
-           return response()->json(['succes'=>$imageName]);
-           //    var_dump(session());
-    //     Berita::create($request->all());
-
-    //     return redirect()->route('backsite.berita.index')->with('success', 'Berita added successfully');
-    //    // Images::insert($imageName);
-    //     // Berita::create($request->all());
+        return response()->json(['succes' => $imageName]);
     }
 
     /**
@@ -101,7 +101,7 @@ class BeritaController extends Controller
         $berita = Berita::findOrFail($id);
 
         $berita->update($request->all());
-        return redirect()->route('backsite.berita.index')->with('success','Berita updated succesfully');
+        return redirect()->route('backsite.berita.index')->with('success', 'Berita updated succesfully');
     }
 
     /**
@@ -112,6 +112,6 @@ class BeritaController extends Controller
         $berita = Berita::findOrFail($id);
 
         $berita->delete();
-        return redirect()->route('backsite.berita.index')->with('success','Berita delete succesfully');
+        return redirect()->route('backsite.berita.index')->with('success', 'Berita delete succesfully');
     }
 }

@@ -9,7 +9,6 @@
                 <div class="single-post">
 
 
-
                     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">

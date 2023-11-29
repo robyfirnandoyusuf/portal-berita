@@ -1,19 +1,20 @@
 @extends('backsite-layouts.layout')
 
 @section('content')
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
 
-            <div class="col-md-12">
-                <div class="card">
-                    <form  action="{{ route('backsite.kategori.update', $kategori->id) }}" method="POST" class="form-horizontal">
-                        @csrf
-                        @method('PUT')
-                        <div class="card-header card-header-text" data-background-color="rose">
-                            <h4 class="card-title">Edit Kategori</h4>
-                        </div>
-                        {{-- <div class="card-content">
+                <div class="col-md-12">
+                    <div class="card">
+                        <form action="{{ route('backsite.kategori.update', $kategori->id) }}" method="POST"
+                            class="form-horizontal">
+                            @csrf
+                            @method('PUT')
+                            <div class="card-header card-header-text" data-background-color="rose">
+                                <h4 class="card-title">Edit Kategori</h4>
+                            </div>
+                            {{-- <div class="card-content">
                             <div class="row">
                                 <label class="col-sm-2 label-on-left">Nama</label>
                                 <div class="col-sm-10">
@@ -29,23 +30,24 @@
                                 <div class="col-sm-10">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" class="form-control" name="nama_kategori" value="{{$kategori->nama_kategori}}" placeholder="Pilih kategori">
+                                        <input type="text" class="form-control" name="nama_kategori"
+                                            value="{{ $kategori->nama_kategori }}" placeholder="Pilih kategori">
                                         <span class="help-block">Pilih Kategori</span>
                                     </div>
                                 </div>
-                        </div>
-                        <div class="row">
-                            <label class="col-sm-2 label-on-left"></label>
-                            <div class="col-sm-10">
-                                <div class="form-group label-floating is-empty">
-                                    <button type="submit" class="btn btn-fill btn-rose">Edit</button>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-2 label-on-left"></label>
+                                <div class="col-sm-10">
+                                    <div class="form-group label-floating is-empty">
+                                        <button type="submit" class="btn btn-fill btn-rose">Edit</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

@@ -7,7 +7,7 @@ use App\Models\Berita;
 use App\Models\kategori;
 use Illuminate\Http\Request;
 
-class detailController extends Controller
+class DetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,9 +22,12 @@ class detailController extends Controller
     public function detail($id)
     {
         //
-        $data['berita'] = Berita::find($id);
+        $data['berita'] = Berita::with(['gambar'])->whereId($id)->firstOrFail();
+        // foreach ($berita->gambar as $gambar)
+        // {{ $gambar->filename }}
+        // endforeach
         $data['kategoris'] = getCategory();
-        // dd(1);
+        
         return view('frontsite.detail.index', $data);
     }
 
