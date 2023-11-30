@@ -5,6 +5,7 @@ use App\Http\Controllers\Backsite\DashboardController;
 use App\Http\Controllers\Backsite\BeritaController;
 use App\Http\Controllers\Backsite\KategoriController;
 use App\Http\Controllers\Backsite\LoginController;
+use App\Http\Controllers\Backsite\UserController;
 
 // frontside
 use App\Http\Controllers\Frontsite\detailController;
@@ -34,6 +35,7 @@ Route::group(['as' => 'backsite.'], function() {
     Route::resource('/backsite/role', RoleController::class)->middleware('auth');
     Route::resource('/backsite/berita', BeritaController::class)->middleware('auth');
     Route::resource('/backsite/kategori', KategoriController::class)->middleware('auth');
+    Route::resource('/backsite/user', UserController::class)->middleware('auth');
     // Route::resource('/backsite/login', LoginController::class);
     // Route::resource('/backsite/berita', GambarController::class);
 });
@@ -56,6 +58,10 @@ Route::get('/backsite/logout', [
         Route::get('/detail', [
             'uses' =>  'App\Http\Controllers\Frontsite\detailController@index',
             'as' => 'detail']);
+
+    // return view user
+
+
 
 // Route::get('/backsite/role/index', [
     //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
