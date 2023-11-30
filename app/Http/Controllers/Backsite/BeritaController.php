@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Berita;
 use App\Models\Gambar;
 use App\Models\Category;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class BeritaController extends Controller
 {
@@ -48,6 +50,7 @@ class BeritaController extends Controller
         $b->judul = $request->judul;
         $b->description = $request->description;
         $b->id_kategori = $request->id_kategori;
+        $b->id_user = Auth::user()->id;
         $b->save();
 
         Gambar::whereIn('id', $gambar)->update([
@@ -69,6 +72,11 @@ class BeritaController extends Controller
         session()->push('id_gambar', $imageUpload->id);
 
         return response()->json(['succes' => $imageName]);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     /**
