@@ -83,23 +83,49 @@
                     <div class="info">
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                             Raja Iblis
+                            <b class="caret"></b>    
                         </a>
+                        <div class="collapse" id="collapseExample">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#">My Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#">Edit Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <ul class="nav">
-                    <li class="">
+                    <li class="@yield('activeDashboard')">
+                        <a href="/backsite/dashboard">
+                            <i class="material-icons">dashboard</i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="@yield('activeBerita')">
                         <a href="{{ route('backsite.berita.index') }}">
                             <i class="material-icons">feed</i>
                             <p>Berita</p>
                         </a>
                     </li>
-                    <li class="">
+                    <li class="@yield('activeRole')">
                         <a href="{{ route('backsite.role.index') }}">
                             <i class="material-icons">group</i>
                             <p>Role</p>
                         </a>
                     </li>
-                    <li class="">
+                    {{-- <form action="{{ route('backsite.logout') }}" method="POST">
+                        @csrf
+                        <button type="submit">
+                            Logout<i class="material-icons">logout</i>
+                        </button>
+                    </form> --}}
+                    <li class="@yield('activeCategory')">
                         <a href="{{ route('backsite.kategori.index') }}">
                             <i class="material-icons">category</i>
                             <p>Kategori</p>
@@ -109,6 +135,12 @@
                         <a data-toggle="collapse" href="#pagesExamples">
                             <i class="material-icons">person</i>
                             <p>User</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('backsite.logout') }}">
+                            <i class="material-icons">logout</i>
+                            <p>Logout</p>
                         </a>
                     </li>
                 </ul>
@@ -136,14 +168,14 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="material-icons">Kategory</i>
+                                    <i class="material-icons">kategory</i>
                                     <p class="hidden-lg hidden-md">Kategory</p>
                                 </a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="material-icons">notifications</i>
-                                    <span class="notification">5</span>
+                                    <span class="notification">99+</span>
                                     <p class="hidden-lg hidden-md">
                                         Notifications
                                         <b class="caret"></b>
@@ -151,19 +183,19 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="#">Mike John responded to your email</a>
+                                        <a href="#">Ini EasterEgg yang kamu temukan</a>
                                     </li>
                                     <li>
-                                        <a href="#">You have 5 new tasks</a>
+                                        <a href="#">Kalau kamu menemukan ini</a>
                                     </li>
                                     <li>
-                                        <a href="#">You're now friend with Andrew</a>
+                                        <a href="#">Kamu boleh redeem hadiah di Dzaky</a>
                                     </li>
                                     <li>
-                                        <a href="#">Another Notification</a>
+                                        <a href="#">Berupa HP bernilai 5juta</a>
                                     </li>
                                     <li>
-                                        <a href="#">Another One</a>
+                                        <a href="#">HOHOHOHOHOHOOOH</a>
                                     </li>
                                 </ul>
                             </li>

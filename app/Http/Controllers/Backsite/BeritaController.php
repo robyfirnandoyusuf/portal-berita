@@ -41,6 +41,7 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+        
         Berita::create($request->all());
         $idBerita = session(['id_berita' => $request->id]);
         session()->put('id_gambar', 'id_berita');

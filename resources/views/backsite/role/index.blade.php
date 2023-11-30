@@ -1,4 +1,5 @@
 @extends('backsite-layouts.layout')
+@section('activeRole', 'active')
 
 @section('content')
 <div class="content">
