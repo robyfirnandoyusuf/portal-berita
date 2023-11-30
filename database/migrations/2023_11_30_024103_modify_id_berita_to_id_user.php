@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::table('berita', function (Blueprint $table) {
             //
-            $table->dropColumn('kategori');
-
+            $table->renameColumn('id_berita', 'id_user');
         });
     }
 

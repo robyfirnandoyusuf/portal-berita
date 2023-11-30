@@ -3,24 +3,32 @@
 namespace App\Http\Controllers\Frontsite;
 
 use App\Http\Controllers\Controller;
+use App\Models\Berita;
+use App\Models\kategori;
 use Illuminate\Http\Request;
 
-class detailController extends Controller
+class DetailController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        return view('frontsite.detail.index');
+        $data['berita'] = Berita::find($id);
+        $data['kategoris'] = getCategory();
+        return view('fronsite.detail.index', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function detail($id)
     {
         //
+        $data['berita'] = Berita::with(['gambar'])->whereId($id)->firstOrFail();
+        // foreach ($berita->gambar as $gambar)
+        // {{ $gambar->filename }}
+        // endforeach
+        $data['kategoris'] = getCategory();
+        
+        return view('frontsite.detail.index', $data);
     }
 
     /**
