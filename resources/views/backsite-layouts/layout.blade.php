@@ -106,7 +106,7 @@
                         </a>
                     </li>
                     <li>
-                        <a data-toggle="collapse" href="#pagesExamples">
+                        <a href="{{ route('backsite.user.index') }}">
                             <i class="material-icons">person</i>
                             <p>User</p>
                         </a>

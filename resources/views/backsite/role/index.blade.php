@@ -30,15 +30,15 @@
                                 </tfoot>
                                 <tbody>
 
-                                    @if($role->count() > 0)
+                                   @if($role->count() >  0)
                                         @foreach ($role as $roles)
                                             <tr>
                                                 <td>{{ $roles->nama_role}}</td>
                                                 <td class="text-right">
-                                                    <a href="{{ route('backsite.role.edit', $roles->id) }}"         
+                                                    <a href="{{ route('backsite.role.edit', $roles->id) }}"
                                                         action="POST" class="btn btn-danger btn-icon ml-5 edit"><i class="material-icons">edit</i>
                                                     </a>
-                                                    
+
                                                     <form action="{{ route('backsite.role.destroy', $roles->id) }}" method="POST" onsubmit=" return confirm('Yakin delete?')" type="button" class="btn btn-simple btn-danger btn-icon remove">
                                                         @csrf
                                                         @method('DELETE')
