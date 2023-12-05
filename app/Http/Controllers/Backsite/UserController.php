@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backsite;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 
@@ -12,10 +13,11 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(){
+    public function index()
+    {
 
         // 1. eloquent
-        $user = User::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table user
+        $user = User::orderBy('created_at', 'DESC')->get(); // ini buat ambil data dari table user
         // 2. db builder
         /*
             select * from role order by created_at desc;
@@ -69,7 +71,7 @@ class UserController extends Controller
         User::create($request->all());
 
 
-        return redirect()->route('backsite.user.index')->with('succes','user added succesfully');
+        return redirect()->route('backsite.user.index')->with('succes', 'user added succesfully');
     }
 
     /**
@@ -83,7 +85,6 @@ class UserController extends Controller
     public function show(string $id)
     {
         //
-
     }
 
     /**
@@ -111,7 +112,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $user->update($request->all());
-        return redirect()->route('backsite.user.index')->with('succes','user updated succesfully');
+        return redirect()->route('backsite.user.index')->with('succes', 'user updated succesfully');
     }
 
     /**
@@ -122,8 +123,8 @@ class UserController extends Controller
         //
         $user = User::findOrFail($id);
 
-      $user->delete();
-      return redirect()->route('backsite.user.index')->with('succes','user delete succesfully');
+        $user->delete();
+        return redirect()->route('backsite.user.index')->with('succes', 'user delete succesfully');
 
     }
 }

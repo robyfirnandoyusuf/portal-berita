@@ -35,7 +35,7 @@
                                         @if ($kategori->count() > 0)
                                             @foreach ($kategori as $kategoris)
                                                 <tr>
-                                                    <td>{{ $kategoris->nama_kategori }}</td>
+                                                    <td>{{ $kategoris->kategori }}</td>
                                                     <td class="text-right">
                                                         <a href="{{ route('backsite.kategori.edit', $kategoris->id) }}"
                                                             action="POST" class="btn btn-danger btn-icon ml-5 edit"><i

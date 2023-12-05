@@ -28,7 +28,7 @@
                                     <div class="col-sm-10">
                                         <div class="form-group label-floating is-empty">
                                             <label class="control-label"></label>
-                                            <input type="text" class="form-control" name="nama_kategori" value
+                                            <input type="text" class="form-control" name="kategori" value
                                                 placeholder="Pilih Kategori">
                                             <span class="help-block">Pilih Kategori.</span>
                                         </div>

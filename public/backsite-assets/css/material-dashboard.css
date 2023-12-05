@@ -549,6 +549,10 @@ body.swal2-iosfix {
   transition: border-color box-shadow .3s;
 }
 
+.profile-head {
+    transform: translateY(5rem)
+}
+
 .swal2-modal .swal2-input.swal2-inputerror,
 .swal2-modal .swal2-file.swal2-inputerror,
 .swal2-modal .swal2-textarea.swal2-inputerror {

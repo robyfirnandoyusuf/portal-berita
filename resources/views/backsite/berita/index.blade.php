@@ -39,7 +39,7 @@
                                             <tr>
                                                 <td>{{ $berita->judul }}</td>
                                                 <td>{{ $berita->description }}</td>
-                                                <td>{{ $berita->kategori }}</td>
+                                                <td>{{ $berita->category->kategori }}</td>
                                                 <td class="text-right">
                                                     <a href="{{ route('backsite.berita.edit', $berita->id) }}"
                                                         action="POST" class="btn btn-danger btn-icon ml-5 edit"><i
@@ -72,7 +72,6 @@
             <!-- end col-md-12 -->
         </div>
         <!-- end row -->
-    </div>
     </div>
 
 @endsection('content')

@@ -44,10 +44,10 @@
                                     <label class="col-sm-2 label-on-left">Kategori</label>
                                     <div class="col-md-6 col-sm-10 checkbox-radio">
                                         <select class="selectpicker" data-style="btn btn-rose btn-round"
-                                            title="Single Select" data-size="7" name="kategori">
+                                            title="Single Select" data-size="7" name="id_kategori">
                                             <option disabled selected>Pilih Katergori</option>
                                             @foreach ($kategoris as $kategori)
-                                                <option>{{ $kategori->kategori }}</option>
+                                                <option value="{{$kategori->id}}">{{ $kategori->kategori }}</option>
                                             @endforeach
                                         </select>
                                     </div>

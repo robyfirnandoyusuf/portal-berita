@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="/backsite-assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="/backsite-assets/img/favicon.png"/>
+    <link rel="icon" type="image/png" href="/backsite-assets/img/favicon.png" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -15,17 +15,21 @@
     <!-- Canonical SEO -->
     <link rel="canonical" href="https://www.creative-tim.com/product/material-dashboard-pro" />
     <!--  Social tags      -->
-    <meta name="keywords" content="material dashboard, bootstrap material admin, bootstrap material dashboard, material design admin, material design, creative tim, html dashboard, html css dashboard, web dashboard, freebie, free bootstrap dashboard, css3 dashboard, bootstrap admin, bootstrap dashboard, frontend, responsive bootstrap dashboard, premiu material design admin">
-    <meta name="description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta name="keywords"
+        content="material dashboard, bootstrap material admin, bootstrap material dashboard, material design admin, material design, creative tim, html dashboard, html css dashboard, web dashboard, freebie, free bootstrap dashboard, css3 dashboard, bootstrap admin, bootstrap dashboard, frontend, responsive bootstrap dashboard, premiu material design admin">
+    <meta name="description"
+        content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
-    <meta itemprop="description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta itemprop="description"
+        content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
     <meta itemprop="image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@creativetim">
     <meta name="twitter:title" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
-    <meta name="twitter:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta name="twitter:description"
+        content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
     <meta name="twitter:creator" content="@creativetim">
     <meta name="twitter:image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
     <!-- Open Graph data -->
@@ -33,8 +37,10 @@
     <meta property="og:title" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://www.creative-tim.com/product/material-dashboard-pro" />
-    <meta property="og:image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
-    <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
+    <meta property="og:image"
+        content="../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
+    <meta property="og:description"
+        content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
     <meta property="og:site_name" content="Creative Tim" />
     <meta name="_token" content="{{ csrf_token() }}">
     <!-- Bootstrap core CSS     -->
@@ -47,23 +53,27 @@
     <link href="/backsite-assets/css/demo.css" rel="stylesheet" />
     <!--     Fonts and icons     -->
     <link href="../../../maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     {{--  DropZone  --}}
     <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.min.css" rel="stylesheet"
+        type="text/css" />
 
 
 
     <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.0/dropzone.js"></script>
 </head>
 
 <body>
 
     <!-- ini kyknya headernya -->
     <div class="wrapper">
-        <div class="sidebar" data-active-color="rose" data-background-color="black" data-image="/backsite-assets/img/sidebar-1.jpg">
+        <div class="sidebar" data-active-color="rose" data-background-color="black"
+            data-image="/backsite-assets/img/sidebar-1.jpg">
 
             <div class="logo">
                 <a href="http://www.creative-tim.com/" class="simple-text">
@@ -78,20 +88,22 @@
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="photo">
-                        <img src="/backsite-assets/img/faces/avatar.jpg" />
+                        <img src="/Profile-img/{{ Auth::user()->imageProfile }}" />
                     </div>
                     <div class="info">
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed">
-                            Raja Iblis
-                            <b class="caret"></b>    
+                            @auth
+                                {{ Auth::user()->name }}
+                            @endauth
+                            <b class="caret"></b>
                         </a>
                         <div class="collapse" id="collapseExample">
                             <ul class="nav">
                                 <li>
-                                    <a href="#">My Profile</a>
+                                    <a href="">My Profile</a>
                                 </li>
                                 <li>
-                                    <a href="#">Edit Profile</a>
+                                    <a href="{{route('backsite.profile.index')}}">Edit Profile</a>
                                 </li>
                                 <li>
                                     <a href="#">Settings</a>
@@ -131,7 +143,7 @@
                             <p>Kategori</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="@yield('activeUser')">
                         <a href="{{ route('backsite.user.index') }}">
                             <i class="material-icons">person</i>
                             <p>User</p>
@@ -168,14 +180,14 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="material-icons">kategory</i>
+                                    <i class="material-icons">Kategory</i>
                                     <p class="hidden-lg hidden-md">Kategory</p>
                                 </a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="material-icons">notifications</i>
-                                    <span class="notification">99+</span>
+                                    <span class="notification">5</span>
                                     <p class="hidden-lg hidden-md">
                                         Notifications
                                         <b class="caret"></b>
@@ -183,19 +195,19 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="#">Ini EasterEgg yang kamu temukan</a>
+                                        <a href="#">Mike John responded to your email</a>
                                     </li>
                                     <li>
-                                        <a href="#">Kalau kamu menemukan ini</a>
+                                        <a href="#">You have 5 new tasks</a>
                                     </li>
                                     <li>
-                                        <a href="#">Kamu boleh redeem hadiah di Dzaky</a>
+                                        <a href="#">You're now friend with Andrew</a>
                                     </li>
                                     <li>
-                                        <a href="#">Berupa HP bernilai 5juta</a>
+                                        <a href="#">Another Notification</a>
                                     </li>
                                     <li>
-                                        <a href="#">HOHOHOHOHOHOOOH</a>
+                                        <a href="#">Another One</a>
                                     </li>
                                 </ul>
                             </li>
@@ -221,7 +233,7 @@
                 </div>
             </nav>
 
-        @yield('content')
+            @yield('content')
 
             <!-- ini kyknya footernya -->
             <footer class="footer">
@@ -336,16 +348,20 @@
                 </li>
                 <li class="button-container">
                     <div class="">
-                        <a href="http://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-rose btn-block">Buy Now</a>
+                        <a href="http://www.creative-tim.com/product/material-dashboard-pro" target="_blank"
+                            class="btn btn-rose btn-block">Buy Now</a>
                     </div>
                     <div class="">
-                        <a href="http://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-info btn-block">Get Free Demo</a>
+                        <a href="http://www.creative-tim.com/product/material-dashboard" target="_blank"
+                            class="btn btn-info btn-block">Get Free Demo</a>
                     </div>
                 </li>
                 <li class="header-title">Thank you for 95 shares!</li>
                 <li class="button-container">
-                    <button id="twitter" class="btn btn-social btn-twitter btn-round"><i class="fa fa-twitter"></i> &middot; 45</button>
-                    <button id="facebook" class="btn btn-social btn-facebook btn-round"><i class="fa fa-facebook-square"> &middot;</i>50</button>
+                    <button id="twitter" class="btn btn-social btn-twitter btn-round"><i class="fa fa-twitter"></i>
+                        &middot; 45</button>
+                    <button id="facebook" class="btn btn-social btn-facebook btn-round"><i
+                            class="fa fa-facebook-square"> &middot;</i>50</button>
                 </li>
             </ul>
         </div>

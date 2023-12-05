@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('gambar', function (Blueprint $table) {
             $table->id();
             $table->string('filename');
-            $table->bigInteger('id_berita');
+            $table->unsignedBigInteger('id_berita');
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 {{-- Mengekstends tampilan dari halaman layout yang ada di folder backsite-layouts --}}
 @extends('backsite-layouts.layout')
 @section('title', 'halaman User')
+@section('activeUser', 'active')
 
 @section('content')
     <div class="content">

@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
       $arr = [
             [
                 'username'    => 'Jov',
+                'imageProfile' => '',
                 'name'    => 'Jovfrin',
                 'email'    => 'Jovfrin@gmail.com',
                 'password'    => bcrypt('12340'),
@@ -24,6 +25,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'username'    => 'Bia',
+                'imageProfile' => '',
                 'name'    => 'Abia',
                 'email'    => 'Abia@gmail.com',
                 'password'    => bcrypt('56780'),
@@ -32,6 +34,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'username'    => 'Ky',
+                'imageProfile' => '',
                 'name'    => 'Dzaky',
                 'email'    => 'Dzaky@gmail.com',
                 'password'    => bcrypt('90000'),
@@ -41,7 +44,7 @@ class UserSeeder extends Seeder
         ];
 
         User::insert($arr);
-      
+
         //
     }
 }

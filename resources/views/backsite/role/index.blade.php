@@ -73,4 +73,4 @@
             <!-- end row -->
         </div>
     </div>
-@endsection
+@endsection('content')
