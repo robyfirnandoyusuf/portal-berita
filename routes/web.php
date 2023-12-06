@@ -32,9 +32,9 @@ Route::get('/', [
 ]);
 
 Route::group(['as' => 'backsite.'], function() {
-    Route::resource('/backsite/dashboard', DashboardController::class)->middleware(['auth']);
+    Route::resource('/backsite/dashboard', DashboardController::class)->middleware(['auth','cekRole:2']);
     Route::resource('/backsite/role', RoleController::class)->middleware(['auth','cekRole:2']);
-    Route::resource('/backsite/berita', BeritaController::class);
+    Route::resource('/backsite/berita', BeritaController::class)->middleware(['auth','cekRole:1,2']);
     Route::resource('/backsite/kategori', KategoriController::class)->middleware(['auth','cekRole:2']);
     Route::controller(GoogleController::class)->group(function(){
     Route::get('/auth/google','redirectToGoogle')->name('auth.google');
