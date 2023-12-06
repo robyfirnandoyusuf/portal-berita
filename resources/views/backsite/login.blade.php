@@ -33,7 +33,7 @@
                         <input type="password" name="password" placeholder="Password" id="email" autofocus required>
                         <a class="forgot text-muted" href="#">Forgot password?</a>
                         <input type="submit" name="login" value="Masuk">
-                        <a class="forgot text-muted" href="{{ route('backsite.register') }}">Don't have account yet?</a>
+                        <a class="forgot text-muted" href="{{ route('backsite.register.index') }}">Don't have account yet?</a>
                     </form>
                 </div>
             </div>
