@@ -64,9 +64,8 @@ Route::get('/detail/{id}', [
     'as' => 'detail'
 ]);
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
@@ -218,3 +217,7 @@ Route::group(['as' => 'backsite.'], function() {
 // ]);
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

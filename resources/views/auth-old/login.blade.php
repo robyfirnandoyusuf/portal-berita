@@ -32,7 +32,9 @@
                         @enderror
                         <input type="password" name="password" placeholder="Password" id="email" autofocus required>
                         <a class="forgot text-muted" href="#">Forgot password?</a>
-                        <input type="submit">
+                        <button type="submit" class="bg-primary">
+                            <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Login
+                        </button>
                         <div class="col-md-12">
                             <ul class="social-network social-circle">
                                 <li><a href="#" class="icoFacebook" title="Facebook"><i

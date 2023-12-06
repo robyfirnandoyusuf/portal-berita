@@ -129,10 +129,14 @@
                     </li>
                     @endif
                     <li>
-                        <a href="{{ route('logout') }}">
+                        <a onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="cursor:pointer;">
                             <i class="material-icons">group</i>
                             <p>Logout</p>
                         </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </div>
