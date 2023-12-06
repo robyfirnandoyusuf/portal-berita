@@ -38,6 +38,7 @@ Route::group(['as' => 'backsite.'], function () {
     Route::resource('/backsite/berita', BeritaController::class)->middleware('auth');
     Route::resource('/backsite/kategori', KategoriController::class)->middleware('auth');
     Route::resource('/backsite/user', UserController::class)->middleware('auth');
+    
     Route::post('/backsite/profile/update', [
         'uses' => 'App\Http\Controllers\Backsite\ProfileController@update',
         'as' => 'profile.update'
@@ -50,11 +51,12 @@ Route::group(['as' => 'backsite.'], function () {
     // Route::resource('/backsite/berita', GambarController::class);
 });
 Route::get('/backsite/login', [LoginController::class, 'index'])->name('backsite.login')->middleware('guest');
-Route::get('/backsite/register', [LoginController::class, 'index'])->name('backsite.login');
+Route::get('/backsite/register', [RegisterController::class, 'index'])->name('backsite.register.index');
+Route::post('/backsite/register', [RegisterController::class, 'store'])->name('backsite.register.index');
 // Route::post('/backsite/login', [LoginController::class, 'authenticate']);
 // Route::post('/backsite/logout', [LoginController::class, 'logout']);
 
-Route::post('/backsite/login', [
+Route::post('//backsite/login', [
     'uses' => 'App\Http\Controllers\Backsite\LoginController@authenticate',
     'as' => 'backsite.login.authenticate'
 ]);
