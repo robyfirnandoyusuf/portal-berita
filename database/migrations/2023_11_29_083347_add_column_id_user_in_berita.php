@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('berita', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_berita');
+            $table->unsignedBigInteger('id_user')->nullable(); //lgi2 jovfrin ngantuk ini
             //
         });
     }
@@ -24,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('berita', function (Blueprint $table) {
             //
+            $table->dropColumn('id_user');
         });
     }
 };

@@ -61,7 +61,7 @@ class BeritaController extends Controller
     {
         $gambar = $request->file('file');
         $imageName = $gambar->getClientOriginalName();
-        $gambar->move(public_path('backsite-assets.img'), $imageName);
+        $gambar->move(public_path('backsite-assets.img'), $imageName); // awkoakwo jovfrin ngantuk apa gmana dah nama fodlernya np dikasih dot
 
         $imageUpload = new Gambar();
         $imageUpload->filename = $imageName;

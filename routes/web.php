@@ -11,6 +11,8 @@ use App\Http\Controllers\Frontsite\detailController;
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
 
 
 /*
@@ -29,7 +31,7 @@ Route::get('/', [
     'as' => 'home'
 ]);
 
-Route::group(['as' => 'backsite.'], function() {
+Route::group(['as' => 'backsite.'], function () {
     Route::resource('/backsite/dashboard', DashboardController::class)->middleware('auth');
     Route::resource('/backsite/role', RoleController::class)->middleware('auth');
     Route::resource('/backsite/berita', BeritaController::class)->middleware('auth');
@@ -43,13 +45,16 @@ Route::get('/backsite/login', [LoginController::class, 'index'])->name('backsite
 
 Route::post('/backsite/login', [
     'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
-    'as' => 'backsite.login.authenticate']);
+    'as' => 'backsite.login.authenticate'
+]);
 Route::get('/backsite/logout', [
     'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
-    'as' => 'backsite.logout']);
+    'as' => 'backsite.logout'
+]);
 Route::post('/backsite/berita/upload', [
     'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
-    'as' => 'backsite.berita.upload'])->middleware('auth');
+    'as' => 'backsite.berita.upload'
+])->middleware('auth');
 
 // detail berita
 Route::get('/detail/{id}', [
@@ -57,6 +62,17 @@ Route::get('/detail/{id}', [
     'as' => 'detail'
 ]);
 
+// kategori
+Route::get('/kategori/{id_kategori}', [
+    'uses' =>  'App\Http\Controllers\Frontsite\KategoriController@index',
+    'as' => 'kategori'
+]);
+
+
+// Route::post('/kategori/{id_kategori}', [
+//     'uses' =>  'App\Http\Controllers\Frontsite\KategoriController@index',
+//     'as' => 'kategori'
+// ]);
 // Route::get('/backsite/role/index', [
     //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
     //     'as' => 'index'

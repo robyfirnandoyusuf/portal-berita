@@ -20,4 +20,8 @@ class Berita extends Model
         // 1 berita dimiliki 1 gambar
         // return $this->belongsTo(Gambar::class, 'id', 'id_berita');
     }
+
+    public function singleGambar(){
+        return $this->hasOne(Gambar::class, 'id_berita', 'id');
+    }
 }

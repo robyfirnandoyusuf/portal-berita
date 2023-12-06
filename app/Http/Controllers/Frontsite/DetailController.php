@@ -27,7 +27,8 @@ class DetailController extends Controller
         // {{ $gambar->filename }}
         // endforeach
         $data['kategoris'] = getCategory();
-        
+        $data['hitungKategori'] = countCat();
+
         return view('frontsite.detail.index', $data);
     }
 

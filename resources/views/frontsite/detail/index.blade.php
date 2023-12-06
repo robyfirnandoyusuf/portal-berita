@@ -11,15 +11,17 @@
 
                     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="/assets/img/blog/single_blog_1.png" class="d-block w-100" alt="">
+                            @foreach ($berita->gambar as $hihi)
+                            <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
+                                <img src="/backsite-assets.img/{{ $hihi->filename }}">
                             </div>
-                            <div class="carousel-item">
+                            @endforeach
+                            <!-- <div class="carousel-item">
                                 <img src="/assets/img/blog/single_blog_2.png" class="d-block w-100" alt="">
                             </div>
                             <div class="carousel-item">
                                 <img src="/assets/img/blog/single_blog_3.png" class="d-block w-100" alt="">
-                            </div>
+                            </div> -->
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -148,24 +150,26 @@
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Category</h4>
                         <ul class="list cat-list">
+                            @foreach ($hitungKategori as $hoho)
                             <li>
                                 <a href="#" class="d-flex">
-                                    <p>Entertaiment</p>
-                                    <p>(37)</p>
+                                    <p>{{ $hoho['category'] }}</p>
+                                    <p>{{ $hoho['jumlah'] }}</p>
                                 </a>
                             </li>
-                            <li>
+                            @endforeach
+                            <!-- <li>
                                 <a href="#" class="d-flex">
-                                    <p>Politik</p>
+                                    <p>Politik </p>
                                     <p>(911)</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="d-flex">
-                                    <p>Kartun</p>
+                                    <p>Kartun </p>
                                     <p>(11)</p>
                                 </a>
-                            </li>
+                            </li> -->
 
                         </ul>
                     </aside>
@@ -287,4 +291,4 @@
     </div>
 </section>
 <!--================ Blog Area end =================-->
-@endsection('content')
+@endsection
