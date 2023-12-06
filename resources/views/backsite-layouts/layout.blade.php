@@ -87,18 +87,22 @@
                     </div>
                 </div>
                 <ul class="nav">
+                    @if (auth()->user()->id_role==2)
                     <li class="@yield('activeDashboard')">
                         <a href="/backsite/dashboard">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
+                    @endif
+                    
                     <li class="@yield('activeBerita')">
                         <a href="{{ route('backsite.berita.index') }}">
                             <i class="material-icons">feed</i>
                             <p>Berita</p>
                         </a>
                     </li>
+                    @if (auth()->user()->id_role==2)
                     <li class="@yield('activeRole')">
                         <a href="{{ route('backsite.role.index') }}">
                             <i class="material-icons">group</i>
@@ -123,8 +127,9 @@
                             <p>User</p>
                         </a>
                     </li>
+                    @endif
                     <li>
-                        <a href="{{ route('backsite.logout') }}">
+                        <a href="{{ route('logout') }}">
                             <i class="material-icons">group</i>
                             <p>Logout</p>
                         </a>

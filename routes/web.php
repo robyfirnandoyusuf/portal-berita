@@ -4,7 +4,9 @@ use App\Http\Controllers\Backsite\RoleController;
 use App\Http\Controllers\Backsite\DashboardController;
 use App\Http\Controllers\Backsite\BeritaController;
 use App\Http\Controllers\Backsite\KategoriController;
-use App\Http\Controllers\Backsite\LoginController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Backsite\GoogleController;
+use Illuminate\Support\Facades\Auth;
 
 // frontside
 use App\Http\Controllers\Frontsite\detailController;
@@ -30,23 +32,28 @@ Route::get('/', [
 ]);
 
 Route::group(['as' => 'backsite.'], function() {
-    Route::resource('/backsite/dashboard', DashboardController::class)->middleware('auth');
-    Route::resource('/backsite/role', RoleController::class)->middleware('auth');
-    Route::resource('/backsite/berita', BeritaController::class)->middleware('auth');
-    Route::resource('/backsite/kategori', KategoriController::class)->middleware('auth');
+    Route::resource('/backsite/dashboard', DashboardController::class)->middleware(['auth']);
+    Route::resource('/backsite/role', RoleController::class)->middleware(['auth','cekRole:2']);
+    Route::resource('/backsite/berita', BeritaController::class);
+    Route::resource('/backsite/kategori', KategoriController::class)->middleware(['auth','cekRole:2']);
+    Route::controller(GoogleController::class)->group(function(){
+    Route::get('/auth/google','redirectToGoogle')->name('auth.google');
+    Route::get('/auth/google/callback','handleGoogleCallback');
+    // Route::resorce('/backsite/login', LoginController::class)->middleware('guest');
+});
     // Route::resource('/backsite/login', LoginController::class);
     // Route::resource('/backsite/berita', GambarController::class);
 });
-Route::get('/backsite/login', [LoginController::class, 'index'])->name('backsite.login')->middleware('guest');
-// Route::post('/backsite/login', [LoginController::class, 'authenticate']);
-// Route::post('/backsite/logout', [LoginController::class, 'logout']);
+// Route::get('/backsite/login', [LoginController::class, 'index'])->name('backsite.login')->middleware('guest');
+// // Route::post('/backsite/login', [LoginController::class, 'authenticate']);
+// // Route::post('/backsite/logout', [LoginController::class, 'logout']);
 
-Route::post('/backsite/login', [
-    'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
-    'as' => 'backsite.login.authenticate']);
-Route::get('/backsite/logout', [
-    'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
-    'as' => 'backsite.logout']);
+// Route::post('/backsite/login', [
+//     'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
+//     'as' => 'login']);
+// Route::get('/backsite/logout', [
+//     'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
+//     'as' => 'backsite.logout']);
 Route::post('/backsite/berita/upload', [
     'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
     'as' => 'backsite.berita.upload'])->middleware('auth');
@@ -56,6 +63,59 @@ Route::get('/detail/{id}', [
     'uses' =>  'App\Http\Controllers\Frontsite\DetailController@detail',
     'as' => 'detail'
 ]);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Route::get('/backsite/role/index', [
     //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
@@ -156,3 +216,5 @@ Route::group(['as' => 'backsite.'], function() {
 //     'uses' =>  'App\Http\Controllers\Backsite\KategoriController@edit',
 //     'as' => 'backsite.kategori.edit'
 // ]);
+
+
