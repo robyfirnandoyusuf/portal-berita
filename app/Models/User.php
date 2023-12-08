@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\VerifiesEmails;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
+    // use RegistersUsers, VerifiesEmails;
 
     /**
      * The attributes that are mass assignable.
@@ -22,10 +25,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'imageProfile',
         'name',
         'email',
+        'email_verified_at',
         'password',
-        'username',
         'timestamp',
-
+        'google_id',
+        'id_role',
     ];
 
     /**
