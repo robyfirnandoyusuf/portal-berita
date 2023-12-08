@@ -42,23 +42,33 @@
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-2 label-on-left">Kategori</label>
-                                    <div class="col-sm-10 checkbox-radios">
-                                        <select class="form-control js-example-tokenizer" multiple="multiple"
-                                            name="id_kategori">
+                                    <div class="col-md-6 col-sm-10 checkbox-radio">
+                                        <select class="selectpicker" data-style="btn btn-rose btn-round"
+                                            title="Single Select" data-size="7" name="id_kategori">
+                                            <option disabled selected>Pilih Katergori</option>
                                             @foreach ($kategoris as $kategori)
-                                                <option value="{{ $kategori->id }}">{{ $kategori->kategori }}</option>
+                                                <option value="{{$kategori->id}}">{{ $kategori->kategori }}</option>
                                             @endforeach
-
                                         </select>
                                     </div>
-                                    <div class="row">
-                                        <label class="col-sm-2 label-on-left"></label>
-                                        <div class="col-sm-10">
-                                            <div class="form-group label-floating is-empty">
-                                                <button type="submit" class="btn btn-fill btn-rose">Kirim</button>
-                                            </div>
+                                </div>
+
+                                {{-- <div class="col-sm-10 checkbox-radios">
+                                        <select class="form-control js-example-tokenizer" multiple="multiple"
+                                            name="kategori">
+                                            @foreach ($kategoris as $kategori)
+                                                <option>{{ $kategori->kategori }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div> --}}
+                                <div class="row">
+                                    <label class="col-sm-2 label-on-left"></label>
+                                    <div class="col-sm-10">
+                                        <div class="form-group label-floating is-empty">
+                                            <button type="submit" class="btn btn-fill btn-rose">Kirim</button>
                                         </div>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -73,7 +83,19 @@
 
     <script>
         $(document).ready(function() {
-            $('#summernote').summernote();
+            $('#summernote').summernote({
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['codeview']],
+                ],
+                dialogsInBody: true
+            });
         });
     </script>
     <script>

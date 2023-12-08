@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('berita', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_kategori')->nullable();
+            $table->unsignedBigInteger('id_kategori')->nullable();
+            $table->unsignedBigInteger('id_user')->nullable();
             $table->string('judul');
             $table->text('description');
-            $table->enum('kategori', ['entertaiment','politik','pendidikan']);
             $table->timestamps();
             // $table->string('sumber');
         });

@@ -1,33 +1,35 @@
 <?php
 
-namespace App\Http\Controllers\Backsite;
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers\backsite;
+
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 
-class KategoriController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-
 
         // 1. eloquent
-        $kategori = Category::orderBy('created_at', 'DESC')->get();// ini buat ambil data dari table role
+        $user = User::orderBy('created_at', 'DESC')->get(); // ini buat ambil data dari table user
         // 2. db builder
         /*
             select * from role order by created_at desc;
         */
-        $data['kategori'] = $kategori;
+        $data['user'] = $user;
 
-        return view('backsite.kategori.index', $data);
-
-
+        return view('backsite.user.index', $data);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     */
 
     /**
      * Show the form for creating a new resource.
@@ -35,9 +37,7 @@ class KategoriController extends Controller
     public function create()
     {
         //
-
-
-        return view('backsite.kategori.create');
+        return view('backsite.user.create');
 
     }
 
@@ -47,7 +47,6 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         //
-
         // style synax 1
         /* $r = new Role;
         $r->nama = $request->nama;
@@ -58,19 +57,27 @@ class KategoriController extends Controller
 
         // $arr = [
         //     // 'nama' => $request->nama,
-        //     'kategori' =>  $request->kategori
+        //     'name' =>  $request->name,
+        //     'email' =>  $request->email,
+        //     'username' => $request->username
+        //     'timestamp' =>$
+
         // ];
-
-        Category::create($request->all());
-
+        // User::insert($arr);
 
         // stye syntax 3
         // dd($request->all());
         // Role::create($request->all());
+        User::create($request->all());
 
-        return redirect()->route('backsite.kategori.index')->with('success','Kategori berhasil ditambahkan');
 
+        return redirect()->route('backsite.user.index')->with('succes', 'user added succesfully');
     }
+
+    /**
+     * Display the specified resource.
+     */
+
 
     /**
      * Display the specified resource.
@@ -86,15 +93,13 @@ class KategoriController extends Controller
     public function edit(string $id)
     {
         //
-
-
-        $kategori = Category::findOrFail($id);
-        $data['kategori'] = $kategori;
+        $user = User::findOrFail($id);
+        $data['user'] = $user;
         /*
             select * from role where id = 6
         */
 
-        return view('backsite.kategori.edit', $data);
+        return view('backsite.user.edit', $data);
 
     }
 
@@ -104,12 +109,10 @@ class KategoriController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $user = User::findOrFail($id);
 
-        $kategori = Category::findOrFail($id);
-    //    dd($request->all()\));
-        $kategori->update($request->all());
-        return redirect()->route('backsite.kategori.index')->with('success','Kategori updated succesfully');
-
+        $user->update($request->all());
+        return redirect()->route('backsite.user.index')->with('succes', 'user updated succesfully');
     }
 
     /**
@@ -118,11 +121,10 @@ class KategoriController extends Controller
     public function destroy(string $id)
     {
         //
+        $user = User::findOrFail($id);
 
-        $kategori = Category::findOrFail($id);
-
-        $kategori->delete();
-        return redirect()->route('backsite.kategori.index')->with('succes','Kategori delete succesfully');
+        $user->delete();
+        return redirect()->route('backsite.user.index')->with('succes', 'user delete succesfully');
 
     }
 }

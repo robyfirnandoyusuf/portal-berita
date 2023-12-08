@@ -19,11 +19,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
+        'imageProfile',
         'name',
         'email',
         'password',
         'google_id',
         'id_role',
+        'timestamp',
+
     ];
 
     /**

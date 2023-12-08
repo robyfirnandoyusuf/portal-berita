@@ -18,7 +18,7 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $berita = Berita::orderBy('created_at', 'DESC')->get();
+        $berita = Berita::with('category')->orderBy('created_at', 'DESC')->get();
         $data['beritas'] = $berita;
 
         return view('backsite.berita.index', $data);
@@ -53,9 +53,11 @@ class BeritaController extends Controller
         $b->id_user = Auth::user()->id;
         $b->save();
 
+        if(!empty($gambar)){
         Gambar::whereIn('id', $gambar)->update([
             'id_berita' => $b->id
         ]);
+    }
         return redirect()->route('backsite.berita.index')->with('success', 'Berita added successfully');
         //    // Images::insert($imageName);
         //     // Berita::create($request->all());
@@ -64,7 +66,7 @@ class BeritaController extends Controller
     {
         $gambar = $request->file('file');
         $imageName = $gambar->getClientOriginalName();
-        $gambar->move(public_path('backsite-assets.img'), $imageName);
+        $gambar->move(public_path('backsite-assets-img'), $imageName);
 
         $imageUpload = new Gambar();
         $imageUpload->filename = $imageName;

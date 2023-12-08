@@ -30,8 +30,8 @@
                                 <div class="col-sm-10">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" class="form-control" name="nama_kategori"
-                                            value="{{ $kategori->nama_kategori }}" placeholder="Pilih kategori">
+                                        <input type="text" class="form-control" name="kategori"
+                                            value="{{ $kategori->kategori }}" placeholder="Pilih kategori">
                                         <span class="help-block">Pilih Kategori</span>
                                     </div>
                                 </div>
