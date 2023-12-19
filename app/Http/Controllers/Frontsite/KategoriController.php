@@ -55,6 +55,7 @@ class KategoriController extends Controller
     {
         //
         $data['berita'] = Berita::with(['singleGambar'])->whereId($id)->firstOrFail();
+        dd($data);
         return view('frontsite.kategori.index', $data);
     }
 

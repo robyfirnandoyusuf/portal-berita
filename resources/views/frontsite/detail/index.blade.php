@@ -13,7 +13,7 @@
                         <div class="carousel-inner">
                             @foreach ($berita->gambar as $hihi)
                             <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
-                                <img src="/backsite-assets.img/{{ $hihi->filename }}">
+                                <img src="/backsite-assets-img/{{ $hihi->filename }}">
                             </div>
                             @endforeach
                             <!-- <div class="carousel-item">
