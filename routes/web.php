@@ -16,6 +16,8 @@ use App\Http\Controllers\Frontsite\detailController;
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
 
 
 /*
@@ -34,26 +36,7 @@ Route::get('/', [
     'as' => 'home'
 ]);
 
-Route::group(['as' => 'backsite.'], function () {
-    Route::resource('/backsite/dashboard', DashboardController::class)->middleware('auth');
-    Route::resource('/backsite/role', RoleController::class)->middleware('auth');
-    Route::resource('/backsite/berita', BeritaController::class)->middleware('auth');
-    Route::resource('/backsite/kategori', KategoriController::class)->middleware('auth');
-    Route::resource('/backsite/user', UserController::class)->middleware('auth');
 
-    Route::post('/backsite/profile/update', [
-        'uses' => 'App\Http\Controllers\Backsite\ProfileController@update',
-        'as' => 'profile.update'
-    ])->middleware('auth');
-    Route::get('/backsite/profile', [
-        'uses' => 'App\Http\Controllers\Backsite\ProfileController@index',
-        'as' => 'profile.index'
-    ])->middleware('auth');
-    // Route::resource('/backsite/login', LoginController::class);
-    // Route::resource('/backsite/berita', GambarController::class);
-});
-
-Auth::routes(['verify' => true]);
 
 // Route::get('/backsite/login', [LoginController::class, 'index'])->name('backsite.login')->middleware('guest');
 // Route::get('/backsite/register', [RegisterController::class, 'index'])->name('backsite.register.index');
@@ -95,10 +78,24 @@ Route::post('/backsite/profile/update', [
     // Route::resource('/backsite/berita', GambarController::class);
 });
 
+Auth::routes(['verify' => true]);
+
 Route::post('/backsite/berita/upload', [
     'uses' => 'App\Http\Controllers\Backsite\BeritaController@storeImage',
     'as' => 'backsite.berita.upload'
 ])->middleware(['auth','cekRole:1,2']);
+Route::post('/backsite/login', [
+    'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
+    'as' => 'backsite.login.authenticate'
+]);
+Route::get('/backsite/logout', [
+    'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
+    'as' => 'backsite.logout'
+]);
+Route::post('/backsite/berita/upload', [
+    'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
+    'as' => 'backsite.berita.upload'
+])->middleware('auth');
 
 // detail berita
 Route::get('/detail/{id}', [
@@ -110,7 +107,26 @@ Route::get('/register/verify/email', [
     'as' => 'verify.email'
 ])->middleware('auth');
 
+// kategori
+Route::get('/kategori/{id_kategori}', [
+    'uses' =>  'App\Http\Controllers\Frontsite\KategoriController@index',
+    'as' => 'kategori'
+]);
 
+
+// Route::post('/kategori/{id_kategori}', [
+//     'uses' =>  'App\Http\Controllers\Frontsite\KategoriController@index',
+//     'as' => 'kategori'
+// ]);
+// Route::get('/backsite/role/index', [
+    //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
+    //     'as' => 'index'
+    // ]);
+
+    // Route::get('/backsite/role', [
+        //     'uses' =>  'App\Http\Controllers\Backsite\RoleController@index',
+        //     'as' => 'index'
+        // ]);
 
 Auth::routes();
 

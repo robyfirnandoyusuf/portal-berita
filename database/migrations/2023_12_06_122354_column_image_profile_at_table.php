@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('berita', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_user')->nullable(); //lgi2 jovfrin ngantuk ini  //asuu
             //
             $table->string('imageProfile')->nullable();
         });
@@ -24,6 +25,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->dropColumn('id_user');
         });
     }
 };
