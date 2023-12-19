@@ -18,6 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/backsite/berita';
+    public const LOGIN = '/register/verify/email';
     // public const BERITA = '/backsite/berita/index';
 
     /**

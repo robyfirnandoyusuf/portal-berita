@@ -45,7 +45,7 @@ class GoogleController extends Controller
                 // User::insert($newUser);
                 Auth::login($newUser);
 
-                return redirect()->intended('backsite.berita.index');
+                return redirect()->intended('/backsite/berita');
             }
         } catch (Exception $e) {
             dd($e->getMessage());

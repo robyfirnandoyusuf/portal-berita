@@ -121,7 +121,7 @@
                         </a>
                     </li>
                     @endif
-                    
+
                     <li class="@yield('activeBerita')">
                         <a href="{{ route('backsite.berita.index') }}">
                             <i class="material-icons">feed</i>
@@ -155,7 +155,6 @@
                     </li>
                     @endif
                     <li>
-
                         <a onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="cursor:pointer;">
                             <i class="material-icons">group</i>
                             <p>Logout</p>

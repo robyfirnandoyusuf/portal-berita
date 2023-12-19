@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
                 'name'    => 'Abia',
                 'email'    => 'Abia@gmail.com',
                 'password'    => bcrypt('56780'),
-                'id_role'    => 1,
+                'id_role'    => 2,
                 'created_at'    => now(),
                 'updated_at'    => now(),
             ],
