@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('gambar', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_berita')->nullable()->change();
+        Schema::table('berita', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_user')->nullable(); //lgi2 jovfrin ngantuk ini  //asuu
             //
+            $table->string('imageProfile')->nullable();
         });
     }
 
@@ -22,8 +23,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('gambar', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
+            $table->dropColumn('id_user');
         });
     }
 };

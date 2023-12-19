@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $table = 'category';
+    use HasFactory;
 
     protected $fillable = ['kategori','timestamp'];
 
-    use HasFactory;
+    public function berita()
+    {
+        return $this->hasMany(Berita::class, 'id_kategori', 'id');
+    }
 }
