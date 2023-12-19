@@ -43,7 +43,11 @@
 										<div class="col-lg-6 col-md-6">
 											<div class="single-what-news mb-100">
 												<div class="what-img">
-													<img src="/backsite-assets-img/{{ $huhu->singleGambar->filename }}">
+													@if (!empty($huhu->singleGambar->filename))
+														<img src="/backsite-assets-img/{{ $huhu->singleGambar->filename }}">
+													@else
+														<img src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg">
+													@endif
 												</div>
 												<div class="what-cap">
 													<span class="color1">{{ $huhu->judul }}</span>
