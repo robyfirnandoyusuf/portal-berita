@@ -15,7 +15,6 @@ class BeritaController extends Controller
     {
         //
         $beritas = Berita::orderBy('created_at', 'DESC')->get();
-        @dd($beritas);
         return view('home', compact('beritas'));
     }
 
