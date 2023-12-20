@@ -15,10 +15,10 @@ class CekRole
      */
     public function handle(Request $request, Closure $next, ...$roles)
     { 
-      // if (in_array($request->user()->id_role,$roles)) {
+      if (in_array($request->user()->id_role,$roles)) {
         
           return $next($request);
-      // }
-      // return redirect()->route('backsite.berita.index');
+      }
+      return redirect()->route('backsite.berita.index');
     }
 }

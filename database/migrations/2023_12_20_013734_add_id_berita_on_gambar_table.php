@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         if (!Schema::hasColumn('users', 'id_role')) {
-            Schema::table('users', function (Blueprint $table) {
-                $table->unsignedBigInteger('id_role')->nullable();
+            Schema::table('gambar', function (Blueprint $table) {
+                //
+                $table->unsignedBigInteger('id_berita');
             });
         }
     }
@@ -23,7 +24,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('gambar', function (Blueprint $table) {
             //
         });
     }

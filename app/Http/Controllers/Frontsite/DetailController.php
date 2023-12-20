@@ -22,7 +22,8 @@ class DetailController extends Controller
     public function detail($id)
     {
         //
-        $data['berita'] = Berita::with(['gambar'])->whereId($id)->firstOrFail();
+        $data['berita'] = Berita::with(['gambar'])->firstOrFail();
+
         // foreach ($berita->gambar as $gambar)
         // {{ $gambar->filename }}
         // endforeach
