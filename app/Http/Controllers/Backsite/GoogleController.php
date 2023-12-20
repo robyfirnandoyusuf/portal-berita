@@ -31,7 +31,7 @@ class GoogleController extends Controller
             if ($finduser) {
                 Auth::login($finduser);
 
-                return redirect()->route('backsite.kategori.index');
+                return redirect()->route('backsite.berita.index');
             } else {
                 $newUser = User::updateOrCreate(
                     ['email' => $user->email],
@@ -39,13 +39,13 @@ class GoogleController extends Controller
                         'name' => $user->name,
                         'google_id' => $user->id,
                         'password' => Hash::make('password'),
-                        'id_role' => 2,
+                        'id_role' => 1,
                     ],
                 );
                 // User::insert($newUser);
                 Auth::login($newUser);
 
-                return redirect()->intended('backsite.kategori.index');
+                return redirect()->intended('/backsite/berita');
             }
         } catch (Exception $e) {
             dd($e->getMessage());
