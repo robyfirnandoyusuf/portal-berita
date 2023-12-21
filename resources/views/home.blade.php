@@ -234,7 +234,7 @@
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">{{ $beritas->judul }}</span>
-                                                        <h4><a href="{{ route('detail',$beritas->id) }}">{{ strip_tags($beritas->description) }}</a></h4>
+                                                        <h4><a href="{{ route('detail',$beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a></h4>
                                                     </div>
                                                 </div>
                                             </div>

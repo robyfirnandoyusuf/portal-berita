@@ -20,7 +20,7 @@
 							<nav>
 								<div class="nav nav-tabs" id="nav-tab" role="tablist">
 									@foreach(getCategory() as $kategori)
-									<a class="nav-item nav-link {{ $kategori->id == request()->id_kategori ? 'active' : '' }}" id="nav-home-tab" data-toggle="tab" href="{{ route('kategori', $kategori->id) }}" role="tab" aria-controls="nav-home" aria-selected="true">{{ $kategori->kategori }}</a>
+									<a class="nav-item nav-link {{ $kategori->id == request()->id_kategori ? 'active' : '' }}" id="nav-home-tab-kategori" data-toggle="tab" href="{{ route('kategori',$kategori->id) }}" role="tab" aria-controls="nav-home" aria-selected="true">{{ $kategori->kategori }}</a>
 									@endforeach
 								</div>
 							</nav>
@@ -51,7 +51,7 @@
 												</div>
 												<div class="what-cap">
 													<span class="color1">{{ $huhu->judul }}</span>
-													<h4><a href="#">{{ strip_tags($huhu->description) }}</a></h4>
+													<h4><a href="{{route('detail',$huhu->id)}}">{{ strip_tags($huhu->excerpt() ) }}</a></h4>
 												</div>
 											</div>
 										</div>
@@ -81,7 +81,10 @@
 												</div>
 												<div class="what-cap">
 													<span class="color1">Night party</span>
+		
+														
 													<h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
+													
 												</div>
 											</div>
 										</div>

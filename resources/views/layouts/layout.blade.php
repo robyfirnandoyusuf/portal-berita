@@ -35,6 +35,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    {{-- <script src="jquery-3.7.1.min.js"></script> --}}
 </head>
 
 <body>
@@ -105,7 +106,7 @@
                                             <!-- <li><a href="index.html">Home</a></li> -->
                                             <!-- <li><a href="backsite/kategori/index.blade.php">Category</a></li> -->
                                             @foreach (getCategory() as $kategori)
-                                                <li><a href="index.html">{{ $kategori->kategori }}</a></li>
+                                                <li><a href="{{ route('kategori',$kategori->id) }}">{{ $kategori->kategori }}</a></li>
                                             @endforeach
                                             <!-- <li><a href="categori.html">Category</a></li>
 
@@ -315,8 +316,9 @@
     <!-- Bootstrap 5
         -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+  
 
 </body>
 

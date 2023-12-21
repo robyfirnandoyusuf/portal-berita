@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Berita extends Model
 {
     protected $table = 'berita';
     use HasFactory;
-
+    const EXCERPT_LENGTH = 50;
     protected $fillable = ['judul', 'id_kategori','description','kategori','created_by','timestamps'];
 
 
@@ -31,5 +32,9 @@ class Berita extends Model
 
     public function singleGambar(){
         return $this->hasOne(Gambar::class, 'id_berita', 'id');
+    }
+    public function excerpt()
+    {
+        return Str::limit($this->description, Berita::EXCERPT_LENGTH);
     }
 }
