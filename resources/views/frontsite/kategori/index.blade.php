@@ -58,6 +58,17 @@
 										@endforeach
 									</div>
 								</div>
+								<div>
+								</div>
+								{{-- <-- <div class="col-12 ml-auto">
+									Show
+									{{ $dataBerita->lastItem() }}
+									to
+									{{ $dataBerita->total() }}
+								</div> --}}
+								<div class="col-4 ml-auto d-flex">
+								{{ $dataBerita->links() }}
+							</div> 
 							</div>
 							<!-- Card two -->
 							<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">

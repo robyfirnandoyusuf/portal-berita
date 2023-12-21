@@ -99,7 +99,7 @@ Route::post('/backsite/berita/upload', [
 
 // detail berita
 Route::get('/detail/{id}', [
-    'uses' => 'App\Http\Controllers\Frontsite\DetailController@detail',
+    'uses' => 'App\Http\Controllers\Frontsite\DetailController@index',
     'as' => 'detail'
 ]);
 Route::get('/register/verify/email', [

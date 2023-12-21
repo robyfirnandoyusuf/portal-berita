@@ -34,7 +34,7 @@ class KategoriController extends Controller
             $search = request()->query('search');
             $berita->where('judul', 'like', "%$search%");
         }
-        $berita = $berita->get();
+        $berita = $berita->simplePaginate(12);
         $data['dataBerita'] = $berita;
         // ambil berita dengan kategori idnya yang sama dengan variable $id, klo $id kategori nya 1, berarti dia ambil berita dengan id kategori 1 aja
         return view('frontsite.kategori.index', $data);

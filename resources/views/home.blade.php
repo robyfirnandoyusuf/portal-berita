@@ -222,20 +222,27 @@
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                     <div class="whats-news-caption">
                                         <div class="row">
-                                            @foreach($beritas as $berita)
-                                            <div class="col-lg-6 col-md-6">
+                                            @foreach($berita as $beritas)
+                                            <div class="col-lg-6 col-md-3">
                                                 <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="assets/img/news/whatNews1.jpg" alt="">
+                                                    <div class="what-img" >
+                                                        @if (!empty($beritas->singleGambar->filename))
+														<img src="/backsite-assets-img/{{ $beritas->singleGambar->filename }}" width="20" heigth="20">
+													@else
+														<img src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg">
+													@endif
                                                     </div>
                                                     <div class="what-cap">
-                                                        <span class="color1">berita</span>
-                                                        <h4><a href="#">{{ $berita->judul }}</a></h4>
+                                                        <span class="color1">{{ $beritas->judul }}</span>
+                                                        <h4><a href="{{ route('detail',$beritas->id) }}">{{ strip_tags($beritas->description) }}</a></h4>
                                                     </div>
                                                 </div>
                                             </div>
                                             @endforeach
 
+                                        </div>
+                                        <div class="col-4 ml-auto mt-6">
+                                            {{ $berita->links() }}
                                         </div>
                                     </div>
                                 </div>

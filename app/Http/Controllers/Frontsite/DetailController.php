@@ -14,25 +14,32 @@ class DetailController extends Controller
      */
     public function index($id)
     {
-        $data['berita'] = Berita::find($id);
-        $data['kategoris'] = getCategory();
-        return view('fronsite.detail.index', $data);
-    }
-
-    public function detail($id)
-    {
-        //
-        $data['berita'] = Berita::with(['gambar'])->firstOrFail();
-
-        // foreach ($berita->gambar as $gambar)
-        // {{ $gambar->filename }}
-        // endforeach
-        $data['kategoris'] = getCategory();
-        $data['hitungKategori'] = countCat();
-
+        $data['berita'] = Berita::with(['Category', 'gambar'])->whereId($id)->firstOrFail();
+        // dd($data['berita']);
         return view('frontsite.detail.index', $data);
     }
 
+    // public function detail($id)
+    // {
+    //     //
+    //     $data['berita'] = Berita::with(['gambar'])->firstOrFail();
+
+    //     // foreach ($berita->gambar as $gambar)
+    //     // {{ $gambar->filename }}
+    //     // endforeach
+    //     $data['kategoris'] = getCategory();
+    //     $data['hitungKategori'] = countCat();
+
+    //     return view('frontsite.detail.index', $data);
+    // }
+
+    public function singleGambar($id)
+    {
+        //
+        $data['berita'] = Berita::with(['singleGambar'])->whereId($id)->firstOrFail();
+
+        return view('frontsite.detail.index', $data);
+    }
     /**
      * Store a newly created resource in storage.
      */

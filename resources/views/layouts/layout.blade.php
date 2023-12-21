@@ -28,10 +28,12 @@
     <link rel="stylesheet" href="/assets/css/nice-select.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 
@@ -102,8 +104,8 @@
                                         <ul id="navigation">
                                             <!-- <li><a href="index.html">Home</a></li> -->
                                             <!-- <li><a href="backsite/kategori/index.blade.php">Category</a></li> -->
-                                            @foreach(getCategory() as $kategori)
-                                            <li><a href="index.html">{{ $kategori->kategori }}</a></li>
+                                            @foreach (getCategory() as $kategori)
+                                                <li><a href="index.html">{{ $kategori->kategori }}</a></li>
                                             @endforeach
                                             <!-- <li><a href="categori.html">Category</a></li>
 
@@ -156,7 +158,8 @@
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="/assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <a href="index.html"><img src="/assets/img/logo/logo2_footer.png"
+                                            alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
@@ -183,10 +186,17 @@
                                 <!-- Form -->
                                 <div class="footer-form">
                                     <div id="mc_embed_signup">
-                                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part">
-                                            <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address" class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Email Address '">
+                                        <form target="_blank"
+                                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                            method="get" class="subscribe_form relative mail_part">
+                                            <input type="email" name="email" id="newsletter-form-email"
+                                                placeholder="Email Address" class="placeholder hide-on-focus"
+                                                onfocus="this.placeholder = ''"
+                                                onblur="this.placeholder = ' Email Address '">
                                             <div class="form-icon">
-                                                <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="/assets/img/logo/form-iocn.png" alt=""></button>
+                                                <button type="submit" name="submit" id="newsletter-submit"
+                                                    class="email_icon newsletter-submit button-contactForm"><img
+                                                        src="/assets/img/logo/form-iocn.png" alt=""></button>
                                             </div>
                                             <div class="mt-10 info"></div>
                                         </form>
@@ -232,7 +242,9 @@
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
-                                    </script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                    </script> All rights reserved | This template is made with <i
+                                        class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                        target="_blank">Colorlib</a>
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>
                             </div>
@@ -256,47 +268,54 @@
     <!-- JS here -->
 
     <!-- All JS Custom Plugins Link Here here -->
-    <script src=".//assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src=".//assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src=".//assets/js/popper.min.js"></script>
-    <script src=".//assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <!-- Jquery Mobile Menu -->
-    <script src=".//assets/js/jquery.slicknav.min.js"></script>
+    <script src="/assets/js/jquery.slicknav.min.js"></script>
 
     <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script src=".//assets/js/owl.carousel.min.js"></script>
-    <script src=".//assets/js/slick.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
     <!-- Date Picker -->
-    <script src=".//assets/js/gijgo.min.js"></script>
+    <script src="/assets/js/gijgo.min.js"></script>
     <!-- One Page, Animated-HeadLin -->
-    <script src=".//assets/js/wow.min.js"></script>
-    <script src=".//assets/js/animated.headline.js"></script>
-    <script src=".//assets/js/jquery.magnific-popup.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/animated.headline.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.js"></script>
 
     <!-- Breaking New Pluging -->
-    <script src=".//assets/js/jquery.ticker.js"></script>
-    <script src=".//assets/js/site.js"></script>
+    <script src="/assets/js/jquery.ticker.js"></script>
+    <script src="/assets/js/site.js"></script>
 
     <!-- Scrollup, nice-select, sticky -->
-    <script src=".//assets/js/jquery.scrollUp.min.js"></script>
-    <script src=".//assets/js/jquery.nice-select.min.js"></script>
-    <script src=".//assets/js/jquery.sticky.js"></script>
+    <script src="/assets/js/jquery.scrollUp.min.js"></script>
+    <script src="/assets/js/jquery.nice-select.min.js"></script>
+    <script src="/assets/js/jquery.sticky.js"></script>
 
     <!-- contact js -->
-    <script src=".//assets/js/contact.js"></script>
-    <script src=".//assets/js/jquery.form.js"></script>
-    <script src=".//assets/js/jquery.validate.min.js"></script>
-    <script src=".//assets/js/mail-script.js"></script>
-    <script src=".//assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/js/contact.js"></script>
+    <script src="/assets/js/jquery.form.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/mail-script.js"></script>
+    <script src="/assets/js/jquery.ajaxchimp.min.js"></script>
 
     <!-- Jquery Plugins, main Jquery -->
-    <script src=".//assets/js/plugins.js"></script>
-    <script src=".//assets/js/main.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js">
-        <!-- Bootstrap 5 
+        < script script src = "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+        integrity = "sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+        crossorigin = "anonymous"
+        referrerpolicy = "no-referrer" >
+    </script>
+
+    <!-- Bootstrap 5
         -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
 </body>

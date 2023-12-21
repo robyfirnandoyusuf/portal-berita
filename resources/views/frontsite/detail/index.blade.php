@@ -1,58 +1,58 @@
 @extends('layouts.layout')
 
 @section('content')
-<!--================Blog Area =================-->
-<section class="blog_area single-post-area section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 posts-list">
-                <div class="single-post">
+    <!--================Blog Area =================-->
+    <section class="blog_area single-post-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 posts-list">
+                    <div class="single-post">
 
-
-                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            @foreach ($berita->gambar as $hihi)
-                            <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
-                                <img src="/backsite-assets-img/{{ $hihi->filename }}">
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @foreach ($berita->gambar as $hihi)
+                                    <div class="carousel-item  {{ $loop->index == 0 ? 'active' : '' }}">
+                                        <img class="w-100" src="/backsite-assets-img/{{ $hihi->filename }}"
+                                            alt="First slide">
+                                    </div>
+                                @endforeach
                             </div>
-                            @endforeach
-                            <!-- <div class="carousel-item">
-                                <img src="/assets/img/blog/single_blog_2.png" class="d-block w-100" alt="">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="/assets/img/blog/single_blog_3.png" class="d-block w-100" alt="">
-                            </div> -->
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+
+                        {{--  --}}
                     </div>
 
                     <div class="blog_details">
-                        <h2>{{$berita->judul}}
+                        <h2>{{ $berita->judul }}
                         </h2>
                         <ul class="blog-info-link mt-3 mb-4">
                             <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
                             <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
                         </ul>
                         <p class="excert">
-                            {{$berita->description}}
+                            {{ $berita->description }}
                         </p>
+
                         <!-- <div class="quote-wrapper">
-                            <div class="quotes">
-                                MCSE boot camps have its supporters and its detractors. Some people do not understand
-                                why you
-                                should have to spend money on boot camp when you can get the MCSE study materials
-                                yourself at
-                                a fraction of the camp price. However, who has the willpower to actually sit through a
-                                self-imposed MCSE training.
-                            </div>
-                        </div> -->
+                                                <div class="quotes">
+                                                    MCSE boot camps have its supporters and its detractors. Some people do not understand
+                                                    why you
+                                                    should have to spend money on boot camp when you can get the MCSE study materials
+                                                    yourself at
+                                                    a fraction of the camp price. However, who has the willpower to actually sit through a
+                                                    self-imposed MCSE training.
+                                                </div>
+                                            </div> -->
                     </div>
                 </div>
                 <div class="navigation-top">
@@ -106,22 +106,26 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
+                                    <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                                        placeholder="Write Comment"></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="name" id="name" type="text" placeholder="Name">
+                                    <input class="form-control" name="name" id="name" type="text"
+                                        placeholder="Name">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+                                    <input class="form-control" name="email" id="email" type="email"
+                                        placeholder="Email">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="website" id="website" type="text" placeholder="Website">
+                                    <input class="form-control" name="website" id="website" type="text"
+                                        placeholder="Website">
                                 </div>
                             </div>
                         </div>
@@ -138,38 +142,39 @@
                         <form action="#">
                             <div class="form-group">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder='Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                                    <input type="text" class="form-control" placeholder='Search Keyword'
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
                                     <div class="input-group-append">
                                         <button class="btns" type="button"><i class="ti-search"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Search</button>
+                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                                type="submit">Search</button>
                         </form>
                     </aside>
                     <aside class="single_sidebar_widget post_category_widget">
                         <h4 class="widget_title">Category</h4>
                         <ul class="list cat-list">
-                            @foreach ($hitungKategori as $hoho)
+                            {{-- @foreach ($hitungKategori as $hoho) --}}
                             <li>
-                                <a href="#" class="d-flex">
-                                    <p>{{ $hoho['category'] }}</p>
-                                    <p>{{ $hoho['jumlah'] }}</p>
-                                </a>
+                         
+                                    <p>{{ $berita->Kategori }}</p>
+                                  
                             </li>
-                            @endforeach
+                            {{-- @endforeach --}}
                             <!-- <li>
-                                <a href="#" class="d-flex">
-                                    <p>Politik </p>
-                                    <p>(911)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Kartun </p>
-                                    <p>(11)</p>
-                                </a>
-                            </li> -->
+                                                    <a href="#" class="d-flex">
+                                                        <p>Politik </p>
+                                                        <p>(911)</p>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="d-flex">
+                                                        <p>Kartun </p>
+                                                        <p>(11)</p>
+                                                    </a>
+                                                </li> -->
 
                         </ul>
                     </aside>
@@ -280,15 +285,17 @@
                         <h4 class="widget_title">Newsletter</h4>
                         <form action="#">
                             <div class="form-group">
-                                <input type="email" class="form-control" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
+                                <input type="email" class="form-control" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
                             </div>
-                            <button class="button rounded-0 primary-bg text-orange w-100 btn_1 boxed-btn" type="submit">Subscribe</button>
+                            <button class="button rounded-0 primary-bg text-orange w-100 btn_1 boxed-btn"
+                                type="submit">Subscribe</button>
                         </form>
                     </aside>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!--================ Blog Area end =================-->
+        </div>
+    </section>
+    <!--================ Blog Area end =================-->
 @endsection

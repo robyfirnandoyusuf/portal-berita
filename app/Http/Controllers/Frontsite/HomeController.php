@@ -19,10 +19,10 @@ class HomeController extends Controller
     public function index()
     {
         //
-        $beritas = Berita::orderBy('created_at', 'DESC')->get();
+        $berita = Berita::orderBy('created_at', 'DESC')->simplePaginate(12);
         // @dd($beritas);
-        $data['beritas'] = $beritas;
-        $data['kategoris'] = getCategory();
+        $data['berita'] = $berita;
+      
 
         return view('home', $data);
     }
@@ -47,6 +47,13 @@ class HomeController extends Controller
     public function create()
     {
         //
+    }
+    public function singleGambar($id)
+    {
+        //
+        $data['berita'] = Berita::with(['singleGambar'])->whereId($id)->firstOrFail();
+        dd($data);
+        return view('home', $data);
     }
 
     /**
