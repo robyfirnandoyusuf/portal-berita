@@ -41,7 +41,10 @@
                         <ul class="blog-info-link mt-3 mb-4">
                             <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
                             {{-- Mata --}}
+                            {{-- @foreach ($berita as $oke) --}}
+
                             <p><i class="fa-solid fa-eye"></i> {{ $berita->views }}</p>
+                            {{-- @endforeach --}}
                         </ul>
                         <p class="excert">
                             {{$berita->description}}
