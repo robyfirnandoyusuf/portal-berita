@@ -143,7 +143,7 @@
                                 <img src="/assets/img/post/post_2.png" alt="post">
                                 <div class="media-body">
                                     <a href="single-blog.html">
-                                        <h3>The Amazing Hubble</h3>
+                                        <h3>The Amazing Huhhbyjnbble</h3>
                                     </a>
                                     <p>02 Hours ago</p>
                                 </div>
