@@ -87,6 +87,12 @@ class BeritaController extends Controller
     public function show(string $id)
     {
         //
+        $berita = Berita::findOrFail($id);
+
+        // Tingkatkan jumlah views setiap kali halaman diakses
+        $berita->increment('views');
+
+        return view('frontsite.detail.index', compact('berita'));
     }
 
     /**

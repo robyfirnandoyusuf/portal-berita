@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backsite\UserController;
 use App\Http\Controllers\Backsite\ProfileController;
 use App\Http\Controllers\Backsite\GoogleController;
+use App\Http\Controllers\SocialShareButtonController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,6 +64,12 @@ Route::group(['as' => 'backsite.'], function() {
     Route::controller(GoogleController::class)->group(function(){
     Route::get('/auth/google','redirectToGoogle')->name('auth.google');
     Route::get('/auth/google/callback','handleGoogleCallback');
+    // Route::get('social-media-share',[SocialShareButtonController::class,'shareWidget']);
+
+
+
+
+
     // Route::resorce('/backsite/login', LoginController::class)->middleware('guest');
 });
 Route::post('/backsite/profile/update', [

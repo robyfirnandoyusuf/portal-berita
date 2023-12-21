@@ -37,10 +37,10 @@ class BeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show($id)
     {
-        //
-        return view('detail');
+        //Tingkatkan Jumlah Views
+   
     }
 
     /**

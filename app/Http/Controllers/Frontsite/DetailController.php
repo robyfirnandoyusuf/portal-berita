@@ -21,8 +21,10 @@ class DetailController extends Controller
 
     public function detail($id)
     {
+        $berita =  Berita::with(['gambar'])->firstOrFail();
+        $berita->where('id',$id)->increment('views');
         //
-        $data['berita'] = Berita::with(['gambar'])->firstOrFail();
+        $data['berita'] = $berita;
 
         // foreach ($berita->gambar as $gambar)
         // {{ $gambar->filename }}
@@ -47,6 +49,7 @@ class DetailController extends Controller
     public function show(string $id)
     {
         //
+
     }
 
     /**

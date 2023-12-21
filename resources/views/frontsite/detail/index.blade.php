@@ -9,6 +9,8 @@
                 <div class="single-post">
 
 
+
+
                     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             @foreach ($berita->gambar as $hihi)
@@ -38,11 +40,21 @@
                         </h2>
                         <ul class="blog-info-link mt-3 mb-4">
                             <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                            <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                            {{-- Mata --}}
+                            <p><i class="fa-solid fa-eye"></i> {{ $berita->views }}</p>
                         </ul>
                         <p class="excert">
                             {{$berita->description}}
                         </p>
+                    </div>
+                                            {{-- Share Button --}}
+              <a href="https://www.facebook.com/sharer/sharer.php?u=#url" target="_blank"><i class="fa-brands fa-facebook" style="font-size: 2.8em; margin-right: 12px;"></i></a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://chillyfacts.com/create-linkedin-share-button-on-website-webpages&title=Create LinkedIn Share button on Website Webpages&summary=chillyfacts.com&source=Chillyfacts" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+                <i class="fa-brands fa-linkedin" style="font-size: 2.8em; margin-right: 12px;"></i>
+              </a>
+              <a href="whatsapp://send?text=The text to share!" data-action="share/whatsapp/share"><i class="fa-brands fa-whatsapp" style="font-size: 2.8em; color:rgb(102, 164, 8);"></i></a>
+
+
                         <!-- <div class="quote-wrapper">
                             <div class="quotes">
                                 MCSE boot camps have its supporters and its detractors. Some people do not understand
@@ -53,7 +65,7 @@
                                 self-imposed MCSE training.
                             </div>
                         </div> -->
-                    </div>
+
                 </div>
                 <div class="navigation-top">
                 </div>
@@ -292,3 +304,4 @@
 </section>
 <!--================ Blog Area end =================-->
 @endsection
+
