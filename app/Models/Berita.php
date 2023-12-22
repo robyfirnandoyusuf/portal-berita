@@ -10,8 +10,11 @@ class Berita extends Model
 {
     protected $table = 'berita';
     use HasFactory;
+
     const EXCERPT_LENGTH = 50;
-    protected $fillable = ['judul', 'id_kategori','description','kategori','created_by','timestamps'];
+    protected $fillable = ['judul', 'id_kategori','description','kategori','created_by','timestamps','views'];
+
+
 
 
     public function gambar() {
@@ -33,6 +36,11 @@ class Berita extends Model
     public function singleGambar(){
         return $this->hasOne(Gambar::class, 'id_berita', 'id');
     }
+
+// public function ipAdress(){
+
+// }
+
     public function excerpt()
     {
         return Str::limit($this->description, Berita::EXCERPT_LENGTH);

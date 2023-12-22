@@ -169,7 +169,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        
+        // config/app.php
+
+       Jorenvh\Share\Providers\ShareServiceProvider::class,
+
     ])->toArray(),
 
     /*
@@ -185,6 +188,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

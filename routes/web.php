@@ -12,7 +12,7 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 
 // frontside
-use App\Http\Controllers\Frontsite\detailController;
+use App\Http\Controllers\Frontsite\DetailController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -60,9 +60,16 @@ Route::group(['as' => 'backsite.'], function() {
     Route::resource('/backsite/berita', BeritaController::class)->middleware(['auth','cekRole:1,2']);
     Route::resource('/backsite/kategori', KategoriController::class)->middleware(['auth','cekRole:2']);
     Route::resource('/backsite/user', UserController::class)->middleware(['auth','cekRole:2']);
+    Route::get('/detail/{id}', 'App\Http\Controllers\Frontsite\DetailController@index');
     Route::controller(GoogleController::class)->group(function(){
     Route::get('/auth/google','redirectToGoogle')->name('auth.google');
     Route::get('/auth/google/callback','handleGoogleCallback');
+    // Route::get('social-media-share',[SocialShareButtonController::class,'shareWidget']);
+
+
+
+
+
     // Route::resorce('/backsite/login', LoginController::class)->middleware('guest');
 });
 Route::post('/backsite/profile/update', [
