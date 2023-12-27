@@ -10,7 +10,7 @@ class Berita extends Model
     protected $table = 'berita';
     use HasFactory;
 
-    protected $fillable = ['judul', 'id_kategori','description','kategori','created_by','timestamps','views'];
+    protected $fillable = ['judul', 'id_kategori','description','kategori','created_by','timestamps','views',];
 
 
     public function gambar() {
@@ -31,5 +31,10 @@ class Berita extends Model
 
     public function singleGambar(){
         return $this->hasOne(Gambar::class, 'id_berita', 'id');
+    }
+
+    public function visitors(){
+        return $this->hasMany(Visitors::class, 'id_berita', 'id');
+
     }
 }

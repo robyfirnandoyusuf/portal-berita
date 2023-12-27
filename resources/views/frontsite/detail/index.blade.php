@@ -43,7 +43,7 @@
                             {{-- Mata --}}
                             {{-- @foreach ($berita as $oke) --}}
 
-                            <p><i class="fa-solid fa-eye"></i> {{ $berita->views }}</p>
+                            <p><i class="fa-solid fa-eye"></i> {{ count($berita->visitors) }}</p>
                             {{-- @endforeach --}}
                         </ul>
                         <p class="excert">
