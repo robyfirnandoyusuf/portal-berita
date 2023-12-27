@@ -6,7 +6,7 @@ use App\Models\Kategori;
 
 function getCategory()
 {
-    $kategoris = Category::orderBy('created_at', 'DESC')->get();
+    $kategoris = Category::orderBy('created_at', 'ASC')->get();
 
     return $kategoris;
 }

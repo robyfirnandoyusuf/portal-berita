@@ -63,14 +63,14 @@
                     </div>
                     <div class="blog-author">
                         <div class="media align-items-center">
-                            <img src="/assets/img/blog/author.png" alt="">
+                            if()
+                            <img src="/Profile-img/{{ Auth::user()->imageProfile }}" alt=""/>
                             <div class="media-body">
+                                <h4>Create By:</h4>
                                 <a href="#">
-                                    <h4>Harvard milan</h4>
+                                    <p>{{ Auth::user()->name }}    
                                 </a>
-                                <p>Second divided from form fish beast made. Every of seas all gathered use saying you're,
-                                    he
-                                    our dominion twon Second divided from</p>
+                                <p>{{ $berita->created_at }}</p></p>
                             </div>
                         </div>
                     </div>

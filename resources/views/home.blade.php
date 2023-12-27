@@ -13,7 +13,7 @@
                                 <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                                 <div class="trending-animated">
                                     <ul id="js-news" class="js-hidden">
-                                        <li class="news-item">Bangladesh dolor sit amet, consectetur adipisicing elit.</li>
+                                        <li class="news-item"></li>
                                         <li class="news-item">Spondon IT sit amet, consectetur.......</li>
                                         <li class="news-item">Rem ipsum dolor sit amet, consectetur adipisicing elit.</li>
                                     </ul>
@@ -23,69 +23,55 @@
                         </div>
                     </div>
                     <div class="row">
+                        @foreach ($beritaTrendingTop as $beritas)
                         <div class="col-lg-8">
                             <!-- Trending Top -->
                             <div class="trending-top mb-30">
                                 <div class="trend-top-img">
-                                    <img src="assets/img/trending/trending_top.jpg" alt="">
+                                    @if (!empty($beritas->singleGambar->filename))
+                                    <img src="/backsite-assets-img/{{ $beritas->singleGambar->filename }}" alt=""  width="10" heigth="10">
+                                    @else
+                                    <img
+                                        src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg">
+                                @endif
                                     <div class="trend-top-cap">
-                                        <span>Appetizers</span>
-                                        <h2><a href="details.html">Welcome To The Best Model Winner<br> Contest At Look of
-                                                the year</a></h2>
+                                        <span>{{ $beritas->judul }}</span>
+                                        <h2><a href="{{ route('detail', $beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a></h2>
                                     </div>
                                 </div>
                             </div>
-                        
+                            @endforeach
+
                             <!-- Trending Bottom -->
                             <div class="trending-bottom">
                                 <div class="row">
+                                    @foreach ($beritaTrending as $beritas)
                                     <div class="col-lg-4">
                                         <div class="single-bottom mb-35">
                                             <div class="trend-bottom-img mb-30">
-                                                <img src="assets/img/trending/trending_bottom1.jpg" alt="">
+                                                @if (!empty($beritas->singleGambar->filename))
+                                                <img src="/backsite-assets-img/{{ $beritas->singleGambar->filename }}" alt=""  width="10" heigth="10">
+                                                @else
+                                                <img
+                                                    src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg">
+                                            @endif
                                             </div>
                                             <div class="trend-bottom-cap">
-                                                <span class="color1">Lifestyple</span>
-                                                <h4><a href="details.html">Get the Illusion of Fuller Lashes by
-                                                        “Mascng.”</a></h4>
+                                                <span class="color1">{{ $beritas->judul }}</span>
+                                                <h4><a href="{{ route('detail', $beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a></h4>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-bottom mb-35">
-                                            <div class="trend-bottom-img mb-30">
-                                                <img src="assets/img/trending/trending_bottom2.jpg" alt="">
-                                            </div>
-                                            <div class="trend-bottom-cap">
-                                                <span class="color2">Sports</span>
-                                                <h4>
-                                                    <h4><a href="details.html">Get the Illusion of Fuller Lashes by
-                                                            “Mascng.”</a></h4>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="single-bottom mb-35">
-                                            <div class="trend-bottom-img mb-30">
-                                                <img src="assets/img/trending/trending_bottom3.jpg" alt="">
-                                            </div>
-                                            <div class="trend-bottom-cap">
-                                                <span class="color3">Travels</span>
-                                                <h4><a href="details.html"> Welcome To The Best Model Winner Contest</a>
-                                                </h4>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="trand-right-single d-flex">
                                 <!-- New Poster -->
-                    <div class="news-poster d-none d-lg-block">
-                        <img src="assets/img/news/news_card.jpg" alt="">
-                    </div>
+                                <div class="news-poster d-none d-lg-block">
+                                    <img src="assets/img/news/news_card.jpg" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -109,24 +95,11 @@
                                     <!--Nav Button  -->
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
-                                                href="#nav-home" role="tab" aria-controls="nav-home"
-                                                aria-selected="true">All</a>
-                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-                                                href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                                aria-selected="false">Lifestyle</a>
-                                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
-                                                href="#nav-contact" role="tab" aria-controls="nav-contact"
-                                                aria-selected="false">Travel</a>
-                                            <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab"
-                                                href="#nav-last" role="tab" aria-controls="nav-contact"
-                                                aria-selected="false">Fashion</a>
-                                            <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab"
-                                                href="#nav-nav-Sport" role="tab" aria-controls="nav-contact"
-                                                aria-selected="false">Sports</a>
-                                            <a class="nav-item nav-link" id="nav-technology" data-toggle="tab"
-                                                href="#nav-techno" role="tab" aria-controls="nav-contact"
-                                                aria-selected="false">Technology</a>
+                                            @foreach (getCategory() as $kategori)
+                                                <a class="nav-item nav-link {{ $kategori->id == request()->id_kategori ? 'active' : '' }}"
+                                                    id="nav-home-tab-kategori"
+                                                    href="{{ route('kategori', $kategori->id) }}" >{{ $kategori->kategori }}</a>
+                                            @endforeach
                                         </div>
                                     </nav>
                                     <!--End Nav Button  -->
@@ -142,27 +115,33 @@
                                         aria-labelledby="nav-home-tab">
                                         <div class="whats-news-caption">
                                             <div class="row">
-                                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                                    aria-labelledby="nav-home-tab">
                                                     <div class="whats-news-caption">
                                                         <div class="row">
-                                                            @foreach($berita as $beritas)
-                                                            <div class="col-lg-6 col-md-3">
-                                                                <div class="single-what-news mb-100">
-                                                                    <div class="what-img" >
-                                                                        @if (!empty($beritas->singleGambar->filename))
-                                                                        <img src="/backsite-assets-img/{{ $beritas->singleGambar->filename }}" width="20" heigth="20">
-                                                                    @else
-                                                                        <img src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg">
-                                                                    @endif
-                                                                    </div>
-                                                                    <div class="what-cap">
-                                                                        <span class="color1">{{ $beritas->judul }}</span>
-                                                                        <h4><a href="{{ route('detail',$beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a></h4>
+                                                            @foreach ($berita as $beritas)
+                                                                <div class="col-lg-6 col-md-3">
+                                                                    <div class="single-what-news mb-100">
+                                                                        <div class="what-img">
+                                                                            @if (!empty($beritas->singleGambar->filename))
+                                                                                <img src="/backsite-assets-img/{{ $beritas->singleGambar->filename }}"
+                                                                                    width="20" heigth="20">
+                                                                            @else
+                                                                                <img
+                                                                                    src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg">
+                                                                            @endif
+                                                                        </div>
+                                                                        <div class="what-cap">
+                                                                            <span
+                                                                                class="color1">{{ $beritas->judul }}</span>
+                                                                            <h4><a
+                                                                                    href="{{ route('detail', $beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a>
+                                                                            </h4>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
                                                             @endforeach
-                    
+
                                                         </div>
                                                         <div class="col-4 ml-auto mt-6">
                                                             {{ $berita->links() }}
@@ -524,42 +503,24 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="recent-active dot-style d-flex dot-style">
+                                            @foreach($beritaRecent as $beritass)
                                             <div class="single-recent mb-100">
                                                 <div class="what-img">
-                                                    <img src="assets/img/news/recent1.jpg" alt="">
+                                                    @if (!empty($beritass->singleGambar->filename))
+                                                    <img src="/backsite-assets-img/{{ $beritass->singleGambar->filename }}"
+                                                        width="20" heigth="20">
+                                                @else
+                                                    <img
+                                                        src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg">
+                                                @endif
                                                 </div>
                                                 <div class="what-cap">
-                                                    <span class="color1">Night party</span>
-                                                    <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
+                                                    <span class="color1">{{ $beritass->judul }}</span>
+                                                    <h4><a href="{{ route('detail', $beritass->id) }}"></a>{{ strip_tags($beritass->excerpt()) }}</h4>
                                                 </div>
                                             </div>
-                                            <div class="single-recent mb-100">
-                                                <div class="what-img">
-                                                    <img src="assets/img/news/recent2.jpg" alt="">
-                                                </div>
-                                                <div class="what-cap">
-                                                    <span class="color1">Night party</span>
-                                                    <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
-                                                </div>
-                                            </div>
-                                            <div class="single-recent mb-100">
-                                                <div class="what-img">
-                                                    <img src="assets/img/news/recent3.jpg" alt="">
-                                                </div>
-                                                <div class="what-cap">
-                                                    <span class="color1">Night party</span>
-                                                    <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
-                                                </div>
-                                            </div>
-                                            <div class="single-recent mb-100">
-                                                <div class="what-img">
-                                                    <img src="assets/img/news/recent2.jpg" alt="">
-                                                </div>
-                                                <div class="what-cap">
-                                                    <span class="color1">Night party</span>
-                                                    <h4><a href="#">Welcome To The Best Model Winner Contest</a></h4>
-                                                </div>
-                                            </div>
+                                            @endforeach
+                                            
                                         </div>
                                     </div>
                                 </div>
