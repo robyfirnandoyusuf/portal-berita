@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('berita', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_user')->nullable(); //lgi2 jovfrin ngantuk ini  //asuu
+            if (!Schema::hasColumn('berita', 'id_user')) {
+                $table->unsignedBigInteger('id_user')->nullable(); //lgi2 jovfrin ngantuk ini  //asuu
+            }
             //
             $table->string('imageProfile')->nullable();
         });

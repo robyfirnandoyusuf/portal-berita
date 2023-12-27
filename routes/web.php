@@ -88,10 +88,6 @@ Route::post('/backsite/login', [
     'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
     'as' => 'backsite.login.authenticate'
 ]);
-Route::get('/backsite/logout', [
-    'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
-    'as' => 'backsite.logout'
-]);
 Route::post('/backsite/berita/upload', [
     'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
     'as' => 'backsite.berita.upload'
