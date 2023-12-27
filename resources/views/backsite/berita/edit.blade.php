@@ -46,11 +46,13 @@
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-2 label-on-left">Kategori</label>
-                                    <div class="col-sm-10 checkbox-radios">
-                                        <select class="form-control js-example-tokenizer" multiple="multiple">
-                                            <option>Entertaiment</option>
-                                            <option>Pendidikan</option>
-                                            <option>Politik</option>
+                                    <div class="col-md-6 col-sm-10 checkbox-radio">
+                                        <select class="selectpicker" data-style="btn btn-rose btn-round"
+                                            title="Single Select" data-size="7" name="id_kategori">
+                                            <option disabled selected>Pilih Katergori</option>
+                                            @foreach (getCategory() as $kategori)
+                                                <option value="{{$kategori->id}}">{{ $kategori->kategori }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

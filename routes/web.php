@@ -4,7 +4,7 @@ use App\Http\Controllers\Backsite\RoleController;
 use App\Http\Controllers\Backsite\DashboardController;
 use App\Http\Controllers\Backsite\BeritaController;
 use App\Http\Controllers\Backsite\KategoriController;
-use App\Http\Controllers\Auth\LoginController;
+// use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backsite\UserController;
 use App\Http\Controllers\Backsite\ProfileController;
 use App\Http\Controllers\Backsite\GoogleController;
@@ -91,14 +91,14 @@ Route::post('/backsite/berita/upload', [
     'uses' => 'App\Http\Controllers\Backsite\BeritaController@storeImage',
     'as' => 'backsite.berita.upload'
 ])->middleware(['auth','cekRole:1,2']);
-Route::post('/backsite/login', [
-    'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
-    'as' => 'backsite.login.authenticate'
-]);
-Route::get('/backsite/logout', [
-    'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
-    'as' => 'backsite.logout'
-]);
+// Route::post('/backsite/login', [
+//     'uses' =>  'App\Http\Controllers\Backsite\LoginController@authenticate',
+//     'as' => 'backsite.login.authenticate'
+// ]);
+// Route::get('/backsite/logout', [
+//     'uses' =>  'App\Http\Controllers\Backsite\LoginController@logout',
+//     'as' => 'backsite.logout'
+// ]);
 Route::post('/backsite/berita/upload', [
     'uses' =>  'App\Http\Controllers\Backsite\BeritaController@storeImage',
     'as' => 'backsite.berita.upload'
@@ -119,7 +119,11 @@ Route::get('/kategori/{id_kategori}', [
     'uses' =>  'App\Http\Controllers\Frontsite\KategoriController@index',
     'as' => 'kategori'
 ]);
-
+// ]);
+// Route::get('/backsite/berita/{id_user}', [
+//     'uses' =>  'App\Http\Controllers\Backsite\BeritaController@index',
+//     'as' => 'backsite.berita.index'
+// ])->middleware(['auth','cekRole:1,2']);
 
 // Route::post('/kategori/{id_kategori}', [
 //     'uses' =>  'App\Http\Controllers\Frontsite\KategoriController@index',

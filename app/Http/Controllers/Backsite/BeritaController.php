@@ -18,7 +18,7 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $berita = Berita::with('category')->orderBy('created_at', 'DESC')->get();
+        $berita = Berita::with('category')->where('id_user',auth()->id())->orderBy('created_at', 'DESC')->get();
         $data['beritas'] = $berita;
 
         return view('backsite.berita.index', $data);
@@ -35,6 +35,8 @@ class BeritaController extends Controller
             select * from role order by created_at desc;
         */
         $data['kategoris'] = $kategori;
+        $data['kategoris'] = $kategori;
+
         return view('backsite.berita.create', $data);
     }
 
@@ -89,10 +91,6 @@ class BeritaController extends Controller
         //
         $berita = Berita::findOrFail($id);
 
-        // Tingkatkan jumlah views setiap kali halaman diakses
-        $berita->increment('views');
-
-        return view('frontsite.detail.index', compact('berita'));
     }
 
     /**
