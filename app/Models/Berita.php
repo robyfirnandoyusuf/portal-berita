@@ -45,4 +45,9 @@ class Berita extends Model
     {
         return Str::limit($this->description, Berita::EXCERPT_LENGTH);
     }
+    
+    public function visitors(){
+        return $this->hasMany(Visitors::class, 'id_berita', 'id');
+    }
+    
 }

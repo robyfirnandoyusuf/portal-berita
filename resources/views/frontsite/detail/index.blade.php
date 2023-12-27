@@ -33,9 +33,9 @@
                             <h2>{{ $berita->judul }}
                             </h2>
                             <ul class="blog-info-link mt-3 mb-4">
-                                <li><a href="#"><i class="fa fa-user"></i> Tipe Berita nya</a></li>
+                                <li><a href="#"><i class="fa fa-user"></i> Views </a></li>
                                 {{-- @dd($berita->views) --}}
-                                <li><i class="fa-solid fa-eye"></i> {{ $berita->views }} 
+                                <li><i class="fa-solid fa-eye"></i> {{ count($berita->visitors) }}
                                 </li>
                             </ul>
                             <p class="excert">

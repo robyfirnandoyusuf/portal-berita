@@ -60,10 +60,13 @@ Route::group(['as' => 'backsite.'], function() {
     Route::resource('/backsite/berita', BeritaController::class)->middleware(['auth','cekRole:1,2']);
     Route::resource('/backsite/kategori', KategoriController::class)->middleware(['auth','cekRole:2']);
     Route::resource('/backsite/user', UserController::class)->middleware(['auth','cekRole:2']);
-    Route::get('/detail/{id}', 'App\Http\Controllers\Frontsite\DetailController@index');
     Route::controller(GoogleController::class)->group(function(){
     Route::get('/auth/google','redirectToGoogle')->name('auth.google');
     Route::get('/auth/google/callback','handleGoogleCallback');
+    // Route::middleware(['web  ', 'record.visitor'])->group(function () {
+        // Rute-rute aplikasi Anda
+        // Route::get('/detail/{id}', 'App\Http\Controllers\Frontsite\DetailController@detail')->name('detail.detail');
+    // });
     // Route::get('social-media-share',[SocialShareButtonController::class,'shareWidget']);
 
 
@@ -105,10 +108,11 @@ Route::post('/backsite/berita/upload', [
 ])->middleware('auth');
 
 // detail berita
+
 Route::get('/detail/{id}', [
     'uses' => 'App\Http\Controllers\Frontsite\DetailController@index',
     'as' => 'detail'
-]);
+])->middleware('record.visitor');
 Route::get('/register/verify/email', [
     'uses' =>   'App\Http\Controllers\Auth\VerifyEmailController@index',
     'as' => 'verify.email'
@@ -124,6 +128,7 @@ Route::get('/kategori/{id_kategori}', [
 //     'uses' =>  'App\Http\Controllers\Backsite\BeritaController@index',
 //     'as' => 'backsite.berita.index'
 // ])->middleware(['auth','cekRole:1,2']);
+
 
 // Route::post('/kategori/{id_kategori}', [
 //     'uses' =>  'App\Http\Controllers\Frontsite\KategoriController@index',

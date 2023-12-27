@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Frontsite;
 use App\Http\Controllers\Controller;
 use App\Models\Berita;
 use App\Models\kategori;
+use App\Models\Visitors;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
-
+use Illuminate\Validation\Rules\Exists;
 
 
 class DetailController extends Controller
@@ -29,17 +30,15 @@ class DetailController extends Controller
 
     public function detail($id)
     {
-        $berita =  Berita::with(['gambar'])->firstOrFail();
-        // $berita->where('id',$id)->increment('views');
-
-
+        $berita =  Berita::with(['visitors', 'gambar'])->whereId($id)->firstOrFail();
+        // dd(1, $berita->toArray());
         // Validasi
         // $ipaddres=Request::ip();
         // $existingview=Berita::where('id', $id)
         // ->where('ip_addres', $ipaddres)
         // ->first();
 
-        // if(!$existingview){
+        // // if(!$existingview){
         //     //Ip belum ada di database, tambahkan view
 
         //     Berita::updated([
@@ -47,16 +46,12 @@ class DetailController extends Controller
         //         'ip_addres'=>$ipaddres
         //     ]);
         // }
-        // // dd($berita);
-        // if(!empty($berita->views)){
-        //     // dd($berita);
-        // $berita->where('id',$id)->increment('views');
-        // } 
-        // else {
-        //     dd(1);
-        // }
-        // DB::table('berita')->where('id',$id)->increment('views');
-        
+        // $exists = DB::table('visitors')->where('id', $id)->exists();
+        //     if(!$exists){
+        //     $berita->where('id',$id)->increment('views');
+        //     }
+
+
         //
         $data['berita'] = $berita;
 
