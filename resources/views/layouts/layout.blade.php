@@ -187,6 +187,7 @@
                                 <!-- Form -->
                                 <div class="footer-form">
                                     <div id="mc_embed_signup">
+<<<<<<< HEAD
                                         <form target="_blank"
                                             action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
                                             method="get" class="subscribe_form relative mail_part">
@@ -194,6 +195,10 @@
                                                 placeholder="Email Address" class="placeholder hide-on-focus"
                                                 onfocus="this.placeholder = ''"
                                                 onblur="this.placeholder = ' Email Address '">
+=======
+                                        <form action="" method="get" class="subscribe_form relative mail_part">
+                                            <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address" class="placeholder hide-on-focus">
+>>>>>>> origin/Abia
                                             <div class="form-icon">
                                                 <button type="submit" name="submit" id="newsletter-submit"
                                                     class="email_icon newsletter-submit button-contactForm"><img
@@ -307,10 +312,16 @@
     <script src="/assets/js/plugins.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js">
+<<<<<<< HEAD
         < script script src = "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
         integrity = "sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
         crossorigin = "anonymous"
         referrerpolicy = "no-referrer" >
+=======
+        <!-- Bootstrap 5
+        -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+>>>>>>> origin/Abia
     </script>
 
     <!-- Bootstrap 5
