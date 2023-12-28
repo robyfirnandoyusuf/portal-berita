@@ -23,6 +23,7 @@
                         </div>
                     </div>
                     <div class="row">
+                        
                         @foreach ($beritaTrendingTop as $beritas)
                         <div class="col-lg-8">
                             <!-- Trending Top -->
