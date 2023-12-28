@@ -13,9 +13,9 @@
                                 <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                                 <div class="trending-animated">
                                     <ul id="js-news" class="js-hidden">
-                                        <li class="news-item"></li>
-                                        <li class="news-item">Spondon IT sit amet, consectetur.......</li>
-                                        <li class="news-item">Rem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        <li class="news-item">Berita terpanas, hot hot hot!.</li></li>
+                                        <li class="news-item">Pastikan anda sudah terupdate dengan berita terkini.</li>
+                                        <li class="news-item">Berita yang sudah pasti terpecaya!</li></li>
                                     </ul>
                                 </div>
 

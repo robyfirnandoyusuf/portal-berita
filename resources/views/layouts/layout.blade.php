@@ -102,48 +102,22 @@
                                 <div class="main-menu d-none d-md-block">
 
                                     <nav>
-                                        <ul id="navigation">
+                                        <ul id="navigation" class="d-flex">
                                             <!-- <li><a href="index.html">Home</a></li> -->
                                             <!-- <li><a href="backsite/kategori/index.blade.php">Category</a></li> -->
                                             @foreach (getCategory() as $kategori)
-                                                <li><a href="{{ route('kategori',$kategori->id) }}">{{ $kategori->kategori }}</a></li>
+                                                <li><a href="{{ route('kategori',$kategori->id) }}" style="text-decoration: none;">{{ $kategori->kategori }}</a></li>
                                             @endforeach
-
-
-                                            {{-- <li>ahghgkjkb</li> --}}
-                                            <!-- <li><a href="categori.html">Category</a></li>
-
-                                          
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="latest_news.html">Latest News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="#">Pages</a>
-                                                <ul class="submenu">
-                                                    <li><a href="elements.html">Element</a></li>
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-blog.html">Blog Details</a></li>
-                                                    <li><a href="details.html">Categori Details</a></li>
-                                                </ul>
+                                            <li class="" style="margin-left: 20em">
+                                              <a href="{{ route('login') }}" class="d-flex justify-content-end" style="text-decoration: none">LOGIN</a>
                                             </li>
                                         </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-lg-2 col-md-4">
-                                <div class="header-right-btn f-right d-none d-lg-block">
-                                    <i class="fas fa-search special-tag"></i>
-                                    <div class="search-box">
-                                        <form action="#">
-                                            <input type="text" placeholder="Search">
+                                        <!-- Mobile Menu -->
+                                        <div class="col-12">
+                                            <div class="mobile_menu d-block d-md-none"></div>
+                                        </div>
 
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Mobile Menu -->
-                                            <div class="col-12">
-                                                <div class="mobile_menu d-block d-md-none"></div>
-                                            </div>
+
                                 </div>
                             </div>
                         </div>
@@ -199,6 +173,10 @@
                                                 onblur="this.placeholder = ' Email Address '">
                                         <form action="" method="get" class="subscribe_form relative mail_part">
                                             <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address" class="placeholder hide-on-focus">
+                                        <form action="" method="get"
+                                            class="subscribe_form relative mail_part">
+                                            <input type="email" name="email" id="newsletter-form-email"
+                                                placeholder="Email Address" class="placeholder hide-on-focus">
                                             <div class="form-icon">
                                                 <button type="submit" name="submit" id="newsletter-submit"
                                                     class="email_icon newsletter-submit button-contactForm"><img
@@ -318,7 +296,8 @@
         referrerpolicy = "no-referrer" >
         <!-- Bootstrap 5
         -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
     <!-- Bootstrap 5

@@ -62,7 +62,7 @@
                     <div class="navigation-top">
                     </div>
                     <div class="blog-author">
-                        <div class="media align-items-center">
+                        {{-- <div class="media align-items-center">
                             if()
                             <img src="/Profile-img/{{ Auth::user()->imageProfile }}" alt=""/>
                             <div class="media-body">
@@ -72,7 +72,7 @@
                                 </a>
                                 <p>{{ $berita->created_at }}</p></p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="comments-area">
                         <div id="disqus_thread"></div>
