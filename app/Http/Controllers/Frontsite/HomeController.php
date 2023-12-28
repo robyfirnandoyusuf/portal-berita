@@ -10,6 +10,7 @@ use App\Models\Kategori;
 
 
 
+
 class HomeController extends Controller
 {
     /**
@@ -20,8 +21,14 @@ class HomeController extends Controller
     {
         //
         $berita = Berita::orderBy('created_at', 'DESC')->simplePaginate(12);
+        $beritaRecent = Berita::orderBy('created_at', 'DESC')->take(4)->get();
+        $beritaTrending = Berita::orderBy('views', 'DESC')->take(3)->get();
+        $beritaTrendingTop = Berita::orderBy('views', 'DESC')->take(1)->get();
         // @dd($beritas);
         $data['berita'] = $berita;
+        $data['beritaRecent'] = $beritaRecent;
+        $data['beritaTrending'] = $beritaTrending;
+        $data['beritaTrendingTop'] = $beritaTrendingTop;
       
 
         return view('home', $data);

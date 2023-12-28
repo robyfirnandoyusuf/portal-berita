@@ -39,40 +39,45 @@
                                 </li>
                             </ul>
                             <p class="excert">
-                                {!!html_entity_decode($berita->description )!!}
+                                {!! html_entity_decode($berita->description) !!}
                             </p>
                             <!-- <div class="quote-wrapper">
-                                        <div class="quotes">
-                                            MCSE boot camps have its supporters and its detractors. Some people do not understand
-                                            why you
-                                            should have to spend money on boot camp when you can get the MCSE study materials
-                                            yourself at
-                                            a fraction of the camp price. However, who has the willpower to actually sit through a
-                                            self-imposed MCSE training.
-                                        </div>
-                                    </div> -->
+                       `                     <div class="quotes">
+                                                MCSE boot camps have its supporters and its detractors. Some people do not understand
+                                                why you
+                                                should have to spend money on boot camp when you can get the MCSE study materials
+                                                yourself at
+                                                a fraction of the camp price. However, who has the willpower to actually sit through a
+                                                self-imposed MCSE training.
+                                            </div>
+                                        </div> -->
+                                        {{-- "https://www.facebook.com/sharer/sharer.php?u=#url" target="_blank" --}}
                         </div>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=#url" target="_blank"><i class="fa-brands fa-facebook" style="font-size: 2.8em; margin-right: 12px;"></i></a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://chillyfacts.com/create-linkedin-share-button-on-website-webpages&title=Create LinkedIn Share button on Website Webpages&summary=chillyfacts.com&source=Chillyfacts" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-                          <i class="fa-brands fa-linkedin" style="font-size: 2.8em; margin-right: 12px;"></i>
+
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current()}}"  ><i
+                                class="fa-brands fa-facebook" style="font-size: 2.8em; margin-right: 12px;"></i></a>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current()}}"
+                            onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+                            <i class="fa-brands fa-linkedin" style="font-size: 2.8em; margin-right: 12px;"></i>
                         </a>
-                        <a href="whatsapp://send?text=The text to share!" data-action="share/whatsapp/share"><i class="fa-brands fa-whatsapp" style="font-size: 2.8em; color:rgb(102, 164, 8);"></i></a>
-          
+                        <a href="whatsapp://send?text=The text  to share!" data-action="share/whatsapp/share={{ url()->current()}}"><i
+                                class="fa-brands fa-whatsapp" style="font-size: 2.8em; color:rgb(102, 164, 8);"></i></a>
+
                     </div>
                     <div class="navigation-top">
                     </div>
                     <div class="blog-author">
-                        <div class="media align-items-center">
-                            <img src="/assets/img/blog/author.png" alt="">
+                        {{-- <div class="media align-items-center">
+                            if()
+                            <img src="/Profile-img/{{ Auth::user()->imageProfile }}" alt=""/>
                             <div class="media-body">
+                                <h4>Create By:</h4>
                                 <a href="#">
-                                    <h4>Harvard milan</h4>
+                                    <p>{{ Auth::user()->name }}
                                 </a>
-                                <p>Second divided from form fish beast made. Every of seas all gathered use saying you're,
-                                    he
-                                    our dominion twon Second divided from</p>
+                                <p>{{ $berita->created_at }}</p></p>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="comments-area">
                         <div id="disqus_thread"></div>
@@ -119,22 +124,22 @@
                             <h4 class="widget_title">Category</h4>
                             <ul class="list cat-list">
                                 @foreach (getCategory() as $ahaha)
-                                <li>
-                                    <a href="{{ route('kategori',$ahaha->id) }}">{{ $ahaha->kategori }}</a>
-                                </li>
+                                    <li>
+                                        <a href="{{ route('kategori', $ahaha->id) }}">{{ $ahaha->kategori }}</a>
+                                    </li>
                                 @endforeach
                                 <!-- <li>
-                                                                                    <a href="#" class="d-flex">
-                                                                                        <p>Politik </p>
-                                                                                        <p>(911)</p>
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a href="#" class="d-flex">
-                                                                                        <p>Kartun </p>
-                                                                                        <p>(11)</p>
-                                                                                    </a>
-                                                                                </li> -->
+                                                                                        <a href="#" class="d-flex">
+                                                                                            <p>Politik </p>
+                                                                                            <p>(911)</p>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <a href="#" class="d-flex">
+                                                                                            <p>Kartun </p>
+                                                                                            <p>(11)</p>
+                                                                                        </a>
+                                                                                   </li> -->
                             </ul>
                         </aside>
                         <aside class="single_sidebar_widget popular_post_widget">
@@ -255,8 +260,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!--================ Blog Area end =================-->
+        </div>
+    </section>
+    <!--================ Blog Area end =================-->
 @endsection
-
