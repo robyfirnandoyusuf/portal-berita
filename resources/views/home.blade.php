@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                             </div>
-                        
+
                             <!-- Trending Bottom -->
                             <div class="trending-bottom">
                                 <div class="row">
@@ -146,7 +146,7 @@
                                                     <div class="whats-news-caption">
                                                         <div class="row">
                                                             @foreach($berita as $beritas)
-                                                            <div class="col-lg-6 col-md-3">
+                                                            <div class="col-    lg-6 col-md-3">
                                                                 <div class="single-what-news mb-100">
                                                                     <div class="what-img" >
                                                                         @if (!empty($beritas->singleGambar->filename))
@@ -162,7 +162,7 @@
                                                                 </div>
                                                             </div>
                                                             @endforeach
-                    
+
                                                         </div>
                                                         <div class="col-4 ml-auto mt-6">
                                                             {{ $berita->links() }}

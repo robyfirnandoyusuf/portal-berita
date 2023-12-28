@@ -39,8 +39,10 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        //Tingkatkan Jumlah Views
-   
+        // $berita = Berita::where('created_at', $id)->get();
+        // return view ('home')->['berita'->$berita];
+
+
     }
 
     /**

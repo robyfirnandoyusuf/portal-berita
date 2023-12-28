@@ -51,6 +51,9 @@ class DetailController extends Controller
         //     $berita->where('id',$id)->increment('views');
         //     }
 
+        $currenturl = url () -> current();
+        $currentUrl = Request::url();
+
 
         //
         $data['berita'] = $berita;

@@ -69,7 +69,7 @@ class BeritaController extends Controller
         $gambar = $request->file('file');
         $imageName = $gambar->getClientOriginalName();
         $gambar->move(public_path('backsite-assets-img'), $imageName);
-
+        
         $imageUpload = new Gambar();
         $imageUpload->filename = $imageName;
         $imageUpload->save();
