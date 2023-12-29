@@ -9,7 +9,7 @@ use App\Models\Visitors;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\Rules\Exists;
-
+use Illuminate\Support\Facades\URL;
 
 class DetailController extends Controller
 {
@@ -38,8 +38,10 @@ class DetailController extends Controller
         // ->where('ip_addres', $ipaddres)
         // ->first();
 
+          // current URL
+          $currentUrl = url()->current();
         // // if(!$existingview){
-        //     //Ip belum ada di database, tambahkan view
+        //  di database, tambahkan view
 
         //     Berita::updated([
         //         'id' =>$id,
@@ -53,7 +55,7 @@ class DetailController extends Controller
 
 
         //
-        $data['berita'] = $berita;
+
 
         // foreach ($berita->gambar as $gambar)
         // {{ $gambar->filename }}
