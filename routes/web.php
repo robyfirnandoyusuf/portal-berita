@@ -33,7 +33,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [
     'uses' => 'App\Http\Controllers\Frontsite\HomeController@index',
-    'as' => 'home'
+    'as' => 'home.fronsite'
 ]);
 
 
