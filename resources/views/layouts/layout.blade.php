@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>News HTML-5 Template </title>
+    <title>4 Trio </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/logo/4trio-logo.png">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="/assets/css/slick.css">
     <link rel="stylesheet" href="/assets/css/nice-select.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" href="/assets/css/css-tambahan.css" />
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
@@ -62,12 +64,12 @@
                         <div class="col-xl-12">
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
-                                    <ul>
+                                    {{-- <ul>
                                         <li><img src="/assets/img/icon/header_icon1.png" alt="">34ºc, Sunny
                                         </li>
                                         <li><img src="/assets/img/icon/header_icon1.png" alt="">Tuesday, 18th
-                                            June, 2019</li>
-                                    </ul>
+</li>
+                                    </ul> --}}
                                 </div>
                             </div>
                         </div>
@@ -79,7 +81,7 @@
                             <!-- Logo -->
                             <div class="col-xl-3 col-lg-3 col-md-3">
                                 <div class="logo">
-                                    <a href="{{route('home.fronsite')}}"><img src="/assets/img/logo/logo.png" alt=""></a>
+                                    <a href="{{route('home.fronsite')}}"><img src="/assets/img/logo/4trio-logo.png" alt="" width="130px"></a>
                                 </div>
                             </div>
                             <div class="col-xl-9 col-lg-9 col-md-9">
@@ -96,7 +98,7 @@
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <a href="index.html"><img src="/assets/img/logo/logo.png" alt=""></a>
+                                    <a href="index.html"><img src="/assets/img/logo/4trio-logo.png" alt="" width="140px"></a>
                                 </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
@@ -108,8 +110,8 @@
                                             @foreach (getCategory() as $kategori)
                                                 <li><a href="{{ route('kategori',$kategori->id) }}" style="text-decoration: none;">{{ $kategori->kategori }}</a></li>
                                             @endforeach
-                                            <li class="" style="margin-left: 20em">
-                                              <a href="{{ route('login') }}" class="d-flex justify-content-end" style="text-decoration: none">LOGIN</a>
+                                            <li class="button-login" style="margin-left: 20em">
+                                              <a type="" href="{{ route('login') }}" class="" style="text-decoration: none">LOGIN</a>
                                             </li>
                                         </ul>
                                         <!-- Mobile Menu -->

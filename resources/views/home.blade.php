@@ -13,9 +13,9 @@
                                 <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                                 <div class="trending-animated">
                                     <ul id="js-news" class="js-hidden">
-                                        <li class="news-item">Berita terpanas, hot hot hot!.</li></li>
+                                        <li class="news-item">Berita terpanas, hot hot hot!.</li>
                                         <li class="news-item">Pastikan anda sudah terupdate dengan berita terkini.</li>
-                                        <li class="news-item">Berita yang sudah pasti terpecaya!</li></li>
+                                        <li class="news-item">Berita yang sudah pasti terpecaya!</li>
                                     </ul>
                                 </div>
 
@@ -57,7 +57,7 @@
                                             @endif
                                             </div>
                                             <div class="trend-bottom-cap">
-                                                <span class="color1">{{ $beritas->judul }}</span>
+                                                <span class="color4">{{ $beritas->judul }}</span>
                                                 <h4><a href="{{ route('detail', $beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a></h4>
                                             </div>
                                         </div>
@@ -133,7 +133,7 @@
                                                                         </div>
                                                                         <div class="what-cap">
                                                                             <span
-                                                                                class="color1">{{ $beritas->judul }}</span>
+                                                                                class="color4">{{ $beritas->judul }}</span>
                                                                             <h4><a
                                                                                     href="{{ route('detail', $beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a>
                                                                             </h4>
@@ -515,7 +515,7 @@
                                                 @endif
                                                 </div>
                                                 <div class="what-cap">
-                                                    <span class="color1">{{ $beritass->judul }}</span>
+                                                    <span class="color4">{{ $beritass->judul }}</span>
                                                     <h4><a href="{{ route('detail', $beritass->id) }}"></a>{{ strip_tags($beritass->excerpt()) }}</h4>
                                                 </div>
                                             </div>
