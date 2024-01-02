@@ -1,0 +1,11 @@
+.header-mid .logo a img{
+ width: 130px;
+}
+
+.header-bottom .sticky-logo a img{
+    width: 140px;
+}
+.button-login .button{
+    background-color: #FEFAE0;
+    margin-top: 50px;
+}

@@ -13,9 +13,9 @@
                                 <!-- <p>Rem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
                                 <div class="trending-animated">
                                     <ul id="js-news" class="js-hidden">
-                                        <li class="news-item">Berita terpanas, hot hot hot!.</li></li>
+                                        <li class="news-item">Berita terpanas, hot hot hot!.</li>
                                         <li class="news-item">Pastikan anda sudah terupdate dengan berita terkini.</li>
-                                        <li class="news-item">Berita yang sudah pasti terpecaya!</li></li>
+                                        <li class="news-item">Berita yang sudah pasti terpecaya!</li>
                                     </ul>
                                 </div>
 
@@ -58,7 +58,7 @@
                                             @endif
                                             </div>
                                             <div class="trend-bottom-cap">
-                                                <span class="color1">{{ $beritas->judul }}</span>
+                                                <span class="color4">{{ $beritas->judul }}</span>
                                                 <h4><a href="{{ route('detail', $beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a></h4>
                                             </div>
                                         </div>
@@ -120,19 +120,25 @@
                                                     aria-labelledby="nav-home-tab">
                                                     <div class="whats-news-caption">
                                                         <div class="row">
-                                                            @foreach($berita as $beritas)
-                                                            <div class="col-lg-6 col-md-3">
-                                                                <div class="single-what-news mb-100">
-                                                                    <div class="what-img" >
-                                                                        @if (!empty($beritas->singleGambar->filename))
-                                                                        <img src="/backsite-assets-img/{{ $beritas->singleGambar->filename }}" width="20" heigth="20">
-                                                                    @else
-                                                                        <img src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg">
-                                                                    @endif
-                                                                    </div>
-                                                                    <div class="what-cap">
-                                                                        <span class="color1">{{ $beritas->judul }}</span>
-                                                                        <h4><a href="{{ route('detail',$beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a></h4>
+                                                            @foreach ($berita as $beritas)
+                                                                <div class="col-lg-6 col-md-3">
+                                                                    <div class="single-what-news mb-100">
+                                                                        <div class="what-img">
+                                                                            @if (!empty($beritas->singleGambar->filename))
+                                                                                <img src="/backsite-assets-img/{{ $beritas->singleGambar->filename }}"
+                                                                                    width="20" heigth="20">
+                                                                            @else
+                                                                                <img
+                                                                                    src="https://img.freepik.com/free-vector/page-found-concept-illustration_114360-1869.jpg">
+                                                                            @endif
+                                                                        </div>
+                                                                        <div class="what-cap">
+                                                                            <span
+                                                                                class="color4">{{ $beritas->judul }}</span>
+                                                                            <h4><a
+                                                                                    href="{{ route('detail', $beritas->id) }}">{{ strip_tags($beritas->excerpt()) }}</a>
+                                                                            </h4>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -511,7 +517,7 @@
                                                 @endif
                                                 </div>
                                                 <div class="what-cap">
-                                                    <span class="color1">{{ $beritass->judul }}</span>
+                                                    <span class="color4">{{ $beritass->judul }}</span>
                                                     <h4><a href="{{ route('detail', $beritass->id) }}"></a>{{ strip_tags($beritass->excerpt()) }}</h4>
                                                 </div>
                                             </div>

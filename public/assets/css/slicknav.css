@@ -15,7 +15,7 @@
     margin-top: 0.188em; }
 
 .slicknav_menu {
-  *zoom: 1; }
+  zoom: 1; }
   .slicknav_menu .slicknav_menutxt {
     display: block;
     line-height: 1.188em;

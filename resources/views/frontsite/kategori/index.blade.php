@@ -1,5 +1,6 @@
 <!-- Whats New Start -->
 @extends('layouts.layout')
+
 @section('content')
     <section class="whats-news-area pt-50 pb-20">
         <div class="container">
@@ -54,7 +55,7 @@
                                                             @endif
                                                         </div>
                                                         <div class="what-cap">
-                                                            <span class="color1">{{ $huhu->judul }}</span>
+                                                            <span class="color4">{{ $huhu->judul }}</span>
                                                             <h4><a
                                                                     href="{{ route('detail', $huhu->id) }}">{{ strip_tags($huhu->excerpt()) }}</a>
                                                             </h4>
