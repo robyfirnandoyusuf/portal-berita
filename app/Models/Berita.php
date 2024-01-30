@@ -10,6 +10,9 @@ class Berita extends Model
 {
     protected $table = 'berita';
     use HasFactory;
+    protected $hidden = [
+        'id_berita',
+    ];
 
     const EXCERPT_LENGTH = 50;
     protected $fillable = ['judul', 'id_kategori','description','kategori','created_by','timestamps','views'];
