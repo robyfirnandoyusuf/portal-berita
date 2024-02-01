@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::group(['prefix' => 'v1'], function() {
-    Route::group(['prefix' => 'kategori', 'as' => 'kategori.', 'namespace' => 'App\Http\Controllers\API'], function() {
+Route::group(['prefix' => 'v1'], function () {
+    Route::group(['prefix' => 'kategori', 'as' => 'kategori.', 'namespace' => 'App\Http\Controllers\API'], function () {
         Route::get('/get-kategori', [
             'uses' => 'KategoriController@index',
             'as' => 'kategori.get-kategory'
@@ -30,29 +30,47 @@ Route::group(['prefix' => 'v1'], function() {
         ]);
         // Route::put('/post-kategory', [
         //     'uses' => ''
-        //     'as' => 
+        //     'as' =>
         // ]);
         // Route::delete('/destroy-kategory', [
         //     'uses' => ''
-        //     'as' => 
+        //     'as' =>
         // ]);
     });
-    Route::group(['prefix' => 'berita', 'as' => 'berita.', 'namespace' => 'App\Http\Controllers\API'], function() {
-        Route::post('/post-berita',[
+    Route::group(['prefix' => 'berita', 'as' => 'berita.', 'namespace' => 'App\Http\Controllers\API'], function () {
+        Route::post('/post-berita', [
             'uses' => 'BeritaController@create',
             'as' => 'berita.post-berita'
         ]);
-        Route::get('/get-berita/{id}',[
+        Route::get('/get-berita/{id}', [
             'uses' => 'BeritaController@show',
             'as' => 'berita.get-berita-byId'
         ]);
-        Route::get('/get-berita',[
+        Route::get('/get-berita', [
             'uses' => 'BeritaController@index',
             'as' => 'berita.get-berita'
         ]);
-
-
+        Route::post('/post-berita', [
+            'uses' => 'BeritaController@store',
+            'as' => 'berita.post-berita'
+        ]);
+        Route::patch('/post-berita/{id}', [
+            'uses' => 'BeritaController@update',
+            'as' => 'berita.post-berita.berita-update'
+        ]);
+        Route::delete('/delete-berita/{id}', [
+            'uses' => 'BeritaController@destroy',
+            'as' => 'berita.delete-berita'
+        ]);
     });
+
+
+    // Route::middleware('auth:sanctum')->group(function () {
+    //     Route::post('/post-berita',[
+    //         'uses' => 'BeritaController@store',
+    //         'as' => 'berita.post-berita'
+    //     ]);
+    // });
 });
 
 // Route::group(['as' => 'v2.'], function() {

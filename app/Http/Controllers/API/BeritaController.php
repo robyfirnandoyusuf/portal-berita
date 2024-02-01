@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\User;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Berita\GetBeritaResource;
 use App\Http\Resources\Berita\PostBeritaResource;
 
@@ -46,8 +48,23 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-      
+        $user = User::where('email', $request->email)->first();
 
+        $berita = $request->validate([
+            'judul' => 'required|max:255',
+            'description' => 'required',
+            'kategori' => 'required_with:end_page|integer|min:1|digits_between: 1,5',
+            'email' => 'required'
+        ]);
+    // dd($user);
+        // $request['id_user'] = Auth::user()->id;
+        $berita = Berita::create([
+            'judul' => $request->judul,
+            'description' => $request->description,
+            'id_kategori' => $request->kategori,
+            'id_user' => $user->id
+        ]);
+        return new PostBeritaResource($berita->loadMissing(['gambar','category']));
     }
 
     /**
@@ -57,7 +74,7 @@ class BeritaController extends Controller
     {
         $berita = Berita::with(['gambar'])->findOrFail($id);
         // dd($berita);
-        return  new PostBeritaResource($berita);
+        return new PostBeritaResource($berita);
     }
 
     /**
@@ -73,7 +90,23 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::where('email', $request->email)->first();
+
+        $berita = $request->validate([
+            'judul' => 'required|max:255',
+            'description' => 'required',
+            'kategori' => 'required_with:end_page|integer|min:1|digits_between: 1,5',
+            'email' => 'required'
+        ]);
+        $berita = Berita::findOrFail($id);
+        $berita->update([
+            'judul' => $request->judul,
+            'description' => $request->description,
+            'id_kategori' => $request->kategori,
+            'id_user' => $user->id
+        ]);
+
+        return new PostBeritaResource($berita->loadMissing(['gambar','category']));
     }
 
     /**
@@ -81,6 +114,9 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+        $berita->delete();
+
+        return new PostBeritaResource($berita->loadMissing(['gambar','category']));
     }
 }

@@ -19,7 +19,8 @@ class PostBeritaResource extends JsonResource
             'judul' => $this->judul,
             'description' => $this->description,
             'created_at' => date_format($this->created_at,"y/m/d"),
-            'gambar' => $this->gambar->makeHidden(['id_berita','updated_at'])
+            'gambar' => $this->gambar->makeHidden(['id_berita','updated_at']),
+            // 'user' => $this->user->makeHidden(['email_verified_at','password','remember_token','updated_at','id_role','google_id'])
         ];
 
     }
