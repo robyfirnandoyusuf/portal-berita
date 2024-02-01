@@ -60,6 +60,53 @@ class BeritaController extends Controller
         return  new PostBeritaResource($berita);
     }
 
+    public function filter(Request $request){
+        $judul_query = Berita::with(['gambar', 'category']);
+        // Pencarian By Judul dan ID
+        if($request->judul){
+            $judul_query->where('judul', 'LIKE', '%'.$request->judul. '%');
+        }    
+        if($request->desc){
+            $judul_query->where('description', 'LIKE', '%'.$request->desc. '%');
+        }
+
+        // Filter By Category
+        if($request->category)
+        $judul_query->whereHas('category', function($query) use($request){
+            $query->where('kategori',$request->category);
+        });
+
+        //sort ASC/DESC
+        if($request->sortBy && in_array($request->sortBy,['id','created_at'])){
+            $sortBy = $request->sortBy;
+        } else {
+            $sortBy = 'id';
+        }
+        if($request->sortOrder && in_array($request->sortOrder,['asc','desc'])){
+            $sortOrder = $request->sortOrder;
+        } else {
+            $sortOrder = 'desc';
+        }
+
+        //Pagination
+        if($request->perPage){
+            $perPage = $request->perPage;
+
+        } else {
+            $perPage = 5;
+        }
+
+        if($request->paginate){
+            $juduls = $judul_query->orderBY($sortBy,$sortOrder)->paginate($perPage);
+
+        } else {
+            $juduls = $judul_query->orderBY($sortBy,$sortOrder)->get();
+        }
+
+        $juduls = $judul_query->orderBY($sortBy,$sortOrder)->get();
+        return  GetBeritaResource::collection($juduls);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

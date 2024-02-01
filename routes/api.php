@@ -50,6 +50,11 @@ Route::group(['prefix' => 'v1'], function() {
             'uses' => 'BeritaController@index',
             'as' => 'berita.get-berita'
         ]);
+        Route::get('/get-berita-filter',[
+            'uses' => 'BeritaController@filter',
+            'as' => 'berita.get-berita-byJudul'
+        ]);
+
 
 
     });
