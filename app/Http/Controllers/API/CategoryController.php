@@ -26,7 +26,7 @@ class CategoryController extends Controller
         //
     }
 
-
+git
     public function store(Request $request)
     {
         //
