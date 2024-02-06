@@ -15,7 +15,7 @@ class Berita extends Model
     ];
 
     const EXCERPT_LENGTH = 50;
-    protected $fillable = ['judul', 'id_kategori','description','kategori','created_by','timestamps','views'];
+    protected $fillable = ['judul', 'id_user', 'id_kategori','description','kategori','created_by','timestamps','views'];
 
 
 
@@ -27,6 +27,10 @@ class Berita extends Model
         // 1 berita dimiliki 1 gambar
         // return $this->belongsTo(Gambar::class, 'id', 'id_berita');
     }
+
+    // public function user(){
+    //     return $this->belongsToMany(User::class, 'id', 'id_user');
+    // }
 
     public function category() {
         // 1 berita memiliki 1 gambar
@@ -48,9 +52,9 @@ class Berita extends Model
     {
         return Str::limit($this->description, Berita::EXCERPT_LENGTH);
     }
-    
+
     public function visitors(){
         return $this->hasMany(Visitors::class, 'id_berita', 'id');
     }
-    
+
 }

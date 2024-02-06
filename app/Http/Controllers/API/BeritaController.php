@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\User;
 use App\Models\Berita;
+use App\Models\Gambar;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\Berita\GetBeritaResource;
 use App\Http\Resources\Berita\PostBeritaResource;
 
@@ -46,8 +51,54 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+        $user = User::where('email', $request->email)->first();
+        // dd($user);
+
+        $berita = $request->validate([
+            'judul' => 'required|max:255',
+            'description' => 'required',
+            'kategori' => 'required_with:end_page|integer|min:1|digits_between: 1,5',
+            'email' => 'required'
+        ]);
+
+        $berita = Berita::InsertGetId([
+            'judul' => $request->judul,
+            'description' => $request->description,
+            'id_kategori' => $request->kategori,
+            'id_user' => $user->id,
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+
+        if($request->hasFile('file')){
+            // upload file image
+            $files = $request->file('file');
+            
+            foreach ($files as $key => $file) {
+                $fileName = $file->getClientOriginalName();
+                $ekstensi = $file->extension();
+
+                $imageUpload = new Gambar();
+                $imageUpload->filename = $fileName;
+                $imageUpload->id_berita = $berita;
+                $imageUpload->save();
+
+                Storage::putFileAs('image', $file, $fileName.'.'.$ekstensi);
+            }
+
+        }
+        // session()->push('id_gambar', $imageUpload->id);
+        
+        // $request['id_user'] = Auth::user()->id;
       
 
+       
+        // dd($imageUpload->save());
+        // dd($imageUpload);
+
+        return [
+            'status' => true,
+            'message' => 'Berhasil membuat berita !',
+        ];
     }
 
     /**
@@ -57,18 +108,15 @@ class BeritaController extends Controller
     {
         $berita = Berita::with(['gambar'])->findOrFail($id);
         // dd($berita);
-        return  new PostBeritaResource($berita);
+        return new PostBeritaResource($berita);
     }
 
     public function filter(Request $request){
         $judul_query = Berita::with(['gambar', 'category']);
         // Pencarian By Judul dan ID
-        if($request->judul){
-            $judul_query->where('judul', 'LIKE', '%'.$request->judul. '%');
+        if($request->search){
+            $judul_query->where('judul', 'LIKE', '%'.$request->search. '%')->orWhere('description', 'LIKE', '%'.$request->search. '%');
         }    
-        if($request->desc){
-            $judul_query->where('description', 'LIKE', '%'.$request->desc. '%');
-        }
 
         // Filter By Category
         if($request->category)
@@ -120,7 +168,23 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::where('email', $request->email)->first();
+
+        $berita = $request->validate([
+            'judul' => 'required|max:255',
+            'description' => 'required',
+            'kategori' => 'required_with:end_page|integer|min:1|digits_between: 1,5',
+            'email' => 'required'
+        ]);
+        $berita = Berita::findOrFail($id);
+        $berita->update([
+            'judul' => $request->judul,
+            'description' => $request->description,
+            'id_kategori' => $request->kategori,
+            'id_user' => $user->id
+        ]);
+
+        return new PostBeritaResource($berita->loadMissing(['gambar','category']));
     }
 
     /**
@@ -128,6 +192,9 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+        $berita->delete();
+
+        return new PostBeritaResource($berita->loadMissing(['gambar','category']));
     }
 }

@@ -14,13 +14,15 @@ class GetBeritaResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        // dd($this->created_at);
         return [
             'id' => $this->id,
             'judul' => $this->judul,
             'description' => $this->description,
             'created_at' => date_format($this->created_at,"d/M/y"),
             'gambar' =>  $this->gambar->makeHidden(['id_berita','updated_at']),
-            'category' =>  $this->category->makeHidden('updated_at')
+            'category' =>  $this->category
+            // 'category' =>  $this->category->makeHidden('kategori')
         ];
-    }   
+    }
 }
