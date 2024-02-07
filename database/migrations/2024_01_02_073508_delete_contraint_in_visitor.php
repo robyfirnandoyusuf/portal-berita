@@ -15,6 +15,7 @@ return new class extends Migration
             $table->dropForeign(['id_berita']);
         });
     }
+    
 
     /**
      * Reverse the migrations.
