@@ -97,9 +97,14 @@
                         <div class="row align-items-center">
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
-                                <div class="sticky-logo">
-                                    <a href="index.html"><img src="/assets/img/logo/4trio-logo.png" alt="" width="140px"></a>
-                                </div>
+                                <div class="d-flex justify-content-between align-items-center mx-3">
+                                        <div class="sticky-logo">
+                                            <a href="index.html"><img src="/assets/img/logo/4trio-logo.png" alt="" width="140px"></a>
+                                        </div>
+                                        <div class="d-block d-sm-none">
+                                            <a type="" href="{{ route('login') }}" class="login-sm" style="text-decoration: none">LOGIN</a>
+                                        </div>
+                                    </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
 
